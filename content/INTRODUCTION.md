@@ -12,7 +12,7 @@
 
 ## PHP & PostgreSQL
 
-PostgreSQL is an open source object-relational database system and PHP is a scripting language designed for web development. This course will cover the basics of PostgreSQL programming with PHP Data Objects(PDO). For PHP and PostgreSQL to communicate it requires `PG PHP SQL extension`.
+PostgreSQL is an open source object-relational database system and PHP is a scripting language designed for web development. This course will cover the basics of PostgreSQL programming with PHP Data Objects(PDO). It requires `PG PHP SQL extension` for PHP and PostgreSQL to communicate.
 
 This course is designed for:
 
