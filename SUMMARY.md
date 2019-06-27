@@ -1,7 +1,7 @@
-##Table of Contents
+## Table of Contents
 
 * [Connecting to Database](content/ContectingToDatabase/ConnectingToDatabase.q.md) ** - minutes**
-    > In this lesson, you will learn how to use PHP to establish a connection with PostgreSQL. You will also learn how to create instances of the `PDO` base class.
+    > In this lesson, you will learn how to use PHP to establish a connection with PostgreSQL.
 
 * [PHP Data Objects](content/PDOClasses/PDOClasses.q.md) ** - minutes**
     > In this lesson, you will learn about PHP data object (`PDO`) and how to run queries using `PDO::query`.
