@@ -10,16 +10,16 @@
     - Creating Computational Artifacts
     - Testing and Refining Computational Artifacts
 
-## PHP & PostgreSQL
+## Database Management in PHP
 
-PostgreSQL is an open source object-relational database system and PHP is a scripting language designed for web development. This course will cover the basics of PostgreSQL programming with PHP Data Objects(PDO). It requires `PG PHP SQL extension` for PHP and PostgreSQL to communicate.
+Database management in PHP lets you build PHP programs that define, construct, and manipulate a database with PostgreSQL. This course covers the basics of performing PostgreSQL programming in PHP. It requires `PG PHP SQL extension` for PHP and PostgreSQL to communicate.
 
 This course is designed for:
 
-* Learners who have completed `PostgreSQL Introduction`, `PHP Introduction`, `PHP Intermediate`, `PHP Advance`, and `Object-Oriented Programming in PHP`.
+* Learners who have completed `PostgreSQL Introduction`, `PostgreSQL Intermediate`, `PHP Introduction`, `PHP Intermediate`, `PHP Advance`, and `Object-Oriented Programming in PHP`.
 
 * Individuals who have backgrounds in `PostgreSQL` and `PHP Programming`.
 
 * Experienced programmers who want to take a refresher.
 
-Get to know more about how PostgreSQL database interacts with PHP Data Objects(PDO) API. Learn how to perform database operations in PHP such as querying data, inserting data, updating data, and deleting data. Work on various exercises and problems and write your own code. Go beyond learning the syntax and experience of how PostgreSQL PHP programming works.
+Get to know more about how PostgreSQL database interacts with PHP using PHP Data Objects (PDO) API. Learn how to perform database operations in PHP such as querying, inserting, updating, and deleting data. Work on various exercises and problems and write your own code. Go beyond learning the syntax and experience of how PostgreSQL PHP programming works.
