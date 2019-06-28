@@ -12,7 +12,7 @@
 
 ## Database Management in PHP
 
-Database management in PHP lets you build PHP programs that define, construct, and manipulate a database with PostgreSQL. This course covers the basics of performing PostgreSQL programming in PHP. It requires `PG PHP SQL extension` for PHP and PostgreSQL to communicate.
+Database Management in PHP lets you build PHP programs that define, construct, and manipulate a database with PostgreSQL. This course uses PHP Data Objects (PDO) that define a consistent interface for accessing relational databases in PHP. It covers the basics of performing PostgreSQL programming in PHP.
 
 This course is designed for:
 
