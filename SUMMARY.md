@@ -7,7 +7,10 @@
     > In this lesson, you will learn about PHP Data Objects (`PDO`) classes and how to run queries using `PDO::query()`.
 
 * [Prepared Statement](content/PreparedStatement/PreparedStatement.q.md) ** - minutes**
-    > Prepare statement in PDO uses the method `PDO::prepare()` to prepare a statement for execution and returns a statement object. Learn how you can run `PDO::prepare()` with its parameters.
+    > Prepared statement in PDO uses the method `PDO::prepare()` to prepare a statement for execution and returns a statement object. Learn how you can run `PDO::prepare()` with its parameters.
+
+* [PDO Statement Class](content/PDOStatementClass/PDOStatementClass.q.md) ** - minutes**
+    > The PDO Statement Class represents a prepared statement and after the statement is executed it returns an associated result set. Explore the things you can do with PDO Statement classes with its methods such as `PDOStatement::fetchColumn()`, `PDOStatement::columnCount()`, `PDOStatement::rowCount()`, and `PDOStatement::nextRowSet()`.
 
 * [Prepared Statement with execute()](content/UsingExecute/UsingExecute.q.md) ** - minutes**
     > Discover how you can execute prepared statements using `PDOStatement::execute()` with binding methods such as `bindParam()` and `bindValue()`.
@@ -17,9 +20,6 @@
 
 * [Prepared Statement with fetchAll()](content/UsingFetchAll/UsingFetchAll.q.md) ** -minutes**
     > Discover how you can use `PDOStatement::fetchAll()` to return an array containing all the result set rows.
-
-* [PDO Statement Class](content/PDOStatementClass/PDOStatementClass.q.md) ** - minutes**
-    > The PDO Statement Class represents a prepared statement and after the statement is executed it returns an associated result set. Explore the things you can do with PDO Statement classes with its methods such as `PDOStatement::fetchColumn()`, `PDOStatement::columnCount()`, `PDOStatement::rowCount()`, and `PDOStatement::nextRowSet()`.
 
 * [PDO Execption](content/PDOException/PDOException.q.md) ** - minutes**
     > Learn how you can catch PDO exceptions and report PDO errors.
