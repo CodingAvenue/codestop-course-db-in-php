@@ -22,4 +22,4 @@ This course is designed for:
 
 * Experienced programmers who want to take a refresher.
 
-Get to know more about how PostgreSQL database interacts with PHP using PHP Data Objects (PDO) API. Learn how to perform database operations in PHP such as querying, inserting, updating, and deleting data. Work on various exercises and problems and write your own code. Go beyond learning the syntax and experience of how PostgreSQL PHP programming works.
+Get to know more about how PostgreSQL database interacts with PHP using PHP Data Objects (PDO) API. Learn how to perform database operations in PHP such as querying, inserting, updating, and deleting data. Work on various exercises and problems and write your own code. Go beyond learning the syntax and experience of how Database Management in PHP using PostgreSQL works.
