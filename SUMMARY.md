@@ -1,7 +1,7 @@
 ## Table of Contents
 
 * [Connecting to Database](content/ContectingToDatabase/ConnectingToDatabase.q.md) ** - minutes**
-    > Learn how you can run a simple PHP application connecting to a PostgreSQL database using a specific class or command to establish a connection.
+    > Learn how you can run PostgreSQL database operations in PHP using a specific class or command to establish a connection.
 
 * [PHP Data Objects](content/PDOClasses/PDOClasses.q.md) ** - minutes**
     > In this lesson, you will learn about PHP Data Objects (`PDO`) classes and how to run queries using `PDO::query()`.
