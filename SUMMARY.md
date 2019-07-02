@@ -16,13 +16,13 @@
     > Learn how you can use `PDOStatement::fetch()` to fetch data and return a specific row of data from a result set.
 
 * [Prepared Statement with fetchColumn()](content/UsingFetchColumn/UsingFetchColumn.q.md) ** - minutes**
-    > Learn how you can use `PDOStatement::fetchColumn()` to return one column field from the next row of a result set.
+    > Learn how you can use `PDOStatement::fetchColumn()` to fetch a column from the next row of a result set.
 
 * [Prepared Statement with fetchAll()](content/UsingFetchAll/UsingFetchAll.q.md) ** -minutes**
-    > Discover how you can use `PDOStatement::fetchAll()` to return an array that holds all the rows in the result set.
+    > Discover how you can use `PDOStatement::fetchAll()` to return an array that holds all the rows in a result set.
 
-* [PDO Stored Procedures](content/PDOStoredProcedures/PDOStoredProcedures.q.md) ** - minutes**
-    > Explore the things you can do with calling stored procedures in PDO such as `PDOStatement::columnCount()`, `PDOStatement::rowCount()`, and `PDOStatement::nextRowSet()`.
+* [PDOStatement Methods](content/PDOStatementMethods/PDOStatementMethods.q.md) ** - minutes**
+    > Explore the things you can do with some of the `PDOStatement` methods such as `PDOStatement::columnCount()`, `PDOStatement::rowCount()`, and `PDOStatement::nextRowSet()`.
 
 * [PDO Execption](content/PDOException/PDOException.q.md) ** - minutes**
     > Learn how you can catch PDO exceptions and report PDO errors.
