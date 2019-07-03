@@ -7,7 +7,7 @@
     > In this lesson, you will learn about PHP Data Objects (`PDO`) classes and how to execute queries using `PDO::query()`.
 
 * [Prepared Statement](content/PreparedStatement/PreparedStatement.q.md) ** - minutes**
-    > In this lesson, you will learn how to prevent SQL injection using the method `PDO::prepare()` with its parameters in PHP.
+    > In this lesson, you will learn how to prevent SQL injection using `PDO::prepare()` with its parameters in PHP.
 
 * [Prepared Statement with execute()](content/UsingExecute/UsingExecute.q.md) ** - minutes**
     > Discover how you can execute prepared statements using `PDOStatement::execute()` with binding methods such as `bindParam()` and `bindValue()`.
