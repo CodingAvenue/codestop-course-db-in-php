@@ -10,7 +10,6 @@ Code:
 
 ```php
 <?php
-
     $host='localhost';
     $port = '5432';
     $dbname = 'MyDatabase';
@@ -29,23 +28,22 @@ Code:
         echo "Unable to establish a connection";
     }
 ?>
-
 ```
 Code breakdown:
 
 - `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` uses the method `PDO_PGSQL Data Source Name (DSN)` to connect to the PostgreSQL database. It has the following elements:
 
-    - `pgsql:` is the DSN prefix.
+    - `pgsql:` - It is the DSN prefix.
     
-    - `host` is the server’s hostname of the PostgreSQL database.
+    - `host` - It is the server’s hostname of the PostgreSQL database.
 
-    - `port` is the the default port the PostgreSQL database server is running on, which is `5432`.
+    - `port` - It is the default port the PostgreSQL database server, which is `5432`.
     
-    - `dbname` is the database name.
+    - `dbname` - It is the name that identifies the database.
 
-    - `user` is the username that connects to the database name.
+    - `user` - It is the username that connects to the database name.
     
-    - `password` is the password that is set by the `user`.
+    - `password` - It is the password that is set by the `user`.
 
 - `$conn = new PDO($dsn)` creates the `$conn` object which is an instance of the `PDO` class. The argument passed is `$dsn`.
 
