@@ -49,7 +49,7 @@ Code breakdown:
 
 - `$dsn` contains the `PDO_PGQSL DSN` statement that is required to connect to the PostgreSQL database.
 
-- `if` statement evaluates the object `$conn`. 
+- `if` statement evaluates the `$conn` object. 
 
 - `try-catch` statement handles any exceptions if any error occurs.
 

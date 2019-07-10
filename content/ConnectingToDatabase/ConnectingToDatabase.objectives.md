@@ -1,4 +1,4 @@
-### Objectives for Connecting To Database lesson:
+### Objectives for Connecting to Database lesson:
 
 After completing this lesson, the students should be able to:
 

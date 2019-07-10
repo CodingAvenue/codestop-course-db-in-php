@@ -44,7 +44,7 @@ Execute the program. What is its output?
 - It prints `Unable to establish a connection.`.
 
 
-/// type=SS, answer[3]
+/// type=SS, answer=[3]
 
 On line 2, what is `$host`?
 
@@ -89,7 +89,7 @@ In the statement `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;
 - It is the DSN prefix.
 
 
-/// type=SS, answer[1]
+/// type=SS, answer=[1]
 
 Which variable contains the value of the database name?
 
@@ -298,7 +298,7 @@ What does the `catch` block do on line 14?
 
 On line 3, remove the statement `$db = 'MyDatabase';`. Execute the program. What are the error messages?
 
-- Undefine varibale: `db` on line 4
+- Undefine variable: `db` on line 4
 
 - Undefined variable: `db` on line 9
 
@@ -324,7 +324,7 @@ Which statement best describes `PDO_PGSQL`?
 
 - It is a method that copies data from a file into the table.
 
-- It is a driver that enables access from PHP to MS SQL Server.
+- It is a driver that enables access from PHP to MS SQL server.
 
 - It is a driver that enables access from PHP to MySQL databases.
 
@@ -429,7 +429,7 @@ Which statement best describes a `PDO` class?
 
 Execute the program. What is its output?
 
-- `An error occured!`
+- `An error occurred!`
 
 - No output is displayed.
 
@@ -597,7 +597,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
 
 Execute the program. What is its output?
 
-- `An error occured!`
+- `An error occurred!`
 
 - No output is displayed.
 
