@@ -496,7 +496,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $username = 'postgres';
     $password = 'Admin01';
     
-    $dsn = "host=$host;port=$port;dbname=$db;user=$username;password=$password";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
 
     try{
         $conn = PDO($dsn);
@@ -553,7 +553,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $username = 'postgres';
     $password = 'Admin01';
     
-    $dsn = "host=$host;port=$port;dbname=$db;user=$username;password=$password";
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
 
     try{
         $conn = PDO($dsn);
