@@ -35,10 +35,10 @@ Code:
     try {
         $conn = new PDO($dsn);
         if ($conn) {
-            echo "Connected to PostgreSQL with PDO"; 
+            echo "Connected to PostgreSQL with PDO."; 
         }
     } catch (Exception $e) {
-        echo "Unable to establish a connection";
+        echo "Unable to establish a connection.";
     }
 ?>
 ```
@@ -54,4 +54,4 @@ Code breakdown:
 
 - `try` block evaluates the `if` statement that may throw an exception if any error occurs.
 
-- `catch` block displays the error message `Unable to establish a connection` if there is a problem with the connection.
+- `catch` block displays the error message `Unable to establish a connection.` if there is a problem with the connection.

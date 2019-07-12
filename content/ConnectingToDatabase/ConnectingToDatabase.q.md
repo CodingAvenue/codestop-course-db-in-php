@@ -329,7 +329,7 @@ Which statement best describes `PDO_PGSQL`?
 
 - It is a driver of `PHP Data Objects Interface` that allows access from PHP to MySQL databases.
 
-- It is a driver of `PHP Data Objects Interface` interface that allows access from PHP to PostgreSQL databases.
+- It is a driver of `PHP Data Objects Interface` that allows access from PHP to PostgreSQL databases.
 
 
 /// type=MS, answer=[1,2,3,4]
