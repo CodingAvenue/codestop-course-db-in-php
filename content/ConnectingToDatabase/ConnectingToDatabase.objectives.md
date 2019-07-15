@@ -6,7 +6,7 @@ After completing this lesson, the students should be able to:
 
 - Identify the parameters of `PDO_PGSQL DSN`.
 
-- Create an object as an instance of the `PDO` class.
+- Create a new object as an instance of the `PDO` class.
 
 - Apply proper exception handling using the `try` and `catch` statements.
 

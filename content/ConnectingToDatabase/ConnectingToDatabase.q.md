@@ -145,7 +145,7 @@ On line 4, what is `5432`?
 
 - It is the server’s hostname of the PostgreSQL database.
 
-- It is the default port where the PostgreSQL database server runs.
+- It is the port number where the PostgreSQL database server runs.
 
 
 /// type=SS, answer=[5]
@@ -727,7 +727,7 @@ Which statement correctly describes the error?
 
 - There is no DSN prefix `psql:` on line 9.
 
-- On line 9, the DSN parameters are separated by semicolons `;`.
+- On line 9, the DSN parameters are separated by a semicolon `;`.
 
 - The database server's hostname `newhost` on line 1 is incorrect.
 
@@ -825,7 +825,7 @@ On line 4, replace the string value `5432` with `1234`. Execute the program. Wha
 
 /// type=CR, answer=[tests/ConnectingToDatabase/CreatePHPApplicationConnectingToPostgreSQLTest.php]
 
-Write a PHP program that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. First, create the following variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `MyDatabase`, `5432`, `postgres`, and `Admin01` respectively to the variables. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective variables `$host`, `$db`, `$port`, `$username`, and `$password`. Next, create the `try` block which contains two statements. In the first statement, create the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. In the second statement, write the `if` statement to evaluate the `$conn` object inside the parentheses `()`. If the expression evaluates to `true` then, the `echo` statement displays the string `Successfully connected!`. Set the `catch` block to retrieve the exception if an exception occurs within the `try` block. Create the `$e` object containing the exception information. Then,  display the error message `Unable to establish a connection.`. Run the program to view the output.
+Write a PHP program that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. First, create the following variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `MyDatabase`, `5432`, `postgres`, and `Admin01` respectively to the variables. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective variables `$host`, `$db`, `$port`, `$username`, and `$password`. Next, create the `try` block which contains two statements. In the first statement, create the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. In the second statement, write the `if` statement to evaluate the `$conn` object inside the parentheses `()`. If the expression evaluates to `true` then, the `echo` statement displays the string `Successfully connected!`. Set the `catch` block to retrieve the exception if an exception occurs within the `try` block. Create the `$e` object an instance of the `Exception` class. Then, display the error message `Unable to establish a connection.` inside the `catch` block. Run the program to view the output.
 
 ```php
 <?php
