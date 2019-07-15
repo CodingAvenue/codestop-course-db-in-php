@@ -10,7 +10,7 @@
 
 ```php
 <?php
-    $host='localhost';
+    $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
     $username = 'postgres';
@@ -18,7 +18,7 @@
     
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
 
-    try{
+    try {
         $conn = new PDO($dsn);
         if ($conn) {
             echo "Successfully connected!"; 
@@ -38,7 +38,7 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected!`.
 
-- It prints `"Successfully connected"`.
+- It prints `"Successfully connected!"`.
 
 - It prints `Unable to establish a connection.`.
 
@@ -58,19 +58,19 @@ On line 2, what is `$host`?
 - It is an operator.
 
 
-/// type=SS, answer=[2]
+/// type=SS, answer=[4]
 
-In the statement `$host='localhost';` on line 2, what does the assignment operator `=` do?
+In the statement `$host='localhost';` on line 2, what is `localhost`?
 
-- It displays the value assigned to the `$host` variable.
+- It is the DSN prefix.
 
-- It assigns the `localhost` value to the `$host` variable.
+- It is the name of the database.
 
-- It assigns the `$host` variable to the `localhost` value.
+- It is the username of the user.
 
-- It replaces the `localhost` value with the `$host` variable.
+- It is the server’s hostname of the PostgreSQL database.
 
-- It removes the `localhost` value from the `$host` variable.
+- It is the port number of the PostgreSQL database server.
 
 
 /// type=SS, answer=[5]
@@ -145,7 +145,7 @@ On line 4, what is `5432`?
 
 - It is the server’s hostname of the PostgreSQL database.
 
-- It is the default port on which PostgreSQL database server is running on.
+- It is the default port where the PostgreSQL database server runs.
 
 
 /// type=SS, answer=[5]
@@ -227,23 +227,22 @@ Which statements correctly describe the code on line 12?
 
 :::
 
-/// type=REPL
+/// type=REPL, readonly=true
 
 ```php
 <?php
-    $host='localhost';
+    $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
     $username = 'postgres';
     $password = 'Admin01';
     
-    try{
+    try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if($conn){
+        if ($conn) {
             echo "Successfully connected!"; 
         }
-    }    
-    catch(Exception $e){
+    } catch (Exception $e) {
         echo "Unable to establish a connection.";
     }
 ?>
@@ -278,34 +277,20 @@ Which of the following are classes?
 - `Exception`
 
 
-/// type=SS, answer=[5]
+/// type=MS, answer=[3,4]
 
-What does the `catch` block do on line 14?
-
-- It checks the `$dsn` variable.
+Which statements correctly describe the code on line 13?
 
 - It evaluates the `if` statement.
 
 - It throws the value of the `$conn` object.
 
+- It creates the `$e` object containing the exception information.
+
+- It retrieves an exception if an exception occurs within the `try` block.
+
 - It displays the string `Unable to establish connection.` if the `if` statement evaluates to `true`.
 
-- It displays the string `Unable to establish a connection.` if there is a problem with the connection.
-
-
-/// type=MS, answer=[2,3]
-
-On line 3, remove the statement `$db = 'MyDatabase';`. Execute the program. What are the error messages?
-
-- Undefine variable: `db` on line 4
-
-- Undefined variable: `db` on line 9
-
-- Unable to establish a connection.
-
-- Undefined variable: `conn` on line 13
-
-- syntax error, unexpected `=`, expecting end of file on line 9
 
 :::
 
@@ -317,7 +302,7 @@ On line 3, remove the statement `$db = 'MyDatabase';`. Execute the program. What
 
 ### Part 2: Knowledge Assessment
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 Which statement best describes `PDO_PGSQL`?
 
@@ -389,7 +374,7 @@ Which statement best describes a `PDO` class?
 
 - It allows unstable connection between PHP and a database.
 
-- It represents a connection between PHP and a database server.
+- It signifies a connection between a database server and PHP.
 
 
 +++
@@ -427,15 +412,15 @@ Which statement best describes a `PDO` class?
 
 Execute the program. What is its output?
 
-- `An error occurred!`
+- It produces an error.
 
 - No output is displayed.
 
-- `Successfully connected!`
+- It prints `Successfully connected!`.
 
-- `"Successfully connected!"`
+- It prints `"Successfully connected!"`.
 
-- `Unable to establish a connection.`
+- It prints `Unable to establish a connection.`.
 
 
 /// type=MS, answer=[1,4]
@@ -446,11 +431,11 @@ Which statements correctly describe the error?
 
 - There is no semicolon `;` at the end of the statement on line 8.
 
-- In the statement `$conn = new PDO($dsn);` on line 11, the argument passed is `$dsn`.
+- The statement `$conn = new PDO($dsn);` on line 11, the argument passed is `$dsn`.
 
 - On line 8, the statement `$dsn = "host=$host;port=$port;dbname=$db;user=$username;password=$password";` is incorrect.
 
-- There are no parentheses `()` enclosing the statement `host=$host;port=$port;dbname=$db;user=$username;password=$password;` on line 8.
+- There are no parentheses `()` that enclosed the statement `host=$host;port=$port;dbname=$db;user=$username;password=$password;` on line 8.
 
 :::
 
@@ -517,18 +502,18 @@ Execute the program. What is the error message?
 
 - Uncaught Error: Call to undefined function `PDO()` on line 11
 
-- Uncaught ArgumentCountError: `PDO::__construct()` expects at least 1 parameter, 0 given on line 11
+- Uncaught ArgumentCountError: `PDO::__construct()` expects at least `1` parameter, `0` given on line 11
 
 
-/// type=MS, answer=[2,4]
+/// type=MS, answer=[3,4]
 
 Which statements correctly describe the error?
 
 - The `$conn` variable is an invalid variable name.
 
-- There is no `new` keyword between `=` and `PDO` on line 11.
+- The `$dsn` variable is inside the parentheses `()`.
 
-- The `$dsn` variable is enclosed inside the parentheses `()`.
+- There is no `new` keyword between `=` and `PDO` on line 11.
 
 - On line 11, the statement `$conn = PDO($dsn);` is incorrect.
 
@@ -591,15 +576,15 @@ Correct the code so that it outputs the string `Successfully connected!`.
 
 Execute the program. What is its output?
 
-- `An error occurred!`
+- It produces an error.
 
 - No output is displayed.
 
-- `Successfully connected!`
+- It prints `Successfully connected!`.
 
-- `Unable to establish a connection.`
+- It prints `Unable to establish a connection.`.
 
-- `"Unable to establish a connection."`
+- It prints `"Unable to establish a connection."`.
 
 
 /// type=MS, answer=[2,3]
@@ -608,13 +593,13 @@ Which statements correctly describe the error?
 
 - On line 8, the `$dsn` variable is an invalid variable name.
 
-- Missing variables `$host`, `$db`, `$port`, `$username`, and `$password` on line 8.
+- There are no values assigned to the required DSN parameters on line 8.
 
 - On line 8, the statement `$dsn = "pgsql:host=;port=;dbname=;user=;password=";` is incorrect.
 
 - The statement `$dsn = "pgsql:host=;port=;dbname=;user=;password=";` is written outside the `if` statement.
 
-- There are no parentheses `()` enclosing the statement `$dsn = "pgsql:host=;port=;dbname=;user=;password=";` on line 8.
+- There are no parentheses `()` that enclosed the statement `$dsn = "pgsql:host=;port=;dbname=;user=;password=";` on line 8.
 
 :::
 
@@ -645,6 +630,192 @@ Correct the code so that it outputs the string `Successfully connected!`.
 ```
 
 
+:::
+
+/// type=REPL
+
+```php
+<?php
+    $host = 'localhost';
+    $db = 'MyDatabase';
+    $port = '5432';
+    $username = 'postgres';
+    $password = 'Admin01';
+    
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
+        if ($conn) {
+            echo "Successfully connected!"; 
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection.";
+    }
+?>
+```
+/// type=SS, answer=[3]
+
+Execute the program. What is its output?
+
+- It produces an error.
+
+- No output is displayed.
+
+- It prints `Successfully connected!`.
+
+- It prints `"Successfully connected!"`.
+
+- It prints `Unable to establish a connection.`.
+
+
+/// type=MS, answer=[2,3]
+
+On line 2, remove the statement `$db = 'MyDatabase';`. Execute the program. What are the error messages?
+
+- Undefine variable: `db` on line 4
+
+- Undefined variable: `db` on line 9
+
+- Unable to establish a connection.
+
+- Undefined variable: `conn` on line 13
+
+- syntax error, unexpected `=`, expecting end of file on line 9
+
+:::
+
+
+:::
+
+/// type=REPL readonly=true
+
+```php
+<?php
+    $host = 'newhost';
+    $db = 'MyDatabase';
+    $port = '5432';
+    $username = 'postgres';
+    $password = 'Admin01';
+
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
+        if ($conn) {
+            echo "Successfully connected!"; 
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection.";
+    }
+?>
+```
+/// type=SS, answer=[4]
+
+Execute the program. What is its output?
+
+- It produces an error.
+
+- No output is displayed.
+
+- It prints `Successfully connected!`.
+
+- It prints `Unable to establish a connection.`.
+
+- It prints `"Unable to establish a connection."`.
+
+
+/// type=SS, answer=[3]
+
+Which statement correctly describes the error?
+
+- There is no DSN prefix `psql:` on line 9.
+
+- On line 9, the DSN parameters are separated by semicolons `;`.
+
+- The database server's hostname `newhost` on line 1 is incorrect.
+
+- There is no open curly brace `{` after the `if` statement on line 10.
+
+- On line 9, the command `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` is passed as an argument.
+
+:::
+
+
+/// type=CR, answer=[tests/ConnectingToDatabase/IncorrectHostNameTest.php]
+
+Correct the code so that it outputs the string `Successfully connected!` using its database server’s hostname as `localhost`.
+
+```php
+<?php
+    $host = 'newhost';
+    $db = 'MyDatabase';
+    $port = '5432';
+    $username = 'postgres';
+    $password = 'Admin01';
+
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
+        if ($conn) {
+            echo "Successfully connected!"; 
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection.";
+    }
+?>
+```
+
+
+:::
+
+/// type=REPL
+
+```php
+<?php
+   $host = 'localhost';
+   $db = 'MyDatabase';
+   $port = '5432';
+   $username = 'postgres';
+   $password = 'Admin01';
+   
+   $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
+
+   try {
+       $conn = new PDO($dsn);
+       if ($conn) {
+           echo "Successfully connected!";
+       }
+   } catch (Exception $e) {
+       echo "Unable to establish a connection.";
+   }
+?>
+```
+/// type=SS, answer=[3]
+
+Execute the program. What is its output?
+
+- It produces an error.
+
+- No output is displayed.
+
+- It prints `Successfully connected!`.
+
+- It prints `"Successfully connected!"`.
+
+- It prints `Unable to establish a connection.`.
+
+
+/// type=SS, answer=[4]
+
+On line 4, replace the string value `5432` with `1234`. Execute the program. What is its output?
+
+- It produces an error.
+
+- No output is displayed.
+
+- It prints `Successfully connected!`.
+
+- It prints `Unable to establish a connection.`.
+
+- It prints `"Unable to establish a connection."`.
+
+
 +++
 
 
@@ -654,7 +825,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
 
 /// type=CR, answer=[tests/ConnectingToDatabase/CreatePHPApplicationConnectingToPostgreSQLTest.php]
 
-Write a PHP program that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. First, assign the following variables with its respective values: `$host='localhost'`, `$db = 'MyDatabase'`, `$port = '5432'`, `$username = 'postgres'`, and `$password = 'Admin01'`. Then, assign the `$dsn` variable to the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password`. Assign the DSN parameters with their respective variables `$host`, `$db`, `$port`, `$username`, and `$password`. Next, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Write the `if` statement to evaluate the `$conn` object inside the parentheses `()`. If the expression evaluates to `true` then, the `echo` statement displays the string `Successfully connected!`. Use the `try` and `catch` statement to evaluate the `if` statement. Set the `catch` block to display the error message `Unable to establish a connection` if there is a problem with the connection. Run the program to view the output.
+Write a PHP program that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. First, create the following variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `MyDatabase`, `5432`, `postgres`, and `Admin01` respectively to the variables. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective variables `$host`, `$db`, `$port`, `$username`, and `$password`. Next, create the `try` block which contains two statements. In the first statement, create the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. In the second statement, write the `if` statement to evaluate the `$conn` object inside the parentheses `()`. If the expression evaluates to `true` then, the `echo` statement displays the string `Successfully connected!`. Set the `catch` block to retrieve the exception if an exception occurs within the `try` block. Create the `$e` object containing the exception information. Then,  display the error message `Unable to establish a connection.`. Run the program to view the output.
 
 ```php
 <?php

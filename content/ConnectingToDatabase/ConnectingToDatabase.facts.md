@@ -1,10 +1,12 @@
 ### Facts for Connecting to Database lesson:
 
-`PDO` class represents a connection between PHP and a database server.
+`PHP Data Objects (PDO)` defines an interface for accessing databases in PHP.
+
+`PDO` class signifies a connection between a database server and PHP.
 
 `PDO_PGSQL` is a driver of `PHP Data Objects (PDO) Interface` that allows access between PHP and PostgreSQL database.
 
-`PDO_PGSQL DSN` is the PostgreSQL data souce name that carries the database parameters in order to connect. It is composed of the following DSN parameters:
+`PDO_PGSQL DSN` is the PostgreSQL data source name that carries the database parameters to establish a connection. It is composed of the following DSN parameters:
 
 - `pgsql:` is the DSN prefix.
     
@@ -18,7 +20,7 @@
     
 - `password` refers to the password that is set by the `user`.
 
-In the example code below shows how PHP uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database.
+The example code below shows how PHP uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database.
 
 Code:
 
@@ -35,7 +37,7 @@ Code:
     try {
         $conn = new PDO($dsn);
         if ($conn) {
-            echo "Connected to PostgreSQL with PDO."; 
+            echo "Successfully connected."; 
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection.";
@@ -44,14 +46,14 @@ Code:
 ```
 Code breakdown:
 
-- `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` carries the variables of the DSN parameters connecting to the PostgreSQL database.
+- `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` is a command that carries the variables of the DSN parameters connecting to the PostgreSQL database.
 
 - `$dsn` contains the `PDO_PGQSL DSN` statement that is required to connect to the PostgreSQL database.
 
-- `$conn = new PDO($dsn)` creates the `$conn` object which is an instance of the `PDO` class passing the argument `$dsn`.
+- `$conn = new PDO($dsn)` creates the `$conn` object as an instance of the `PDO` class passing the argument `$dsn`.
 
-- `if` statement evaluates the `$conn` object. 
+- `if` statement evaluates the `$conn` object.
 
-- `try` block evaluates the `if` statement that may throw an exception if any error occurs.
+- `try` block contains the statements that may throw a certain exception.
 
-- `catch` block displays the error message `Unable to establish a connection.` if there is a problem with the connection.
+- `catch` block retrieves the exception if an exception occurs within the `try` block and creates the `$e` object which contains the exception information.
