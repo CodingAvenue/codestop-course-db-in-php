@@ -193,7 +193,7 @@ In the statement `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;
 - It holds the `PDO_PGQSL DSN` statement.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 Which of the following is an object?
 
