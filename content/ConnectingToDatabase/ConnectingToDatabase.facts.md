@@ -28,7 +28,7 @@ Code:
 <?php
     $host = 'localhost';
     $port = '5432';
-    $dbname = 'MyDatabase';
+    $db = 'MyDatabase';
     $username = 'postgres';
     $password = 'Admin01';
     
@@ -45,16 +45,16 @@ Code:
 ?>
 ```
 
-- `$host = 'localhost'; $port = '5432'; $dbname = 'MyDatabase'; $username = 'postgres'; $password = 'Admin01';` database details are assigned to the respective variables.
+- The database details `localhost`, `5432`, `MyDatabase`, `postgres`, and `Admin01` are assigned to the variables `$host`, `$port`, `$db`, `$username`, and `$password` respectively.
 
-- `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";` the `PDO_PGQSL DSN` statement for connecting to the PostgreSQL database is assigned to the `$dsn` variable. The DSN parameters are separated by semi-colons `;`.
+- `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";` the `PDO_PGQSL DSN` statement for connecting to the PostgreSQL database is assigned to the `$dsn` variable. The DSN parameters are separated with semicolons `;` and not spaces to follow the standard DSN delimiter to facilitate uniformity.
 
-- `host=$host;port=$port;dbname=$db;user=$username;password=$password` the variables containing the details of the database are assigned to the DSN parameters. 
+- The variables `$host`, `$port`, `$db`, `$username`, and `$password` are assigned to the DSN parameters `host`, `port`, `dbname`, `user`, and `password`.
 
 - `$conn = new PDO($dsn)` creates the `$conn` object as an instance of the `PDO` class passing the argument `$dsn`.
 
-- `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and if it evaluates to `true`, the `echo` statement is executed.
+- `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and executes the `echo` statement if `$conn` evaluates to true.
 
-- `try` block contains the statements that may throw a certain exception.
+- The `try` block contains the statements that may throw a certain exception.
 
-- `catch` block catches the exception if an exception occurs within the `try` block.
+- The `catch` block executes the `echo` statement if an exception occurs within the `try` block.
