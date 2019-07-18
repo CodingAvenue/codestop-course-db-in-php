@@ -1,8 +1,8 @@
 ### Facts for Connecting to Database lesson:
 
-`PHP Data Objects (PDO)` defines an interface for accessing databases in PHP.
+`PHP Data Objects (PDO)` defines an interface in PHP to access certain databases
 
-`PDO` class signifies a connection between a database server and PHP.
+`PDO` class represents a connection between a database server and PHP.
 
 `PDO_PGSQL` is a driver of `PHP Data Objects (PDO) Interface` that allows access between PHP and PostgreSQL database.
 
@@ -14,7 +14,7 @@
 
 - `port` refers to the port number of the PostgreSQL database server.
     
-- `dbname` refers to the name of the database.
+- `dbname` is the database name.
 
 - `user` refers to the username of the user.
     
@@ -44,16 +44,17 @@ Code:
     }
 ?>
 ```
-Code breakdown:
 
-- `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` is a command that carries the variables of the DSN parameters connecting to the PostgreSQL database.
+- `$host = 'localhost'; $port = '5432'; $dbname = 'MyDatabase'; $username = 'postgres'; $password = 'Admin01';` database details are assigned to the respective variables.
 
-- `$dsn` contains the `PDO_PGQSL DSN` statement that is required to connect to the PostgreSQL database.
+- `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";` the `PDO_PGQSL DSN` statement for connecting to the PostgreSQL database is assigned to the `$dsn` variable. The DSN parameters are separated by semi-colons `;`.
+
+- `host=$host;port=$port;dbname=$db;user=$username;password=$password` the variables containing the details of the database are assigned to the DSN parameters. 
 
 - `$conn = new PDO($dsn)` creates the `$conn` object as an instance of the `PDO` class passing the argument `$dsn`.
 
-- `if` statement evaluates the `$conn` object.
+- `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and if it evaluates to `true`, the `echo` statement is executed.
 
 - `try` block contains the statements that may throw a certain exception.
 
-- `catch` block retrieves the exception if an exception occurs within the `try` block and creates the `$e` object which contains the exception information.
+- `catch` block catches the exception if an exception occurs within the `try` block.
