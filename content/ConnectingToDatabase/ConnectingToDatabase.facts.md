@@ -18,7 +18,7 @@
 
 - `user` refers to the username of the user.
     
-- `password` refers to the password that is set by the `user`.
+- `password` refers to the password that is set by the user.
 
 The example code below shows how PHP uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database.
 
@@ -47,13 +47,13 @@ Code:
 
 - The database details `localhost`, `5432`, `MyDatabase`, `postgres`, and `Admin01` are assigned to the variables `$host`, `$port`, `$db`, `$username`, and `$password` respectively.
 
-- `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";` the `PDO_PGQSL DSN` statement for connecting to the PostgreSQL database is assigned to the `$dsn` variable. The DSN parameters are separated with semicolons `;` and not spaces to follow the standard DSN delimiter to facilitate uniformity.
+- `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";` the `PDO_PGQSL DSN` statement for connecting to the PostgreSQL database is assigned to the `$dsn` variable. The DSN parameters are separated with semicolons `;` as the standard DSN delimiter to facilitate uniformity.
 
 - The variables `$host`, `$port`, `$db`, `$username`, and `$password` are assigned to the DSN parameters `host`, `port`, `dbname`, `user`, and `password`.
 
 - `$conn = new PDO($dsn)` creates the `$conn` object as an instance of the `PDO` class passing the argument `$dsn`.
 
-- `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and executes the `echo` statement if `$conn` evaluates to true.
+- `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and executes the `echo` statement if `$conn` evaluates to `true`.
 
 - The `try` block contains the statements that may throw a certain exception.
 
