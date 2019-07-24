@@ -305,7 +305,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
     require_once ("connection.php");
 
     try {
-        $stmt = $conn->query("INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')");
+        $stmt = $conn->query("INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')");
         if (!$stmt) {
             throw new Exception("Unable to insert values in the table.");
         }
@@ -357,12 +357,12 @@ What values are added to the `students` table?
 
 - `firstname`
 
-- `02/10/1999`
+- `1999-02-10`
 
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')")` do?
+In `student.php`, what does the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` do?
 
 - It modifies multiple tables.
 
@@ -370,9 +370,9 @@ In `student.php`, what does the query `INSERT INTO students (firstname, lastname
 
 - It adds three columns into the `students` table.
 
-- It modifies the values `John`, `Smith`, `02/10/1999`, and `Male` in the `students` table.
+- It modifies the values `John`, `Smith`, `1999-02-10`, and `Male` in the `students` table.
 
-- It adds a new row that contains the values `John`, `Smith`, `02/10/1999`, and `Male` into the `students` table.
+- It adds a new row that contains the values `John`, `Smith`, `1999-02-10`, and `Male` into the `students` table.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -387,7 +387,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
 
 - It assigns the `PDOStatement` object to the variable `$stmt`.
 
-- It executes the argument `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')")` in the `query()` method.
+- It executes the argument `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` in the `query()` method.
 
 
 :::
@@ -430,7 +430,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
     }
 ?>
 ```
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 Execute the program. What is its output?
 
@@ -442,7 +442,7 @@ Execute the program. What is its output?
 
 - It prints `1JohnSmith1999-10-02Male`.
 
-- It prints `1JohnSmith02/10/1999Male`.
+- It prints `1JohnSmith1999-02-10Male`.
 
 
 /// type=MS, answer=[3,5]
@@ -849,7 +849,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')";
+    $sql = "INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
 
     try {
         $stmt = $conn->query($sql);
@@ -889,7 +889,7 @@ Which statements correctly describe the error message?
 
 - There is no comma `,` between the values `John` and `Smith` on line 4.
 
-- On line 4, the SQL statement `INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')` is incorrect.
+- On line 4, the SQL statement `INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
 
 :::
 
@@ -925,7 +925,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')";
+    $sql = "INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
 
     try {
         $stmt = $conn->query($sql);
@@ -971,7 +971,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '02/10/1999', 'Male')";
+    $sql = "INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
 
     try {
         $stmt = $conn->query($sql);
@@ -986,7 +986,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 /// type=SS, answer=[5]
 
-In `student.php`, replace the values `John`, `Smith`, `02/10/1999` and `Male` with `Samantha`, `Danes`, `10/12/1999`, and `Female` on line 4. Execute the program. What is its output?
+In `student.php`, replace the values `John`, `Smith`, `1999-02-10` and `Male` with `Samantha`, `Danes`, `1999-10-12`, and `Female` on line 4. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -1001,7 +1001,7 @@ In `student.php`, replace the values `John`, `Smith`, `02/10/1999` and `Male` wi
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('Samantha', 'Danes', '10/12/1999', 'Female')`?
+Which statement correctly describes the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('Samantha', 'Danes', '1999-10-12', 'Female')`?
 
 - It modifies the `students` table.
 
@@ -1011,7 +1011,7 @@ Which statement correctly describes the query `INSERT INTO students (firstname, 
 
 - It removes the values `John` and `Smith` in the `students` table.
 
-- It adds a new row that contains the values `Samantha`,`Danes`, `10/12/1999`, and `Female` into the `students` table.
+- It adds a new row that contains the values `Samantha`,`Danes`, `1999-10-12`, and `Female` into the `students` table.
 
 :::
 
@@ -1049,11 +1049,11 @@ Which statement correctly describes the query `INSERT INTO students (firstname, 
 
     $stmt = $conn->query("SELECT * FROM students");
     foreach ($stmt as $row) {
-        echo $row['student_id'].$row['firstname'].$row['lastname']. '<br />';
+        echo $row['student_id'].$row['firstname'].$row['lastname'].$row['birthdate'].$row['gender'].' ';
     }
 ?>
 ```
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 Execute the program. What is its output?
 
@@ -1063,9 +1063,9 @@ Execute the program. What is its output?
 
 - It prints `JohnSmith1999-10-02Male` and `SamanthaDanes1999-12-10Female`
 
-- It prints `1JohnSmith1999-10-02Male` and `2SamanthaDanes1999-12-10Female`
+- It prints `1JohnSmith1999-02-10Male` and `2SamanthaDanes1999-12-10Female`
 
-- It prints `1JohnSmith02/10/1999Male` and `2SamanthaDanes10/12/19999Female`
+- It prints `1JohnSmith1999-02-10Male` and `2SamanthaDanes1999-10-12Female`
 
 
 /// type=SS, answer=[4]

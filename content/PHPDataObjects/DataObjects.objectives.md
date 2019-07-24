@@ -6,6 +6,6 @@ After completing the lesson, the students should be able to:
 
 - Use the `PDO::query()` method to execute queries in PHP.
 
-- Apply postgreSQL statements `CREATE`, `INSERT INTO`, `SELECT * FROM`, and `UPDATE` in PHP.  
+- Apply postgreSQL commands `CREATE TABLE`, `INSERT`, `SELECT`, and `UPDATE` in PHP.  
 
 - Write a PHP program that executes a query to a PostgreSQL database.
