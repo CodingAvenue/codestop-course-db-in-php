@@ -125,7 +125,7 @@ Which statements correctly describe the code on line 11 of `connection.php`?
 
 /// type=SS, answer=[5]
 
-In `connection.php`, what does the statement `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` do?
+In `connection.php`, what does the statement `"pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password"` do on line 8?
 
 - It holds the `PDOStatement` class.
 
@@ -140,7 +140,7 @@ In `connection.php`, what does the statement `"pgsql:host=$host;port=$port;dbnam
 
 /// type=SS, answer=[3]
 
-In `student.php`, what does the statement `require_once ("connection.php");` do?
+In `student.php`, what does the statement `require_once ("connection.php");` do on line 2?
 
 - It updates the file `connection.php`.
 
@@ -309,7 +309,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
         if (!$stmt) {
             throw new Exception("Unable to insert values in the table.");
         }
-        echo "Successfully inserted values in the table.";
+        echo "Successfully inserted the values into the table.";
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -327,7 +327,7 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected to the database.` and `Unable to insert values in the table`.
 
-- It prints `Successfully connected to the database.` and `Successfully inserted values in the table.`.
+- It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 
 /// type=MS, answer=[4,5]
@@ -347,7 +347,7 @@ Which statements correctly describe the code on line 9 of `connection.php`?
 
 /// type=MS, answer=[1,2,3,5]
 
-What values are added to the `students` table?
+What values are added by the statement `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` on line 5?
 
 - `Male`
 
@@ -362,17 +362,17 @@ What values are added to the `students` table?
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` do?
+In `student.php`, what does the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` do on line 5?
 
 - It modifies multiple tables.
 
-- It inserts one row into the `students` table.
+- It adds three columns in the `students` table.
 
-- It adds three columns into the `students` table.
+- It inserts one column into the `students` table.
 
 - It modifies the values `John`, `Smith`, `1999-02-10`, and `Male` in the `students` table.
 
-- It adds a new row that contains the values `John`, `Smith`, `1999-02-10`, and `Male` into the `students` table.
+- It adds a new row that contains the values `John`, `Smith`, `1999-02-10`, and `Male` in the `students` table.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -438,11 +438,11 @@ Execute the program. What is its output?
 
 - No output is displayed.
 
-- It prints `SmithJohnMale1999-10-02`.
+- It prints `Unable to establish a connection.`.
 
-- It prints `1JohnSmith1999-10-02Male`.
+- It prints `Successfully connected to the database.` and `JohnSmith1999-10-02Male`.
 
-- It prints `1JohnSmith1999-02-10Male`.
+- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male`.
 
 
 /// type=MS, answer=[3,5]
@@ -538,9 +538,9 @@ What value does the `PDO::query()` method return?
 
 - An SQL statement.
 
-- A `true` or `false` string.
-
 - A `PDO_PGSQL DSN` statement.
+
+- A `true` or `false` boolean value.
 
 - A `PDOStatement` object or `false` on failure.
 
@@ -731,13 +731,13 @@ Execute the program. What is its output?
 
 - No output is displayed.
 
-- It prints `Successfully created a table!`.
+- It prints `Successfully created a table.`.
 
 - It prints `Unable to establish a connection`.
 
 - It prints `Successfully connected to the database.` and produces an error.
 
-- It prints `Successfully connected to the database.` and `Successfully created a table!`.
+- It prints `Successfully connected to the database.` and `Successfully created a table.`.
 
 
 /// type=SS, answer=[4]
@@ -774,7 +774,7 @@ Which statements best describe the error?
 
 /// type=CR, answer=[tests/DataObjects/MissingObjectAndOperatorTest.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully created a table!`.
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully created a table.`.
 
 ```php
 // connection.php
@@ -856,7 +856,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         if (!$stmt) {
             throw new Exception('Unable to insert values in the table.');
         }
-        echo "Successfully inserted values in the table.";   
+        echo "Successfully inserted the values into the table.";   
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -874,20 +874,19 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected to the database.` and `Unable to insert values in the table.`.
 
-- It prints `Successfully connected to the database.` and `Successfully inserted values in the table.`.
+- It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 
-/// type=MS, answer=[3,5]
+/// type=MS, answer=[2,5]
 
 Which statements correctly describe the error message?
 
 - On line 4, the `students` table does not exist.
 
-- The table name is not allowed in an `INSERT` statement.
-
-- The `INSERT INTO` statement is miswritten as `INSERT` on line 4.
-
+- The `INSERT INTO` command is miswritten as `INSERT` on line 4.
 - There is no comma `,` between the values `John` and `Smith` on line 4.
+
+- On line 4, the table name `students` is not allowed in an `INSERT` command.
 
 - On line 4, the SQL statement `INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
 
@@ -896,7 +895,7 @@ Which statements correctly describe the error message?
 
 /// type=CR, answer=[tests/DataObjects/InvalidSQLStatementTest.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database` and `Successfully inserted values in the table.`.
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 ```php
 // connection.php
@@ -932,7 +931,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         if (!$stmt) {
             throw new Exception('Unable to insert values in the table.');
         }
-        echo "Successfully inserted values in the table.";   
+        echo "Successfully inserted the values into the table.";   
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -978,7 +977,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         if (!$stmt) {
             throw new Exception('Unable to insert values in the table.');
         }
-        echo "Successfully inserted values in the table.";
+        echo "Successfully inserted the values into the table.";
     } catch (Exception $e) {
         echo $e->getMessage();
     }
@@ -996,7 +995,7 @@ In `student.php`, replace the values `John`, `Smith`, `1999-02-10` and `Male` wi
 
 - It prints `Successfully connected to the database.` and `Unable to insert values in the table.`.
 
-- It prints `Successfully connected to the database.` and `Successfully inserted values in the table.`.
+- It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 
 /// type=SS, answer=[5]
@@ -1011,7 +1010,7 @@ Which statement correctly describes the query `INSERT INTO students (firstname, 
 
 - It removes the values `John` and `Smith` in the `students` table.
 
-- It adds a new row that contains the values `Samantha`,`Danes`, `1999-10-12`, and `Female` into the `students` table.
+- It adds a new row that contains the values `Samantha`,`Danes`, `1999-10-12`, and `Female` in the `students` table.
 
 :::
 
@@ -1034,7 +1033,7 @@ Which statement correctly describes the query `INSERT INTO students (firstname, 
   try {
       $conn = new PDO($dsn);
       if ($conn) {
-          echo "Successfully connected to the database. <br />";
+          echo "Successfully connected to the database. ";
       }
   } catch (Exception $e) {
       echo "Unable to establish a connection."; 
@@ -1061,14 +1060,14 @@ Execute the program. What is its output?
 
 - No output is displayed.
 
-- It prints `JohnSmith1999-10-02Male` and `SamanthaDanes1999-12-10Female`
+- It prints `Unable to establish a connection.`.
 
-- It prints `1JohnSmith1999-02-10Male` and `2SamanthaDanes1999-12-10Female`
+- It prints `Successfully connected to the database.` and `2SamanthaDanes1999-10-12Female`.
 
-- It prints `1JohnSmith1999-02-10Male` and `2SamanthaDanes1999-10-12Female`
+- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female`.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 In `student.php`, remove `.$row['lastname']` on line 6. Execute the program. What is its output?
 
@@ -1076,11 +1075,11 @@ In `student.php`, remove `.$row['lastname']` on line 6. Execute the program. Wha
 
 - No output is displayed.
 
-- It prints `1John` and `2Samantha`.
+- It prints `Unable to establish a connection.`.
 
-- It prints `1John1990-10-02Male` and `2Samantha1999-12-10Female`.
+- It prints `Successfully connected to the database.` and `2Samantha1999-10-12Female 1John1999-02-10Male`.
 
-- It prints `1JohnSmith1999-10-02Male` and `2SamanthaDanes1999-12-10Female`
+- It prints `Successfully connected to the database.` and `1John1999-02-10Male 2Samantha1999-10-12Female`.
 
 
 /// type=SS, answer=[2]
@@ -1100,7 +1099,7 @@ In `student.php`. remove `as $row` in the `foreach` statement on line 5. Execute
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes the error message?
+Which statement correctly describes the error?
 
 - The `students` table is miswritten as `student` on line 4.
 
@@ -1108,7 +1107,7 @@ Which statement correctly describes the error message?
 
 - On line 5, the argument `$stmt` in the `foreach` statement is invalid.
 
-- The name of the database is not included in the `SELECT` statement on line 4.
+- The name of the database is not included in the `SELECT` command on line 4.
 
 - In `student.php`, the value of the current element on each iteration is not assigned to a variable on line 5.
 
