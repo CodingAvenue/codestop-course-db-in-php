@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10));

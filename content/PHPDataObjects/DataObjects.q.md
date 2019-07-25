@@ -942,7 +942,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, filename=[connection.php,student.php]
+/// type=REPL, filename=[connection.php,student.php], init=[commands/DataObjects/InsertSamanthaDanes.sql]
 
 ```php
 // connection.php
