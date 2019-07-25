@@ -223,9 +223,9 @@ Which statements correctly describe the code on lines 8, 9, and 10 of `student.p
 
 - The `if` statement evaluates to `true` and the statement on line 9 is not executed.
 
-- The `if` statement evaluates to `true` and it displays the string `Successfully created a table!`.
+- The `if` statement evaluates to `true` and it displays the string `Successfully created a table.`.
 
-- The `if` statement evaluates to `false` and it displays the string `Successfully created a table!`.
+- The `if` statement evaluates to `false` and it displays the string `Successfully created a table.`.
 
 
 /// type=SS, answer=[2]
@@ -307,7 +307,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
     try {
         $stmt = $conn->query("INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')");
         if (!$stmt) {
-            throw new Exception("Unable to insert values in the table.");
+            throw new Exception("Unable to insert values into the table.");
         }
         echo "Successfully inserted the values into the table.";
     } catch (Exception $e) {
@@ -325,7 +325,7 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`
 
-- It prints `Successfully connected to the database.` and `Unable to insert values in the table`.
+- It prints `Successfully connected to the database.` and `Unable to insert values into the table.`.
 
 - It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
@@ -347,7 +347,7 @@ Which statements correctly describe the code on line 9 of `connection.php`?
 
 /// type=MS, answer=[1,2,3,5]
 
-What values are added by the statement `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` on line 5?
+What values are inserted by the statement `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` on line 5?
 
 - `Male`
 
@@ -515,9 +515,9 @@ Which statement best describes `PDO::query()`?
 - It executes an SQL statement and returns a `PDOStatement` object.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[2]
 
-What argument is passed in the `PDO::query()` method?
+What parameter is passed in the `PDO::query()` method?
 
 - A DSN parameter.
 
@@ -854,7 +854,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $stmt = $conn->query($sql);
         if (!$stmt) {
-            throw new Exception('Unable to insert values in the table.');
+            throw new Exception('Unable to insert values into the table.');
         }
         echo "Successfully inserted the values into the table.";   
     } catch (Exception $e) {
@@ -872,7 +872,7 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `Unable to insert values in the table.`.
+- It prints `Successfully connected to the database.` and `Unable to insert values into the table.`.
 
 - It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
@@ -884,6 +884,7 @@ Which statements correctly describe the error message?
 - On line 4, the `students` table does not exist.
 
 - The `INSERT INTO` command is miswritten as `INSERT` on line 4.
+
 - There is no comma `,` between the values `John` and `Smith` on line 4.
 
 - On line 4, the table name `students` is not allowed in an `INSERT` command.
@@ -929,7 +930,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $stmt = $conn->query($sql);
         if (!$stmt) {
-            throw new Exception('Unable to insert values in the table.');
+            throw new Exception('Unable to insert values into the table.');
         }
         echo "Successfully inserted the values into the table.";   
     } catch (Exception $e) {
@@ -975,7 +976,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $stmt = $conn->query($sql);
         if (!$stmt) {
-            throw new Exception('Unable to insert values in the table.');
+            throw new Exception('Unable to insert values into the table.');
         }
         echo "Successfully inserted the values into the table.";
     } catch (Exception $e) {
@@ -993,7 +994,7 @@ In `student.php`, replace the values `John`, `Smith`, `1999-02-10` and `Male` wi
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `Unable to insert values in the table.`.
+- It prints `Successfully connected to the database.` and `Unable to insert values into the table.`.
 
 - It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
@@ -1125,7 +1126,7 @@ Which statement correctly describes the error?
 
 First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `student.php` that uses the `PDO::query()` method to create a table into the `LibraryDB` database. Add the `require_once ()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, assign the `query()` method of the `$conn` object which passes the `$sql` argument to the `$stmt` variable. Then, add the `if` statement to evaluate the `$stmt` object inside the parentheses `()`. If the `if` statement evaluates to `false` throw an exception message `Unable to update values in the table.` and if the `if` statement evaluates to `true` execute the `echo` statement to display the string `Successfully updated values in the table.`. Inside the `catch` block, add the `getMessage()` function if an exception occurs within the `try` block and return the `Exception` message. Run the program to view the output.
+Next, write a PHP file named `student.php` that uses the `PDO::query()` method to update a value in the `students` table of the `LibraryDB` database. Add the `require_once ()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, assign the `query()` method of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement to evaluate the `$stmt` object inside the parentheses `()`. If the `if` statement evaluates to `false` throw an exception message `Unable to update values in the table.` and if the `if` statement evaluates to `true` execute the `echo` statement to display the string `Successfully updated values in the table.`. Inside the `catch` block, add the `getMessage()` function and return the `Exception` message if an exception occurs within the `try` block . Run the program to view the output.
 
 ```php
 // connection.php
