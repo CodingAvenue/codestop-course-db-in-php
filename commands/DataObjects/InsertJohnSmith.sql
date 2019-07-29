@@ -1,1 +1,1 @@
-INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male');
+INSERT INTO students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male');

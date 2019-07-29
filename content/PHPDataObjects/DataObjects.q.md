@@ -35,7 +35,7 @@
 <?php
     require_once ("connection.php");
 
-    $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10))";
+    $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10))";
     
     try {
         $stmt = $conn->query($sql);
@@ -65,7 +65,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[3,4,5]
 
-Which of the following are DSN parameters? 
+Which of the following are DSN parameter values? 
 
 - `$sql`
 
@@ -133,9 +133,9 @@ In `connection.php`, what does the statement `"pgsql:host=$host;port=$port;dbnam
 
 - It sends queries or uploads data to databases.
 
-- It creates a new table in the postgreSQL database.
+- It creates a new table in the PostgreSQL database.
 
-- It represents the `PDO_PGQSQL DSN` statement connecting to the postgreSQL database.
+- It represents the `PDO_PGQSQL DSN` statement that connects to the PostgreSQL database.
 
 
 /// type=SS, answer=[3]
@@ -144,7 +144,7 @@ In `student.php`, what does the statement `require_once ("connection.php");` do 
 
 - It updates the file `connection.php`.
 
-- It establishes a connection to the postgreSQL database.
+- It establishes a connection to the PostgreSQL database.
 
 - It includes the file `connection.php` in the file `student.php`.
 
@@ -163,16 +163,16 @@ In `student.php`, what does `$sql` do on line 4?
 
 - It holds the `PDOStatement` object.
 
-- It connects to the postgreSQL database.
+- It connects to the PostgreSQL database.
 
 - It stores the variables of the DSN parameters.
 
 
 /// type=MS, answer=[2,3,4,5]
 
-In `student.php`, which statements correctly describe the statement `$stmt = $conn->query($sql);` on line 7?
+In `student.php`, which statements correctly describe `$stmt = $conn->query($sql);` on line 7?
 
-- It connects to the postgreSQL database.
+- It connects to the PostgreSQL database.
 
 - It calls the `query()` method of the `$conn` object.
 
@@ -195,7 +195,7 @@ What does the `if` construct do on line 8 of `student.php`?
 
 - It assigns a value to the `$stmt` variable.
 
-- It evaluates the `$stmt` object inside the parentheses `()`.
+- It evaluates the `$stmt` object inside the parenthesis `()`.
 
 
 /// type=SS, answer=[3]
@@ -208,22 +208,22 @@ In `student.php`, what does `$stmt` do on line 7?
 
 - It holds the `PDOStatement` object.
 
-- It connects to the postgreSQL database.
+- It connects to the PostgreSQL database.
 
 - It carries the variables of the DSN parameters.
 
 
-/// type=MS, answer=[3,4]
+/// type=MS, answer=[3,5]
 
 Which statements correctly describe the code on lines 8, 9, and 10 of `student.php`?
 
-- The statement displays the value assigned to the `$stmt` variable.
+- The statement displays the values assigned to the `$stmt` variable.
 
 - The `if` statement evaluates to `true` and the statement on line 9 is executed.
 
-- The `if` statement evaluates to `true` and the statement on line 9 is not executed.
+- The `if` statement evaluates to `false` and the statement on line 9 is not executed.
 
-- The `if` statement evaluates to `true` and it displays the string `Successfully created a table.`.
+- The `if` statement evaluates to `true` and it displays the string `Unable to create a table.`.
 
 - The `if` statement evaluates to `false` and it displays the string `Successfully created a table.`.
 
@@ -249,11 +249,11 @@ What are the column names in the `students` table?
 
 - `gender`
 
-- `lastname`
-
-- `firstname`
-
 - `birthdate`
+
+- `last_name`
+
+- `first_name`
 
 - `student_id`
 
@@ -266,11 +266,11 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
 
 - It updates the `Exception` message thrown.
 
-- It adds an exception to the `getMessage()` function.
+- It adds an exception in the statement `echo $e->getMessage()`.
 
-- It removes an exception using the `getMessage()` function.
+- It removes an exception using the statement `echo $e->getMessage();`.
 
-- It executes the `getMessage()` function if an exception occurs within the `try` block.
+- It executes the `echo` statement if an exception occurs within the `try` block.
 
 :::
 
@@ -305,7 +305,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
     require_once ("connection.php");
 
     try {
-        $stmt = $conn->query("INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')");
+        $stmt = $conn->query("INSERT INTO students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')");
         if (!$stmt) {
             throw new Exception("Unable to insert values into the table.");
         }
@@ -347,7 +347,7 @@ Which statements correctly describe the code on line 9 of `connection.php`?
 
 /// type=MS, answer=[1,2,3,5]
 
-What values are inserted by the statement `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` on line 5?
+What values are inserted by the statement `INSERT INTO students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` on line 5?
 
 - `Male`
 
@@ -355,14 +355,14 @@ What values are inserted by the statement `INSERT INTO students (firstname, last
 
 - `Smith`
 
-- `firstname`
+- `first_name`
 
 - `1999-02-10`
 
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` do on line 5?
+In `student.php`, what does the query `INSERT INTO students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` do on line 5?
 
 - It modifies multiple tables.
 
@@ -379,7 +379,7 @@ In `student.php`, what does the query `INSERT INTO students (firstname, lastname
 
 Which statements correctly describe the code on line 5 of `student.php`?
 
-- It connects to the postgreSQL database.
+- It connects to the PostgreSQL database.
 
 - It calls the `query()` method of the `$conn` object.
 
@@ -387,7 +387,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
 
 - It assigns the `PDOStatement` object to the variable `$stmt`.
 
-- It executes the argument `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` in the `query()` method.
+- It executes the argument `INSERT INTO students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` in the `query()` method.
 
 
 :::
@@ -426,7 +426,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
 
     $stmt = $conn->query("SELECT * FROM students");
     foreach ($stmt as $row) {
-        echo $row['student_id'].$row['firstname'].$row['lastname'].$row['birthdate'].$row['gender']. ' ';
+        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birthdate'].$row['gender']. ' ';
     }
 ?>
 ```
@@ -447,13 +447,13 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[3,5]
 
-Which statements correctly describe the `foreach` statement on line 5 of `student.php`?
+Which statements correctly describe the `foreach` construct on line 5 of `student.php`?
 
 - It removes all the elements in `$stmt`.
 
 - It accesses all the elements in `$stmt`.
 
-- It loops over the `$stmt` object as the array expression.
+- It iterates through each element in the array.
 
 - It removes all the elements in the multidimensional array `$stmt`.
 
@@ -477,7 +477,7 @@ What value is assigned to `student_id`?
 
 /// type=MS, answer=[3,4,5]
 
-Which statements correctly describe the statement `$stmt = $conn->query("SELECT * FROM students");` on line 4 of `student.php`?
+Which statements correctly describe `$stmt = $conn->query("SELECT * FROM students");` on line 4 of `student.php`?
 
 - It assigns the value of `$conn` to `$stmt`.
 
@@ -485,9 +485,9 @@ Which statements correctly describe the statement `$stmt = $conn->query("SELECT 
 
 - It calls the `query()` method of the `$conn` object.
 
-- It assigns the result set `PDOStatement` object to the variable `$stmt`.
-
 - It executes the argument `SELECT * FROM students` in the `query()` method.
+
+- It assigns the result set as a `PDOStatement` object to the variable `$stmt`.
 
 
 :::
@@ -500,19 +500,19 @@ Which statements correctly describe the statement `$stmt = $conn->query("SELECT 
 
 ### Part 2: Knowledge Assessment
 
-/// type=SS, answer=[5]
+/// type=MS, answer=[2,5]
 
-Which statement best describes `PDO::query()`?
+Which statements correctly describe `PDO::query()`?
 
 - It sends queries or uploads data to certain databases.
 
-- It defines an interface in PHP to access certain databases.
+- It executes an SQL statement in a single function call.
 
-- It refers to the server’s hostname of the PostgreSQL database.
+- It defines an interface in PHP to access certain databases.
 
 - It represents a connection between a database server and PHP.
 
-- It executes an SQL statement and returns a `PDOStatement` object.
+- It returns a result set as a `PDOStatement` object or on failure a `false` boolean value.
 
 
 /// type=SS, answer=[2]
@@ -547,7 +547,7 @@ What value does the `PDO::query()` method return?
 
 /// type=MS, answer=[3,4,5]
 
-Which statements best describe a `PDOStatement`?
+Which statements correctly describe a `PDOStatement`?
 
 - It defines an interface in PHP.
 
@@ -597,7 +597,7 @@ Which statements best describe a `PDOStatement`?
     require_once ("connection.php");
     
     try {
-        $stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10)));
+        $stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10)));
         if (!$stmt) {
             throw new Exception("Unable to create a table.");
         } 
@@ -626,15 +626,15 @@ Execute the program. What is the error message?
 
 Which statements correctly describe the error?
 
-- There is no column name before the `VARCHAR(80)` on line 5.
+- In `student.php`, there is no comma `,` at the end of line 5.
 
-- In `student.php`, there is a missing comma `,` at the end of line 5.
+- There is no column name specified before `VARCHAR(80)` on line 5.
 
 - In `student.php`, the SQL statement is not enclosed in double quotes `""` on line 5.
 
-- On line 5, the statement `$stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10)));` is incorrect.
+- On line 5, the statement `$stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10)));` is incorrect.
 
-- There are no parentheses `()` that enclosed the statement `CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10))`.
+- There are no parenthesis `()` that enclosed the statement `CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10))`.
 
 :::
 
@@ -669,7 +669,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     require_once ("connection.php");
     
     try {
-        $stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10)));
+        $stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10)));
         if (!$stmt) {
             throw new Exception("Unable to create a table.");
         } 
@@ -712,7 +712,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10))";
+    $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10))";
     
     try {
         $stmt = query($sql);
@@ -755,7 +755,7 @@ What is the error message?
 - `PDO::query()` expects at least `1` parameter, `0` given on line 7
 
 
-/// type=MS, answer=[2,5]
+/// type=MS, answer=[2,4]
 
 Which statements best describe the error?
 
@@ -763,11 +763,11 @@ Which statements best describe the error?
 
 - On line 7, the statement `$stmt = query($sql);` is incorrect.
 
-- There are no parentheses `()` that enclosed the SQL statement on line 4.
+- There are no parenthesis `()` that enclosed the SQL statement on line 4.
 
-- In `student.php`, the semicolon `;` and closing parentheses `)` are misplaced on line 7. 
+- In `student.php`, there are no `$conn` object and object operator `->` on line 7. 
 
-- There are no `$conn` object and object operator `->` before the statement `query($sql)` on line 7. 
+- In `student.php`, the semicolon `;` and the close parenthesis `)` are misplaced on line 7. 
 
 :::
 
@@ -803,7 +803,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, firstname VARCHAR(80), lastname VARCHAR(80), birthdate DATE, gender VARCHAR(10))";
+    $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birthdate DATE, gender VARCHAR(10))";
     
     try {
         $stmt = query($sql);
@@ -849,7 +849,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
+    $sql = "INSERT students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
 
     try {
         $stmt = $conn->query($sql);
@@ -883,13 +883,13 @@ Which statements correctly describe the error message?
 
 - On line 4, the `students` table does not exist.
 
-- The `INSERT INTO` command is miswritten as `INSERT` on line 4.
+- The `INSERT INTO` statement is miswritten as `INSERT` on line 4.
 
 - There is no comma `,` between the values `John` and `Smith` on line 4.
 
-- On line 4, the table name `students` is not allowed in an `INSERT` command.
+- On line 4, the table name `students` is not allowed in an `INSERT` statement.
 
-- On line 4, the SQL statement `INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
+- On line 4, the SQL statement `INSERT students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
 
 :::
 
@@ -925,7 +925,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "INSERT students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
+    $sql = "INSERT students (first_name, last_name, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
 
     try {
         $stmt = $conn->query($sql);
@@ -971,7 +971,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once ("connection.php");
 
-    $sql = "INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
+    $sql = "INSERT INTO students (first_name, last_name, birthdate, gender)";
 
     try {
         $stmt = $conn->query($sql);
@@ -984,9 +984,9 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     }
 ?>
 ```
-/// type=SS, answer=[5]
+/// type=SS, answer=[4]
 
-In `student.php`, replace the values `John`, `Smith`, `1999-02-10` and `Male` with `Samantha`, `Danes`, `1999-10-12`, and `Female` on line 4. Execute the program. What is its output?
+Execute the program. What is its output?
 
 - It produces an error.
 
@@ -999,19 +999,66 @@ In `student.php`, replace the values `John`, `Smith`, `1999-02-10` and `Male` wi
 - It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 
-/// type=SS, answer=[5]
+/// type=MS, answer=[4,5]
 
-Which statement correctly describes the query `INSERT INTO students (firstname, lastname, birthdate, gender) VALUES ('Samantha', 'Danes', '1999-10-12', 'Female')`?
+Which statements correctly describe the error message?
 
-- It modifies the `students` table.
+- On line 4, the `students` table does not exist.
 
-- It deletes the data in the `students` table
+- There are no parenthesis `()` that enclosed the SQL statement on line 4.
 
-- It replaces the values in the `students` table.
+- on line 4, the strings `first_name`, `last_name`, `birthdate`, and `gender` are not enclosed in single quotes `''`.
 
-- It removes the values `John` and `Smith` in the `students` table.
+- In `student.php`, there is no `VALUES` clause to list the values to be inserted into the selected columns on line 4.
 
-- It adds a new row that contains the values `Samantha`,`Danes`, `1999-10-12`, and `Female` in the `students` table.
+- On line 4, the statement `$sql = "INSERT INTO students (first_name, last_name, birthdate, gender)";` is incorrect.
+
+:::
+
+/// type=CR, answer=[tests/DataObjects/MissingValuesClause.sql]
+
+Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`, and `Female` into the table and displays the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`. 
+
+```php
+// connection.php
+<?php
+  $host = 'localhost';
+  $db = 'LibraryDB';
+  $port = '5432';
+  $username = 'postgres';
+  $password = 'Admin01';
+
+  $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
+
+  try {
+      $conn = new PDO($dsn);
+      if ($conn) {
+          echo "Successfully connected to the database. ";
+      }
+  } catch (Exception $e) {
+      echo "Unable to establish a connection."; 
+  }
+?>
+```
+
+```php
+// student.php
+<?php
+    require_once ("connection.php");
+
+    $sql = "INSERT INTO students (first_name, last_name, birthdate, gender)";
+
+    try {
+        $stmt = $conn->query($sql);
+        if (!$stmt) {
+            throw new Exception('Unable to insert values into the table.');
+        }
+        echo "Successfully inserted the values into the table.";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
 
 :::
 
@@ -1049,7 +1096,7 @@ Which statement correctly describes the query `INSERT INTO students (firstname, 
 
     $stmt = $conn->query("SELECT * FROM students");
     foreach ($stmt as $row) {
-        echo $row['student_id'].$row['firstname'].$row['lastname'].$row['birthdate'].$row['gender'].' ';
+        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birthdate'].$row['gender'].' ';
     }
 ?>
 ```
@@ -1066,21 +1113,6 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `2SamanthaDanes1999-10-12Female`.
 
 - It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female`.
-
-
-/// type=SS, answer=[5]
-
-In `student.php`, remove `.$row['lastname']` on line 6. Execute the program. What is its output?
-
-- It produces an error.
-
-- No output is displayed.
-
-- It prints `Unable to establish a connection.`.
-
-- It prints `Successfully connected to the database.` and `2Samantha1999-10-12Female 1John1999-02-10Male`.
-
-- It prints `Successfully connected to the database.` and `1John1999-02-10Male 2Samantha1999-10-12Female`.
 
 
 /// type=SS, answer=[2]
@@ -1104,16 +1136,53 @@ Which statement correctly describes the error?
 
 - The `students` table is miswritten as `student` on line 4.
 
-- In `student.php`, there is no opening bracket `{` on line 5.
+- In `student.php`, there is no open curly brace `{` on line 5.
 
-- On line 5, the argument `$stmt` in the `foreach` statement is invalid.
+- On line 5, the argument `$stmt` in the `foreach` construct is invalid.
 
-- The name of the database is not included in the `SELECT` command on line 4.
+- The name of the database is not included in the `SELECT` statement on line 4.
 
 - In `student.php`, the value of the current element on each iteration is not assigned to a variable on line 5.
 
 :::
 
+
+/// type=CR, answer=[tests/DataObjects/IncorrectForeachStatement.php]
+
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female`.
+
+```php
+// connection.php
+<?php
+  $host = 'localhost';
+  $db = 'LibraryDB';
+  $port = '5432';
+  $username = 'postgres';
+  $password = 'Admin01';
+
+  $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
+
+  try {
+      $conn = new PDO($dsn);
+      if ($conn) {
+          echo "Successfully connected to the database. ";
+      }
+  } catch (Exception $e) {
+      echo "Unable to establish a connection."; 
+  }
+?>
+```
+
+```php
+<?php
+    require_once ("connection.php");
+
+    $stmt = $conn->query("SELECT * FROM students");
+    foreach ($stmt) {
+        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birthdate'].$row['gender'].' ';
+    }
+?>
+```
 
 +++
 
@@ -1124,9 +1193,9 @@ Which statement correctly describes the error?
 
 /// type=CR, answer=[tests/DataObjects/CreatePHPProgramUsingQueryMethodTest.php], init=[commands/DataObjects/UpdateStudentsTable.sql]
 
-First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
+Write a program that uses two php files named `connection.php` and `student.php` to update a value in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parenthesis `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `student.php` that uses the `PDO::query()` method to update a value in the `students` table of the `LibraryDB` database. Add the `require_once ()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, assign the `query()` method of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement to evaluate the `$stmt` object inside the parentheses `()`. If the `if` statement evaluates to `false` throw an exception message `Unable to update values in the table.` and if the `if` statement evaluates to `true` execute the `echo` statement to display the string `Successfully updated values in the table.`. Inside the `catch` block, add the `getMessage()` function and return the `Exception` message if an exception occurs within the `try` block . Run the program to view the output.
+Next, write a PHP file named `student.php`. Add the `require_once ()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, assign the `query()` method of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parenthesis `()`. If the `if` statement evaluates to `true` throw an exception message `Unable to update values in the table.` and if the `if` statement evaluates to `false` execute the `echo` statement to display the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();` if an exception occurs within the `try` block . Run the program to view the output.
 
 ```php
 // connection.php
