@@ -195,7 +195,7 @@ What does the `if` construct do on line 8 of `student.php`?
 
 - It assigns a value to the `$stmt` variable.
 
-- It evaluates the `$stmt` object inside the parenthesis `()`.
+- It evaluates the negated value of `$stmt` inside the parenthesis `()`.
 
 
 /// type=SS, answer=[3]
@@ -942,7 +942,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, filename=[connection.php,student.php], init=[commands/DataObjects/InsertSamanthaDanes.sql]
+/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/DataObjects/InsertSamanthaDanes.sql]
 
 ```php
 // connection.php
@@ -1015,7 +1015,7 @@ Which statements correctly describe the error message?
 
 :::
 
-/// type=CR, answer=[tests/DataObjects/MissingValuesClause.sql]
+/// type=CR, answer=[tests/DataObjects/MissingValuesClause.sql], filename=[connection.php,student.php]
 
 Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`, and `Female` into the table and displays the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`. 
 
@@ -1065,7 +1065,7 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
 
 :::
 
-/// type=REPL, filename=[connection.php,student.php]
+/// type=REPL, readonly=true, filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -1147,7 +1147,7 @@ Which statement correctly describes the error?
 :::
 
 
-/// type=CR, answer=[tests/DataObjects/IncorrectForeachStatement.php]
+/// type=CR, answer=[tests/DataObjects/IncorrectForeachStatement.php], filename=[connection.php,student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female`.
 
@@ -1191,7 +1191,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 ### Part 4: Practice
 
-/// type=CR, answer=[tests/DataObjects/CreatePHPProgramUsingQueryMethodTest.php], init=[commands/DataObjects/UpdateStudentsTable.sql]
+/// type=CR, answer=[tests/DataObjects/CreatePHPProgramUsingQueryMethodTest.php], init=[commands/DataObjects/UpdateStudentsTable.sql], filename=[connection.php,student.php]
 
 Write a program that uses two php files named `connection.php` and `student.php` to update a value in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parenthesis `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
