@@ -4,7 +4,7 @@
 
 `PDO::query()` executes an SQL statement in a single function call and returns a result set as a `PDOStatement` object or `false` on failure.
 
-`PDOStatement` class represents a prepared statement and returns an associated result set, after the statement is executed.
+The `PDOStatement` class represents a prepared statement and returns an associated result set after the statement is executed.
 
 The example code below shows how to execute queries in PHP using `PDO::query()`.
 
