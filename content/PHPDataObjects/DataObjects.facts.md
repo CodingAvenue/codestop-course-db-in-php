@@ -26,6 +26,7 @@ The example code below shows how to execute queries in PHP using `PDO::query()`.
     }
 ?>
 ```
+
 - The `require_once("connection.php");` statement includes the file `connection.php` in the file `student.php`.
 
 - `$sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10))";` assigns the SQL statement for creating a new table named `students` to the variable `$sql`.
@@ -36,4 +37,4 @@ The example code below shows how to execute queries in PHP using `PDO::query()`.
 
 - `echo "Successfully created a table.";` displays the string `Successfully created a table.` inside the `try` block.
 
--  The `catch` block executes the `echo` statement if an exception occurs within the `try` block.
+- The `catch` block executes the `echo` statement if an exception occurs within the `try` block.
