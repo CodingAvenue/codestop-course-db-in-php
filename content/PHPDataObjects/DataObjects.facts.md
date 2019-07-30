@@ -35,6 +35,6 @@ The example code below shows how to execute queries in PHP using `PDO::query()`.
 
 - `if (!$stmt) { throw new Exception('Unable to create a table.'); }` evaluates the negated value of `$stmt` and throws an exception if `!$stmt` evaluates to `true`.
 
-- `echo "Successfully created a table.";` displays the string `Successfully created a table.` inside the `try` block.
+- `echo "Successfully created a table.";` displays the string `Successfully created a table.`.
 
 - The `catch` block executes the `echo` statement if an exception occurs within the `try` block.

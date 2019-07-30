@@ -153,19 +153,19 @@ In `student.php`, what does the statement `require_once("connection.php");` do o
 - It excludes the file `connection.php` in the file `student.php`.
 
 
-/// type=SS, answer=[5]
+/// type=SS, answer=[3]
 
 In `student.php`, which statement correctly describes `CREATE TABLE IF NOT EXISTS` on line 4?
 
-- The `CREATE TABLE IF NOT EXISTS` statement modifies an existing table.
+- It shows the list of tables with the name `students`.
 
-- The `CREATE TABLE IF NOT EXISTS` statement creates a new database in the table.
+- It creates the table if the table name `students` already exists.
 
-- The `CREATE TABLE` statement uses the parameter `IF NOT EXISTS` to modifiy an existing table named `students.`.
+- It creates the table if the table name `students` does not exist.
 
-- The `CREATE TABLE` statement uses the parameter `IF NOT EXISTS` to create a copy of existing tables named `students`.
+- It modifies the table if the table name `students` does not exist.
 
-- The `CREATE TABLE` statement uses the parameter `IF NOT EXISTS` to check if a table with the name `students` already exists.
+- It duplicates the table if the table name `students` already exists.
 
 
 /// type=SS, answer=[1]
@@ -505,19 +505,19 @@ Which statements correctly describe `$stmt = $conn->query("SELECT * FROM student
 - It executes the argument `SELECT * FROM students` in the `query()` method.
 
 
-/// type=SS, answer=[5]
+/// type=SS, answer=[4]
 
 In `student.php`, which statement correctly describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';` on line 6?
 
 - It assigns the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` to `$row`.
 
+- It duplicates the values with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender`.
+
+- It returns the values with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from `$row`.
+
+- It displays the values with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from `$row`.
+
 - It accesses the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from the `students` table.
-
-- It duplicates the value of the array element with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender`.
-
-- It returns the value of the array element with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from `$row`.
-
-- It displays the returned value of the array element with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from `$row`.
 
 
 :::
@@ -785,9 +785,9 @@ What is the error message?
 - `PDO::query()` expects at least `1` parameter, `0` given on line 7
 
 
-/// type=MS, answer=[2,4]
+/// type=MS, answer=[2,5]
 
-Which statements best describe the error?
+Which statements correctly describe the error?
 
 - The argument passed is `$sql` on line 7.
 
@@ -795,9 +795,9 @@ Which statements best describe the error?
 
 - There are no parentheses `()` that enclosed the SQL statement on line 4.
 
-- In `student.php`, there are no `$conn` object and object operator `->` on line 7. 
-
 - In `student.php`, the semicolon `;` and the close parenthesis `)` are misplaced on line 7. 
+
+- In `student.php`, there are no `$conn` object and object operator `->` before `query($sql)` on line 7. 
 
 :::
 
@@ -1037,7 +1037,7 @@ Which statements correctly describe the error message?
 
 - There are no parentheses `()` that enclosed the SQL statement on line 4.
 
-- on line 4, the strings `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
+- on line 4, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
 
 - In `student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns on line 4.
 
@@ -1047,7 +1047,7 @@ Which statements correctly describe the error message?
 
 /// type=CR, answer=[tests/DataObjects/MissingValuesClause.php], filename=[connection.php,student.php]
 
-Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`, and `Female` into the table and displays the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`. 
+Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`, and `Female` into the `students` table and displays the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`. 
 
 ```php
 // connection.php
@@ -1089,9 +1089,6 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
     }
 ?>
 ```
-
-:::
-
 
 :::
 
@@ -1147,7 +1144,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[2]
 
-In `student.php`. remove `as $row` in the `foreach` statement on line 5. Execute the program. What is the error message?
+In `student.php`, remove `as $row` in the `foreach` statement on line 5. Execute the program. What is the error message?
 
 - Undefined variable: `row` on line 5
 
@@ -1166,11 +1163,11 @@ Which statement correctly describes the error?
 
 - The `students` table is miswritten as `student` on line 4.
 
-- In `student.php`, there is no open curly brace `{` on line 5.
-
 - On line 5, the argument `$stmt` in the `foreach` construct is invalid.
 
 - The name of the database is not included in the `SELECT` statement on line 4.
+
+- In `student.php`, there is no open curly brace `{` after `foreach ($stmt as $row)` on line 5.
 
 - In `student.php`, the value of the current element on each iteration is not assigned to a variable on line 5.
 
@@ -1223,9 +1220,9 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 /// type=CR, answer=[tests/DataObjects/CreatePHPProgramUsingQueryMethodTest.php], init=[commands/DataObjects/UpdateStudentsTable.sql], filename=[connection.php,student.php]
 
-Write a program that uses two php files named `connection.php` and `student.php` to update a value in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
+Write a program that uses two PHP files named `connection.php` and `student.php` to update a value in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, assign the `query()` method of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to update values in the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
+Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `query()` method call of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to update values in the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
 ```php
 // connection.php
