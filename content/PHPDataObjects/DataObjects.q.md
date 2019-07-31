@@ -1037,7 +1037,7 @@ Which statements correctly describe the error message?
 
 - There are no parentheses `()` that enclosed the SQL statement on line 4.
 
-- on line 4, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
+- On line 4, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
 
 - In `student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns on line 4.
 
