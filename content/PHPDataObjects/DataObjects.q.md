@@ -153,19 +153,19 @@ In `student.php`, what does the statement `require_once("connection.php");` do o
 - It excludes the file `connection.php` in the file `student.php`.
 
 
-/// type=SS, answer=[3]
+/// type=MS, answer=[2,4]
 
-In `student.php`, which statement correctly describes `CREATE TABLE IF NOT EXISTS` on line 4?
+In `student.php`, which statements correctly describe `CREATE TABLE IF NOT EXISTS` on line 4?
 
-- It shows the list of tables with the name `students`.
+- It throws an error if the table name already exsits.
+
+- It does not throw an error if the table name already exists.
 
 - It creates the table if the table name `students` already exists.
 
 - It creates the table if the table name `students` does not exist.
 
 - It modifies the table if the table name `students` does not exist.
-
-- It duplicates the table if the table name `students` already exists.
 
 
 /// type=SS, answer=[1]
@@ -362,7 +362,7 @@ Which statements correctly describe the code on line 9 of `connection.php`?
 
 /// type=MS, answer=[1,2,3,5]
 
-What values are inserted by the statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` on line 5?
+What values are inserted by the statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` on line 5?
 
 - `Male`
 
@@ -377,7 +377,7 @@ What values are inserted by the statement `INSERT INTO students (first_name, las
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the query `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` do on line 5?
+In `student.php`, what does the query `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` do on line 5?
 
 - It modifies multiple tables.
 
@@ -402,7 +402,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
 
 - It assigns the `PDOStatement` object to the variable `$stmt`.
 
-- It executes the argument `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')")` in the `query()` method.
+- It executes the argument `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` in the `query()` method.
 
 
 :::
@@ -1144,7 +1144,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[2]
 
-In `student.php`, remove `as $row` in the `foreach` statement on line 5. Execute the program. What is the error message?
+In `student.php`, remove `as $row` in the `foreach` construct on line 5. Execute the program. What is the error message?
 
 - Undefined variable: `row` on line 5
 
@@ -1222,7 +1222,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 Write a program that uses two PHP files named `connection.php` and `student.php` to update a value in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Then, assign the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `query()` method call of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to update values in the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
+Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Then, add a statement that assigns the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `query()` method call of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to update values in the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
 ```php
 // connection.php

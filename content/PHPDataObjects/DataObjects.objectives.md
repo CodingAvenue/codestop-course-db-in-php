@@ -2,7 +2,7 @@
 
 After completing the lesson, the students should be able to:
 
-- Identify the parameter and return values of the `PDO:query()` method.
+- Identify valid arguments and return values of the `PDO:query()` method.
 
 - Use the `PDO::query()` method to execute queries in PHP.
 
