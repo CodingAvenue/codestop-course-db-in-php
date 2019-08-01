@@ -33,7 +33,7 @@
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'student1' => ['Berry', 'Meisner', '2002-09-09', 'Male'],
         'student2' => ['Vikki', 'Fernando', '2005-05-17', 'Female']
     );
@@ -278,7 +278,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'student1' => ['Daron', 'Guilliams', '2001-09-27', 'Male'],
         'student2' => ['Alisa', 'Ells', '1999-06-30', 'Female']
     );
@@ -298,7 +298,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
     }
 ?>
 ```
-// type=SS, answer=[5]
+/// type=SS, answer=[5]
 
 Execute the program. What is its output?
 
@@ -468,9 +468,9 @@ Which statement correctly describes `WHERE gender = ?` on line 10 of `student.ph
 
 - It assigns the value to be modified in the `students` table.
 
-- It specifies the `gender` value to be selected using a named parameter.
+- It specifies the `gender` value to be selected using the named parameter `gender = ?`.
 
-- It specifies the `gender` value to be selected using a positional placeholder parameter.
+- It specifies the `gender` value to be selected using the positional placeholder parameter `gender= ?`.
 
 
 /// type=MS, answer=[1,3,5]
@@ -614,7 +614,7 @@ Which statement correctly describes the code on lines 4, 5, 6 and 7 of `student.
 
 /// type=SS, answer=[4]
 
-Which statement correctly describes `UPDATE students SET gender=:gender WHERE gender=:female_gender` on line 10 of `students.php`?
+Which statement correctly describes `UPDATE students SET gender=:gender WHERE gender=:female_gender` on line 10 of `student.php`?
 
 - It locates the arguments `:gender` and `:female_gender` in the SQL statement.
 
@@ -756,7 +756,7 @@ Which statements correctly describe `$pstmt->execute(array('M', 'Male')` on line
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes `UPDATE students SET gender= ? WHERE gender= ?` on line 10 of `students.php`?
+Which statement correctly describes `UPDATE students SET gender= ? WHERE gender= ?` on line 10 of `student.php`?
 
 - It locates the argument `gender= ?` in the SQL statement.
 
@@ -766,7 +766,7 @@ Which statement correctly describes `UPDATE students SET gender= ? WHERE gender=
 
 - It assigns the argument `gender= ?` to be replaced in the `students` table.
 
-- It sets the value to be updated in the table using positional placeholder parameters.
+- It sets the value to be updated in the table using positional placeholder parameters `gender= ?`.
 
 :::
 
@@ -958,7 +958,7 @@ Which statement correctly describes a `Prepared Statement`?
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'student1' => ['Berry', 'Meisner', '2002-09-09', 'Male'],
         'student2' => ['Vikki', 'Fernando', '2005-05-17', 'Female']
     );
@@ -1037,7 +1037,7 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'student1' => ['Berry', 'Meisner', '2002-09-09', 'Male'],
         'student2' => ['Vikki', 'Fernando', '2005-05-17', 'Female']
     );
@@ -1086,7 +1086,7 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'min_birth_date' => '1999-01-01',
         'max_birth_date' => '2000-01-01'
     );
@@ -1161,7 +1161,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'min_birth_date' => '1999-01-01',
         'max_birth_date' => '2000-01-01'
     );
@@ -1323,7 +1323,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'student1' => ['Daron', 'Guilliams', '2001-09-27', 'Male'],
         'student2' => ['Alisa', 'Ells', '1999-06-30', 'Female']
     );
@@ -1404,7 +1404,7 @@ Correct the code so that it outputs the string `Successfully connected to the da
 <?php
     require_once("connection.php");
 
-    $data = array (
+    $data = array(
         'student1' => ['Daron', 'Guilliams', '2001-09-27', 'Male'],
         'student2' => ['Alisa', 'Ells', '1999-06-30', 'Female']
     );
@@ -1548,7 +1548,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 /// type=CR, answer=[tests/PreparedStatement/CreatePHPProgramUsingPrepareAndExecute.php], init=[commands/DataObjects/DeleteJohnSmithInStudentsTbl.sql], filename=[connection.php,student.php]
 
-Write a program that uses two PHP files named `connection.php` and `student.php` to insert two students in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
+Write a program that uses two PHP files named `connection.php` and `student.php` to insert two student data in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
 Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'Male']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'Female']`. Then, add a statement that assigns the SQL statement using positional placeholder parameters `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
