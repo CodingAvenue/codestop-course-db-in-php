@@ -153,19 +153,19 @@ In `student.php`, what does the statement `require_once("connection.php");` do o
 - It excludes the file `connection.php` in the file `student.php`.
 
 
-/// type=MS, answer=[2,4]
+/// type=MS, answer=[1,2]
 
 In `student.php`, which statements correctly describe `CREATE TABLE IF NOT EXISTS` on line 4?
 
-- It throws an error if the table name already exsits.
+- It checks if the `students` table does not exist in the `LibraryDB` database.
 
-- It does not throw an error if the table name already exists.
+- It creates the `students` table if it does not exist in the `LibraryDB` database.
 
-- It creates the table if the table name `students` already exists.
+- It creates the `students` table if it already exists in the `LibraryDB` database.
 
-- It creates the table if the table name `students` does not exist.
+- It modifies the `students` table if it does not exist in the `LibraryDB` database.
 
-- It modifies the table if the table name `students` does not exist.
+- It throws an error if the `students` table already exsits in the `LibraryDB` database.
 
 
 /// type=SS, answer=[1]
@@ -917,7 +917,7 @@ Which statements correctly describe the error message?
 
 - There is no comma `,` between the values `John` and `Smith` on line 4.
 
-- On line 4, the table name `students` is not allowed in an `INSERT` statement.
+- On line 4, the table named `students` is not allowed in an `INSERT` statement.
 
 - On line 4, the SQL statement `INSERT students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
 
