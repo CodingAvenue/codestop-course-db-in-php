@@ -1,0 +1,1 @@
+UPDATE students SET gender= 'M' WHERE gender= 'Male';

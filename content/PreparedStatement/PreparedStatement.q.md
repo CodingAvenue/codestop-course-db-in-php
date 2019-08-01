@@ -538,7 +538,7 @@ Which statement correctly describes `echo $row['student_id'].$row['first_name'].
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/UpdatedFemaleGender.sql]
+/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/UpdateFemaleGender.sql]
 
 ```php
 // connection.php
@@ -685,7 +685,7 @@ In the statement `$pstmt->execute(array('Female'));` of `student.php`, replace t
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/UpdatedFemaleGender.sql]
+/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/UpdateMaleGender.sql]
 
 ```php
 // connection.php
@@ -1546,11 +1546,11 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 ### Part 4: Practice
 
-/// type=CR, answer=[tests/PreparedStatement/CreatePHPProgramUsingPrepareAndExecute.php], init=[commands/DataObjects/DeleteJohnSmithInStudentsTbl.sql], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/PreparedStatement/CreatePHPProgramUsingPrepareAndExecute.php], init=[commands/DataObjects/InsertTwoStudentDataIntoTableStudents.sql], filename=[connection.php,student.php]
 
 Write a program that uses two PHP files named `connection.php` and `student.php` to insert two student data in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'Male']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'Female']`. Then, add a statement that assigns the SQL statement using positional placeholder parameters `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
+Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'M']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'F']`. Then, add a statement that assigns the SQL statement using positional placeholder parameters `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
 ```php
 // connectiion.php
