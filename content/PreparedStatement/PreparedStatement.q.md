@@ -96,24 +96,9 @@ In `student.php`, what does the statement `require_once("connection.php");` do o
 - It excludes the file `connection.php` in the file `student.php`.
 
 
-/// type=SS, answer=[5]
-
-Which statement correctly describes the code on line 4 of `student.php`?
-
-- It displays the elements of `$data` using the `array()` construct.
-
-- It accesses the elements of `$data` using the `array()` construct.
-
-- It removes the elements from `$data` using the `array()` construct.
-
-- It interpolates the elements of `$data` using the `array()` construct.
-
-- It creates and initializes the array variable `$data` using the `array()` construct.
-
-
 /// type=MS, answer=[1,2,3,4,5]
 
-Which of the following are values contained in the array?
+Which of the following are array values in the multidimensional array `$data`?
 
 - `Male`
 
@@ -126,64 +111,109 @@ Which of the following are values contained in the array?
 - `2002-09-09`
 
 
-/// type=SS, answer=[2]
+/// type=MS, answer=[2,4]
 
-Which statement correctly describes the code on lines 4, 5, 6, 7 of `student.php`?
+Which statements correctly describe the code on lines 4, 5, 6, and 7 of `student.php`?
 
-- It creates an array named `$data` with multiple elements.
+- It displays the elements of the multidimensional array `$data`.
 
-- It creates an array named `$data` with two key/value pairs.
+- It holds two arrays with four values in each key of `student1` and `student2`.
 
-- It removes the elements of `$data` using the `array()` construct.
+- It removes the elements of the multidimensional array `$data` using the `array()` construct.
 
-- It displays the elements of `$data` using the `array()` construct.
+- It creates the multidimensional array named `$data` with two keys `student1` and `student2`.
 
 - It accesses the elements of `$data` using the `array()` construct and the `[]` short array syntax.
 
 
-/// type=SS, answer=[2]
+/// type=SS, answer=[3]
+
+In `students.php` what does `prepare()` method do on line 10?
+
+- It returns an array.
+
+- It executes the SQL statement.
+
+- It prepares the SQL statement for execution.
+
+- It contains the result set of the remaining rows.
+
+- It substitutes the input values of the SQL statement.
+
+
+/// type=SS, answer=[3]
+
+In `student.php`, what is the return value of `$conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)")` on line 10?
+
+- The SQL statement.
+
+- The DSN parameters.
+
+- The `PDOStatment` object.
+
+- The values of the `$data` array.
+
+- The elements of the `$data` array.
+
+
+/// type=SS, answer=[3]
 
 In `student.php`, what does `$pstmt` do on line 10?
 
 - It stores the SQL statement.
 
-- It holds the statement object.
-
 - It executes the SQL statement.
+
+- It holds the `PDOStatement` object.
 
 - It inserts values into the `students` table.
 
 - It stores the values of the `students` table.
 
 
+/// type=SS, answer=[3]
+
+In `student.php`, which of the following represents the positional placeholder as a parameter on line 10?
+
+- `students`
+
+- `first_name`
+
+- `(?,?,?,?)`
+
+- `INSERT INTO`
+
+- `(first_name, last_name, birth_date, gender)`
+
+
 /// type=SS, answer=[5]
 
-Which statement correctly describes `VALUES (?,?,?,?)` on line 10 of `student.php`?
+In `student.php`, what does the positional placeholder `VALUES (?,?,?,?)` do on line 10?
 
-- It locates the values in the SQL statement.
+- It removes question mark values in the SQL statement.
 
-- It assigns the values to be replaced in the `students` table.
+- It inserts question marks as values to the `students` table.
 
-- It assigns the values to be modified in the `students` table.
+- It sets random values of question marks to the SQL statement.
 
-- It specifies the values to be inserted using named parameters.
+- It replaces the values in the SQL statement with question marks to have randomized values.
 
-- It specifies the values to be inserted using positional placeholder parameters.
+- It substitutes the values in the SQL statement with question marks to prevent SQL injection attacks.
 
 
 /// type=MS, answer=[2,3,4,5]
 
-Which statements correctly describe the code on line 10 of `student.php`?
+In `student.php`, which statements correctly describe `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");` on line 10?
 
-- It queries the SQL statement.
+- It executes the SQL statement.
 
-- It returns the statement object.
+- It prepares the SQL statement for execution.
+
+- It returns the result set as a `PDOStatement` object.
 
 - It calls the `prepare()` method of the `$conn` object.
 
-- It assigns the statement object to the variable `$pstmt`.
-
-- It executes the argument `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` in the `prepare()` method.
+- It assigns the `PDOStatement` object to the variable `$pstmt`.
 
 
 /// type=MS, answer=[4,5]
@@ -201,7 +231,37 @@ Which statements correctly describe the `foreach` construct on line 11 of `stude
 - It assigns the value of the current element on each iteration to `$row`.
 
 
-/// type=MS, answer=[2,4,5]
+/// type=SS, answer=[2]
+
+In `student.php`, what does `execute()` method do on line 12?
+
+- It executes the SQL statement.
+
+- It executes the argument `$row`.
+
+- It fetches the remaining row of the result set.
+
+- It duplicates the values of `$data` to the SQL statement.
+
+- It assigns the values of the multidimensional array `$data` to the variable `$row`.
+
+
+/// type=SS, answer=[5]
+
+What value is assigned to the variable `$row` on line 12 of `student.php`?
+
+- The SQL statement.
+
+- The DSN parameters.
+
+- The `PDOStatment` object.
+
+- The elements of the multidimensional array `$data`.
+
+- The values of each key of `student1` and `student2`.
+
+
+/// type=MS, answer=[2,3,4]
 
 Which statements correctly describe `$pstmt->execute($row);` on line 12 of `student.php`?
 
@@ -209,26 +269,27 @@ Which statements correctly describe `$pstmt->execute($row);` on line 12 of `stud
 
 - It returns the boolean value `true`.
 
-- It assigns the values to the variable `$row`.
 
 - It calls the `execute()` method of the `$pstmt` object.
 
 - It executes the argument `$row` in the `execute()` method.
 
+- It assigns the return value of the `execute()` method to the variable `$row`.
 
-/// type=SS, answer=[5]
 
-What does the `if` construct do on line 12 of `student.php`?
+/// type=SS, answer=[3]
 
-- It adds the value of $stmt.
+In `student.php`, what is the return value of `!$pstmt->execute($row)` on line 12?
 
-- It displays the value of $stmt.
+- The SQL statement.
 
-- It removes the value of $stmt.
+- The boolean value `true`.
 
-- It assigns a value to the $stmt variable.
+- The boolean value `false`.
 
-- It evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`.
+- The `PDOStatement` object.
+
+- The elements of the multidimensional array `$data`.
 
 
 /// type=SS, answer=[3]
@@ -330,7 +391,7 @@ Which of the following are values contained in the array?
 
 /// type=SS, answer=[3]
 
-How many elements does the array `$data` have?
+How many elements does the multidimensional array `$data` have?
 
 - 0
 
@@ -349,7 +410,7 @@ In `student.php`, what does `$sql` do on line 9?
 
 - It holds the SQL statement.
 
-- It holds the statement object.
+- It holds the `PDOStatement` object.
 
 - It executes the SQL statement.
 
@@ -358,34 +419,65 @@ In `student.php`, what does `$sql` do on line 9?
 - It connects to the PostgreSQL database.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
-Which statement correctly describes `VALUES (:first_name, :last_name, :birthdate, :gender)` on line 9 of `student.php`?
+In `student.php`, what named placeholder is assigned to the value `Daron`?
 
-- It locates the values in the SQL statement.
+- `student1`
 
-- It assigns the values to be replaced in the `students` table.
+- `last_name`
 
-- It assigns the values to be modified in the `students` table.
+- `first_name`
 
-- It specifies the values to be inserted using named parameters.
+- `:last_name`
 
-- It specifies the values to be inserted using positional placeholder parameters.
+- `:first_name`
+
+
+/// type=SS, answer=[1]
+
+In student.php, what does `$sql` do on line 4?
+
+- It holds the SQL statement.
+
+- It executes the SQL statement.
+
+- It holds the `PDOStatement` object.
+
+- It holds the elements of the array variable `$data`.
+
+- It stores the array values of the multidimensional array `$data`.
+
+
+/// type=SS, answer=[5]
+
+Which statement correctly describes `VALUES (:first_name, :last_name, :birth_date, :gender)` on line 9 of `student.php`?
+
+- It locates the values in the SQL statement using positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender`.
+
+- It assigns the named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to be inserted in the `students` table.
+
+- It sets the positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to replace the values in the SQL statement.
+
+- It replaces the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to have randomized values.
+
+- It substitutes the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to prevent from SQL injections.
 
 
 /// type=MS, answer=[2,3,4,5]
 
-Which statements correctly describe the code on line 12 of `student.php`?
+Which statements correctly describe `$pstmt = $conn->prepare($sql)` line 12 of `student.php`?
 
-- It queries the SQL statement.
+- It executes the SQL statement.
 
-- It returns the statement object.
+- It prepares the argument `$sql` for execution.
+
+- It returns the result set as a `PDOStatement` object.
 
 - It calls the `prepare()` method of the `$conn` object.
 
-- It assigns the statement object to the variable `$pstmt`.
+- It assigns the `PDOStatement` object to the variable `$pstmt`.
 
-- It executes the argument `$sql` in the `prepare()` method.
 
 :::
 
@@ -449,28 +541,28 @@ Which statements correctly describe the code on line 4 of `student.php`?
 
 - It queries the SQL statement.
 
-- It returns the statement object.
+- It returns the `PDOStatement` object.
 
 - It calls the `prepare()` method of the `$conn` object.
 
-- It assigns the statement object to the variable `$pstmt`.
+- It assigns the `PDOStatement` object to the variable `$pstmt`.
 
 - It executes the argument `SELECT * FROM students WHERE gender = ?` in the `prepare()` method.
 
 
-/// type=SS, answer=[5]
+/// type=MS, answer=[2,4]
 
-Which statement correctly describes `WHERE gender = ?` on line 10 of `student.php`?
+Which statements correctly describe `WHERE gender = ?` on line 10 of `student.php`?
 
-- It locates the value in the SQL statement.
+- It assigns the value `?` to the column `gender`.
 
-- It assigns the value to be replaced in the `students` table.
+- It sets the condition for which rows are updated.
 
-- It assigns the value to be modified in the `students` table.
+- The `gender` column should contain the value `?`.
 
-- It specifies the `gender` value to be selected using the named parameter `gender = ?`.
+- The `gender` column should contain a record with the value `Female`.
 
-- It specifies the `gender` value to be selected using the positional placeholder parameter `gender= ?`.
+- It changes all values in the `gender` column set by the positional placeholder `?`.
 
 
 /// type=MS, answer=[1,3,5]
@@ -513,9 +605,9 @@ Which statements correctly describe the code on line 6 of `student.php`?
 
 - It executes the argument `$pstmt` in the `fetchAll()` method.
 
-- It returns the array containing all of the remaining rows in the result set.
+- It returns the array that contains the result set of the remaining rows.
 
-- It assigns the array containing all of the remaining rows in the result set to the variable `$data`.
+- It assigns the return value of `fetchAll()` method to the variable `$data`.
 
 
 /// type=SS, answer=[4]
@@ -597,34 +689,35 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully updated values in the table.`.
 
 
-/// type=SS, answer=[3]
+/// type=SS, answer=[4]
 
 Which statement correctly describes the code on lines 4, 5, 6 and 7 of `student.php`?
 
-- It adds an array named `$data` to the database.
+- It displays the elements of `$data` with only one key.
 
-- It creates an array named `$data` with two elements.
-
-- It creates an array named `$data` with two key/value pairs.
-
-- It displays the elements of `$data` with one key/value pair.
+- It adds the multidimensional array named `$data` to the database.
 
 - It accesses the elements of `$data` using the `array()` construct.
 
+- It creates the multidimensional array named `$data` with two keys `gender` and `female_gender`.
 
-/// type=SS, answer=[4]
+- It creates the multidimensional array named `$data` with two elements `gender` and `female_gender`.
 
-Which statement correctly describes `UPDATE students SET gender=:gender WHERE gender=:female_gender` on line 10 of `student.php`?
 
-- It locates the arguments `:gender` and `:female_gender` in the SQL statement.
+/// type=MS, answer=[3,4]
 
-- It assigns the arguments `:gender` and `:female_gender` to be updated in the `students` table.
+Which statements correctly describe `UPDATE students SET gender=:gender WHERE gender=:female_gender` on line 10 of `student.php`?
 
-- It assigns the arguments `:gender` and `:female_gender` to be replaced in the `students` table.
+- It modifies all rows in the `gender` column.
 
-- It sets the value to be updated in the table using named parameters `:gender` and `:female_gender`.
+- It selects `students` as the table to be deleted.
 
-- It sets the value to be updated in the table using positional placeholder parameters `:gender` and `:female_gender`.
+- It selects `students` as the table to be modified.
+
+- It updates the rows in the `gender` column with the value set by the named placeholders `:gender` and `:female_gender`.
+
+- It updates the rows in the `gender` column with the value set by the positional placeholders `:gender` and `:female_gender`.
+
 
 :::
 
@@ -669,7 +762,7 @@ Which statement correctly describes `UPDATE students SET gender=:gender WHERE ge
 ```
 /// type=SS, answer=[4]
 
-In the statement `$pstmt->execute(array('Female'));` of `student.php`, replace the value `Female` with `F`. Execute the program. What is its output?
+In the statement `$pstmt->execute(array('Female'));` on line 5 of `student.php`, replace the value `Female` with `F`. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -741,7 +834,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[1,3,5]
 
-Which statements correctly describe `$pstmt->execute(array('M', 'Male')` on line 7 of `student.php`?
+Which statements correctly describe `$pstmt->execute(array('M', 'Male'))` on line 7 of `student.php`?
 
 - It returns the boolean value `true`.
 
@@ -754,19 +847,20 @@ Which statements correctly describe `$pstmt->execute(array('M', 'Male')` on line
 - It executes the argument `array('M', 'Male')` in the `execute()` method.
 
 
-/// type=SS, answer=[5]
+/// type=MS, answer=[3,5]
 
-Which statement correctly describes `UPDATE students SET gender= ? WHERE gender= ?` on line 10 of `student.php`?
+Which statements correctly describe `UPDATE students SET gender= ? WHERE gender= ?` on line 10 of `student.php`?
 
-- It locates the argument `gender= ?` in the SQL statement.
+- It modifies all rows in the `gender` column.
 
-- It sets the value to be updated in the table using named parameters.
+- It selects `students` as the table to be deleted.
 
-- It assigns the argument `gender= ?` to be updated in the `students` table.
+- It selects `students` as the table to be modified.
 
-- It assigns the argument `gender= ?` to be replaced in the `students` table.
+- It updates the rows in the `gender` column with the value substituted by the named placeholder `?`.
 
-- It sets the value to be updated in the table using positional placeholder parameters `gender= ?`.
+- It updates the rows in the `gender` column with the value substituted by the positional placeholder `?`.
+
 
 :::
 
@@ -811,7 +905,7 @@ Which statement correctly describes `UPDATE students SET gender= ? WHERE gender=
 ```
 /// type=SS, answer=[4]
 
-In the statement `$pstmt->execute(array('Male'));` of student.php, replace the value `Male` with `M`. Execute the program. What is its output?
+The statement `$pstmt->execute(array('Male'));` on line 5 of `student.php`, replace the value `Male` with `M`. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -833,11 +927,9 @@ In the statement `$pstmt->execute(array('Male'));` of student.php, replace the v
 
 ### Part 2: Knowledge Assessment
 
-/// type=MS, answer=[1,2]
+/// type=MS, answer=[1,5]
 
 Which statements correctly describe `PDO::prepare()`?
-
-- It returns a statement object.
 
 - It prepares an SQL statement.
 
@@ -846,6 +938,8 @@ Which statements correctly describe `PDO::prepare()`?
 - It stores the values in an array.
 
 - It executes a prepared statement.
+
+- It returns a `PDOStatement` object.
 
 
 /// type=SS, answer=[2]
@@ -858,16 +952,14 @@ What argument is passed in the `PDO::prepare()` method?
 
 - An array of values.
 
-- A statement object.
-
 - An `echo` statement.
 
+- A `PDOStatement` object.
 
-/// type=SS, answer=[5]
 
-Which statement correctly describe `PDOStatement::execute()`?
+/// type=SS, answer=[4]
 
-- It returns a statement object.
+Which statement correctly describes `PDOStatement::execute()`?
 
 - It prepares an SQL statement.
 
@@ -877,50 +969,52 @@ Which statement correctly describe `PDOStatement::execute()`?
 
 - It executes a prepared statement.
 
+- It returns a `PDOStatement` object.
 
-/// type=SS, answer=[1]
+
+/// type=SS, answer=[3]
 
 What argument is passed in the `PDO::execute()` method?
-
-- An array.
 
 - A DSN parameter.
 
 - An SQL statement.
 
-- A statement object.
+- An array of values.
 
 - An `echo` statement.
 
+- A `PDOStatement` object.
 
-/// type=MS, answer=[2,5]
 
-What are the argument types to prepare and execute an SQL statement?
+/// type=MS, answer=[3,4]
+
+What are the placeholder types that can be used to prepare and execute an SQL statement?
 
 - `DSN parameters`
 
-- `Named parameters`
+- `Array variables`
 
-- `Boolean parameters`
+- `Named placeholders`
 
-- `Statement object parameters`
+- `Positional placeholders`
 
-- `Positional placeholder parameters`
+- `Predefined placeholders`
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 Which statement correctly describes a `Prepared Statement`?
 
-- It is an interface in PHP.
+- It copies data from a file into the table.
 
-- It is a prepared statement.
+- It prepares an SQL statement for execution.
 
-- It is a method that copies data from a file into the table.
+- It sends queries and uploads data to databases.
 
-- It is a template for sending queries and uploading data to databases.
+- It allows access from PHP to PostgreSQL databases.
 
-- It is a driver of `PHP Data Objects Interface` that allows access from PHP to PostgreSQL databases.
+- It executes the same statement with high efficiency repeatedly.
 
 +++
 
@@ -1001,16 +1095,16 @@ Which statements correctly describe the error message?
 
 - On line 10, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
 
-- In `student.php`, there is no `VALUES` clause specifying the values to be inserted into the selected columns on line 10.
+- In `student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns on line 10.
 
 - On line 10, the statement `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender)");` is incorrect.
 
 :::
 
 
-/// type=CR, answer=[tests/PreparedStatement/MissingValuseClause.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/PreparedStatement/MissingValuesClause.php], filename=[connection.php,student.php]
 
-Correct the code so that it inserts values using the `VALUES` clause with positional placeholder parameters and outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`.
+Correct the code so that it inserts values using the `VALUES` clause with positional placeholders as parameters and outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`.
 
 ```php
 // connection.php
@@ -1126,13 +1220,13 @@ Which statements correctly describe the error?
 
 - On lines 5 and 6, the values set by the keys `:min_birth_date` and `:max_birth_date` is incorrect.
 
-- The named parameters `:min_birth_date` and `:max_birth_date` are enclosed in single quotes `''` on line 9.
+- The named placeholders `:min_birth_date` and `:max_birth_date` are enclosed in single quotes `''` on line 9.
 
-- On line 9, the statement ` $sql = "SELECT * FROM students WHERE birth_date >= ':min_birth_date' AND birth_date < ':max_birth_date'";` is incorrect.
+- On line 9, the statement `$sql = "SELECT * FROM students WHERE birth_date >= ':min_birth_date' AND birth_date < ':max_birth_date'";` is incorrect.
 
 :::
 
-/// type=CR, answer=[tests/PreparedStatement/NamedParametersEnclosedinSingleQuotes.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/PreparedStatement/NamedPlaceholdersEnclosedinSingleQuotes.php], filename=[connection.php,student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10M 2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F`.
 
@@ -1234,7 +1328,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully updated values in the table.`.
 
 
-/// type=MS, answer=[4.5]
+/// type=MS, answer=[4,5]
 
 Which statements correctly describe the error message?
 
@@ -1242,11 +1336,11 @@ Which statements correctly describe the error message?
 
 - On line 5, the column name `gender` is not enclosed in single quotes `''`.
 
-- In `student.php`, the colon `:` and question mark `?` are misplaced on line 5.
+- In `student.php`, the colon `:` and positional placeholder `?` are misplaced on line 5.
 
 - On line 5, the statement `$sql = "UPDATE students SET gender= :? WHERE gender= :?";` is incorrect.
 
-- On line 5, the positional placeholder parameters in `SET gender = :?` and `WHERE gender= :?` contain a colon `:`.
+- On line 5, the positional placeholder  in `SET gender = :?` and `WHERE gender= :?` contain a colon `:`.
 
 :::
 
@@ -1366,7 +1460,7 @@ Which statements correctly describe the error message?
 
 - There are no parentheses `()` that enclosed the SQL statement on line 9.
 
-- There is no colon `:` in the specified named parameters inside the `VALUES` clause on line 9.
+- There is no colon `:` in the specified named placeholders inside the `VALUES` clause on line 9.
 
 - On line 9, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
 
@@ -1375,7 +1469,7 @@ Which statements correctly describe the error message?
 :::
 
 
-/// type=CR, answer=[tests/PreparedStatement/MissingColonNamedParameters.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/PreparedStatement/MissingColonNamedPlaceholders.php], filename=[connection.php,student.php]
 
 Correct the code so that it outputs the string `Successfully connected to the database.` and `Successfully inserted values into the table.`.
 
@@ -1483,7 +1577,7 @@ Execute the program. What are the error messages?
 
 /// type=MS, answer=[2,3]
 
-Which statement correctly describes the error?
+Which statements correctly describe the error?
 
 - On line 4, the `students` table does not exist.
 
@@ -1550,7 +1644,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 Write a program that uses two PHP files named `connection.php` and `student.php` to insert two student data in the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'M']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'F']`. Then, add a statement that assigns the SQL statement using positional placeholder parameters `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
+Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'M']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'F']` to `$data`. Then, add a statement that assigns the SQL statement using positional placeholder  `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
 ```php
 // connectiion.php
