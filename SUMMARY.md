@@ -12,14 +12,14 @@
 * [Prepared Statement with execute()](content/UsingExecute/UsingExecute.q.md) ** - minutes**
     > Discover how you can execute prepared statements using `PDOStatement::execute()` with binding methods such as `bindParam()` and `bindValue()`.
 
+* [Prepared Statement with fetchAll()](content/UsingFetchAll/UsingFetchAll.q.md) ** -minutes**
+    > Discover how you can use `PDOStatement::fetchAll()` to return an array that holds all the rows in a result set.
+
 * [Prepared Statement with fetch()](content/UsingFetch/UsingFetch.q.md) ** - minutes**
     > Learn how you can use `PDOStatement::fetch()` to fetch data and return a specific row of data from a result set.
 
 * [Prepared Statement with fetchColumn()](content/UsingFetchColumn/UsingFetchColumn.q.md) ** - minutes**
     > Learn how you can use `PDOStatement::fetchColumn()` to fetch a column from the next row of a result set.
-
-* [Prepared Statement with fetchAll()](content/UsingFetchAll/UsingFetchAll.q.md) ** -minutes**
-    > Discover how you can use `PDOStatement::fetchAll()` to return an array that holds all the rows in a result set.
 
 * [PDOStatement Methods](content/PDOStatementMethods/PDOStatementMethods.q.md) ** - minutes**
     > Explore the things you can do with some of the `PDOStatement` methods such as `PDOStatement::columnCount()`, `PDOStatement::rowCount()`, and `PDOStatement::nextRowSet()`.
