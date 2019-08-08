@@ -435,7 +435,7 @@ In `student.php`, what does `$sql` do on line 9?
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the named placeholder as a parameter on line 9?
+In `student.php`, which of the following represents the named placeholder as a parameter?
 
 - `students`
 
@@ -1043,12 +1043,12 @@ Which statements correctly describe a prepared statement?
 
 - It sends queries and uploads data to databases.
 
-- It contains placeholders instead of actual parameter values 
+- It contains placeholders instead of actual parameter values.
 
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes SQL injection?
+Which statement correctly describes an SQL injection?
 
 - It is a method fetches large result sets.
 

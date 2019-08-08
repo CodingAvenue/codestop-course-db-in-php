@@ -60,4 +60,3 @@ foreach ($data as $sqlData => $values) {
 - The `foreach` statement iterates through each key of the multidimensional array `$data`.
 
 - `$pstmt->execute($values);` executes a prepared statement passing the argument `$values`.
-
