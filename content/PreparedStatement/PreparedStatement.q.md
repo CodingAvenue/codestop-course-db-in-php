@@ -1030,19 +1030,19 @@ Which types of placeholders are supported by the prepared statement?
 - Predefined placeholders
 
 
-/// type=MS, answer=[2,4]
+/// type=SS, answer=[5]
 
 Which statements correctly describe a prepared statement?
 
-- It alters SQL commands.
+- It is used to alter SQL commands.
 
-- It helps against SQL injection attacks.
+- It prepares an SQL statement for execution
 
-- It prepares an SQL statement for execution.
+- It sends queries and uploads data to databases. 
 
-- It executes the same SQL statement repeatedly. 
+- It substitutes the actual parameter values with placeholders.
 
-- It sends queries and uploads data to databases.
+- It is used to execute an SQL statement multiple times with the same or different parameter values.
 
 
 /// type=SS, answer=[5]

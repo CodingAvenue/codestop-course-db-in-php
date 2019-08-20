@@ -1,8 +1,8 @@
 ### Facts for Prepared Statement lesson:
 
-A `prepared statement` also known as a parameterized statement is used to execute the same SQL statement repeatedly. 
+A `prepared statement` is used to execute an SQL statement multiple times with the same or different parameter values.
 
-Execution of a prepared statement consists of using `prepare()` and `execute()` methods. Using `placeholders` instead of actual parameter values during execution of a prepared statement is useful against SQL injection attacks because certain values are left unspecified. 
+The execution of a prepared statement consists of using `prepare()` and `execute()` methods. Using `placeholders` instead of actual parameter values during the execution of a prepared statement is useful against SQL injection attacks because certain values are left unspecified. 
 
 SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It could bypass authentication then accesses, modifies, and deletes data in a database. 
 
