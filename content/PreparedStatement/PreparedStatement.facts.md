@@ -1,16 +1,18 @@
 ### Facts for Prepared Statement lesson:
 
-Using `prepared statements` in executing the same SQL statement repeatedly helps against SQL injections. It contains `placeholders` instead of actual parameter values during execution which is useful against SQL injection attacks. Execution of a prepared statement consists of using `prepare()` and `execute()` methods.
+A `prepared statement` also known as a parameterized statement is used to execute the same SQL statement repeatedly. 
 
-SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It could bypass authentication then accesses, modifies and deletes data in a database. 
+Execution of a prepared statement consists of using `prepare()` and `execute()` methods. Using `placeholders` instead of actual parameter values during execution of a prepared statement is useful against SQL injection attacks because certain values are left unspecified. 
+
+SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It could bypass authentication then accesses, modifies, and deletes data in a database. 
 
 - The `PDO::prepare()` method prepares an SQL statement for execution using the `PDOStatement::execute()` method and returns a `PDOStatement` object.
 
 - The `PDOStatement::execute()` method executes a prepared statement and returns `true` on success or `false` on failure.
 
-- The `PDOStatement::fetchAll()` method fetches large result sets and returns either an array containing the remaining rows in the result set or an empty array.
+- The `PDOStatement::fetchAll()` method fetches a result set and returns an array of the remaining rows in a result set.
 
-`Placeholders` are used to substitute the input values during runtime to protect against SQL injection. A `placeholder` is often indicated by a question mark `?` called `positional placeholder` or a colon followed by a variable name `:variable_name` called `named placeholder`. 
+`Placeholders` are used to substitute the input values in an SQL statement to protect against SQL injection. A `placeholder` is often indicated by a question mark `?` called `positional placeholder` or a colon followed by a variable name `:variable_name` called `named placeholder`. 
 
 The example code below shows how to prepare and execute an SQL statement using different types of placeholder in PHP.
 
@@ -27,10 +29,11 @@ foreach ($data as $row) {
     $pstmt->execute($row);
 }
 ```
+- `$conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)")` prepares the SQL statement.
 
-- `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");` assigns the `PDOStatement` object of the `prepare()` method to the variable `$pstmt`.
+- `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
 
-- `(?,?,?,?)` substitutes the values to be inserted in the SQL statement using four positional placeholders `?,?,?,?` for four input values to prevent from SQL injections.
+- The `VALUES (?,?,?,?)` clause uses positional placeholders `?,?,?,?` to substitute the values to be inserted into the table to prevent SQL injections.
 
 - The `foreach` statement iterates through each key in the multidimensional array `$data`.
 
@@ -50,12 +53,11 @@ foreach ($data as $sqlData => $values) {
         $pstmt->execute($values);
 }
 ```
-
 - `$sql = "INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (:first_name, :last_name, :birth_date, :gender)";` assigns the SQL statement to the variable `$sql`.
 
-- `(:first_name, :last_name, :birth_date, :gender)` substitutes the values to be inserted in the SQL statement using named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to prevent from SQL injections.
+- The `VALUES (:first_name, :last_name, :birth_date, :gender)` clause uses named placeholders `:first_name, :last_name, :birth_date, :gender` to substitute the values to be inserted into the table to prevent SQL injections.
 
-- `$pstmt = $conn->prepare($sql);` assigns the `PDOStatement` object of the `prepare()` method to the `$pstmt` variable.
+- `$pstmt = $conn->prepare($sql);` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
 
 - The `foreach` statement iterates through each key of the multidimensional array `$data`.
 

@@ -126,7 +126,7 @@ Which statements correctly describe the code on lines 4, 5, 6, and 7 of `student
 - It accesses the elements of `$data` using the `array()` construct and the `[]` short array syntax.
 
 
-/// type=SS, answer=[2,3]
+/// type=MS, answer=[2,3]
 
 In `student.php` what does the `prepare()` method do on line 10?
 
@@ -177,9 +177,9 @@ In `student.php`, which of the following represents the positional placeholder a
 
 - `students`
 
-- `first_name`
-
 - `(?,?,?,?)`
+
+- `first_name`
 
 - `INSERT INTO`
 
@@ -188,7 +188,7 @@ In `student.php`, which of the following represents the positional placeholder a
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the positional placeholder `VALUES (?,?,?,?)` do on line 10?
+In `student.php`, what does the positional placeholders as parameters `(?,?,?,?)` do on line 10?
 
 - It removes question mark values in the SQL statement.
 
@@ -205,15 +205,15 @@ In `student.php`, what does the positional placeholder `VALUES (?,?,?,?)` do on 
 
 In `student.php`, which statements correctly describe `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` on line 10?
 
-- It inserts two rows into the `students` table.
+- It sets to add new records into the `students` table.
 
-- It replaces the values in the SQL statement with question marks `(?,?,?,?)`.
+- It replaces the values in the SQL statement with question marks `?,?,?,?`.
 
-- It uses question marks `(?,?,?,?)` as paramters to be inserted into the `students` table.
+- It uses question marks `?,?,?,?` as parameters to be inserted into the `students` table.
 
-- It modifies the values to be inserted into the `students` table with positional placeholders `(?,?,?,?)`
+- It modifies the values to be inserted into the `students` table with positional placeholders `?,?,?,?`
 
-- It uses positional placeholders `(?,?,?,?)` to associate the values to be inserted into the `students` table.
+- It uses positional placeholders `?,?,?,?` to associate the values to be inserted into the `students` table.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -261,7 +261,7 @@ In `student.php`, what does the `execute()` method do on line 12?
 - It assigns the values of the multidimensional array `$data` to the variable `$row`.
 
 
-/// type=SS, answer=[5]
+/// type=SS, answer=[4]
 
 What value is assigned to the variable `$row` on line 12 of `student.php`?
 
@@ -450,7 +450,7 @@ In `student.php`, which of the following represents the named placeholder as a p
 
 /// type=SS, answer=[4]
 
-In `student.php`, what named placeholder is associated with the value `1999-06-30` on line 9?
+In `student.php`, which named placeholder is associated with the value `1999-06-30` on line 9?
 
 - `:gender`
 
@@ -465,7 +465,7 @@ In `student.php`, what named placeholder is associated with the value `1999-06-3
 
 /// type=SS, answer=[5]
 
-In `student.php`, what named placeholder is associated with the value `Daron` on line 9?
+In `student.php`, which named placeholder is associated with the value `Daron` on line 9?
 
 - `student1`
 
@@ -480,7 +480,7 @@ In `student.php`, what named placeholder is associated with the value `Daron` on
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes `VALUES (:first_name, :last_name, :birth_date, :gender)` on line 9 of `student.php`?
+Which statement correctly describes `(first_name, last_name, birth_date, gender)` on line 9 of `student.php`?
 
 - It locates the values in the SQL statement using positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender`.
 
@@ -495,7 +495,7 @@ Which statement correctly describes `VALUES (:first_name, :last_name, :birth_dat
 
 /// type=MS, answer=[2,3,4,5]
 
-Which statements correctly describe `$pstmt = $conn->prepare($sql)` line 12 of `student.php`?
+Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 of `student.php`?
 
 - It executes the SQL statement.
 
@@ -576,14 +576,14 @@ Which statements correctly describe the code on line 4 of `student.php`?
 
 - It assigns the `PDOStatement` object to the variable `$pstmt`.
 
-- It prepares the argument `SELECT * FROM students WHERE gender = ?` in the `prepare()` method.
+- It prepares the SQL statement `SELECT * FROM students WHERE gender = ?` as an argument in the `prepare()` method.
 
 
-/// type=MS, answer=[1,5]
+/// type=SS, answer=[5]
 
 Which statements correctly describe `WHERE gender = ?` on line 4 of `student.php`?
 
-- It returns all records of students whose gender is equal to `Female`.
+- It selects all columns in the `students` table.
 
 - It deletes all columns in the `students` table whose gender is equal to `?`.
 
@@ -630,13 +630,13 @@ Which statements correctly describe the code on line 6 of `student.php`?
 
 - It queries the SQL statement.
 
-- It assigns the returned value to the variable `$data`.
-
 - It calls the `fetchAll()` method of the `$pstmt` object.
+
+- It returns the array of the remaining rows in the result set.
 
 - It executes the argument `$pstmt` in the `fetchAll()` method.
 
-- It returns the array of the remaining rows in the result set.
+- It assigns the array of the remaining rows in the result set to the variable `$data`.
 
 
 /// type=SS, answer=[4]
@@ -692,7 +692,7 @@ Which statement correctly describes `echo $row['student_id'].$row['first_name'].
     );
     
     try {
-        $sql = "UPDATE students SET gender=:gender WHERE gender=:female_gender";
+        $sql = "UPDATE students SET gender = :gender WHERE gender = :female_gender";
         $pstmt = $conn->prepare($sql);
         if (!$pstmt->execute($data)) {
             throw new Exception("Unable to update values in the table.");
@@ -720,7 +720,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[4]
 
-Which statement correctly describes the code on lines 4, 5, 6 and 7 of `student.php`?
+Which statement correctly describes the code on lines 4, 5, 6, and 7 of `student.php`?
 
 - It adds the associative array named `$data` to the database.
 
@@ -733,9 +733,9 @@ Which statement correctly describes the code on lines 4, 5, 6 and 7 of `student.
 - It creates the associative array named `$data` with two elements `gender` and `female_gender`.
 
 
-/// type=MS, answer=[3,4]
+/// type=MS, answer=[4,5]
 
-Which statements correctly describe `UPDATE students SET gender=:gender WHERE gender=:female_gender` on line 10 of `student.php`?
+Which statements correctly describe `UPDATE students SET gender = :gender WHERE gender = :female_gender` on line 10 of `student.php`?
 
 - It modifies all rows in the `gender` column.
 
@@ -743,10 +743,9 @@ Which statements correctly describe `UPDATE students SET gender=:gender WHERE ge
 
 - It selects the `students` table to be modified.
 
-- It updates the rows in the `gender` column with the values set by the named placeholders `:gender` and `:female_gender`.
+- It updates the rows in the `gender` column with the value of the named placeholder `:gender`.
 
-- It updates the rows in the `gender` column with the values set by the positional placeholders `:gender` and `:female_gender`.
-
+- It sets the condition that all rows containing values equal to the value of the named placeholder `:female_gender` are updated.
 
 :::
 
@@ -835,7 +834,7 @@ In the statement `$pstmt->execute(array('Female'));` on line 5 of `student.php`,
     require_once("connection.php");
 
     try {
-        $sql = "UPDATE students SET gender= ? WHERE gender= ?";
+        $sql = "UPDATE students SET gender = ? WHERE gender = ?";
         $pstmt = $conn->prepare($sql);
         if (!$pstmt->execute(array('M', 'Male'))) {
             throw new Exception("Unable to update values in the table.");
@@ -861,19 +860,19 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully updated values in the table.`.
 
 
-/// type=MS, answer=[3,5]
+/// type=MS, answer=[4,5]
 
-Which statements correctly describe `UPDATE students SET gender= ? WHERE gender= ?` on line 5 of `student.php`?
+Which statements correctly describe `UPDATE students SET gender = ? WHERE gender = ?` on line 5 of `student.php`?
 
 - It modifies all rows in the `gender` column.
 
 - It selects the `students` table to be deleted.
-
+ 
 - It selects the `students` table to be modified.
 
-- It updates the rows in the `gender` column with the value substituted by the named placeholder `?`.
+- It updates the rows in the `gender` column with the value of the positional placeholder `?`.
 
-- It updates the rows in the `gender` column with the value substituted by the positional placeholder `?`.
+- It sets the condition that all rows containing values equal to the value of the positional placeholder `?` are updated.
 
 
 /// type=MS, answer=[1,3,5]
@@ -1018,7 +1017,7 @@ What argument is passed in the `PDO::execute()` method?
 
 /// type=MS, answer=[3,4]
 
-What are the types of placeholders that can be used to prepare and execute an SQL statement?
+Which types of placeholders are supported by the prepared statement?
 
 - DSN parameters
 
@@ -1031,19 +1030,19 @@ What are the types of placeholders that can be used to prepare and execute an SQ
 - Predefined placeholders
 
 
-/// type=MS, answer=[1,3,5]
+/// type=MS, answer=[2,4]
 
 Which statements correctly describe a prepared statement?
+
+- It alters SQL commands.
 
 - It helps against SQL injection attacks.
 
 - It prepares an SQL statement for execution.
 
-- It executes the same SQL statement repeatedly.
+- It executes the same SQL statement repeatedly. 
 
 - It sends queries and uploads data to databases.
-
-- It contains placeholders instead of actual parameter values.
 
 
 /// type=SS, answer=[5]
@@ -1347,7 +1346,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     require_once("connection.php");
 
     try {
-        $sql = "UPDATE students SET gender= :? WHERE gender= :?";
+        $sql = "UPDATE students SET gender = :? WHERE gender = :?";
         $pstmt = $conn->prepare($sql);
         if (!$pstmt->execute(array('F', 'Female'))) {
             throw new Exception("Unable to update values in the table.");
@@ -1383,9 +1382,9 @@ Which statements correctly describe the error message?
 
 - In `student.php`, the colon `:` and positional placeholder `?` are misplaced on line 5.
 
-- On line 5, the statement `$sql = "UPDATE students SET gender= :? WHERE gender= :?";` is incorrect.
+- On line 5, the statement `$sql = "UPDATE students SET gender = :? WHERE gender = :?";` is incorrect.
 
-- On line 5, the positional placeholders in `SET gender = :?` and `WHERE gender= :?` contain a colon `:`.
+- On line 5, the positional placeholders in `SET gender = :?` and `WHERE gender = :?` contain a colon `:`.
 
 :::
 
@@ -1420,7 +1419,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     require_once("connection.php");
 
     try {
-        $sql = "UPDATE students SET gender= :? WHERE gender= :?";
+        $sql = "UPDATE students SET gender = :? WHERE gender = :?";
         $pstmt = $conn->prepare($sql);
         if (!$pstmt->execute(array('F', 'Female'))) {
             throw new Exception("Unable to update values in the table.");
