@@ -1,10 +1,6 @@
 ### Facts for Prepared Statement lesson:
 
-A `prepared statement` is used to execute an SQL statement multiple times with the same or different parameter values.
-
-The execution of a prepared statement consists of using `prepare()` and `execute()` methods. Using `placeholders` instead of actual parameter values during the execution of a prepared statement is useful against SQL injection attacks because certain values are left unspecified. 
-
-SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It could bypass authentication then accesses, modifies, and deletes data in a database. 
+A `prepared statement` is used to execute an SQL statement multiple times with the same or different parameter values. The execution of a prepared statement consists of using `prepare()` and `execute()` methods. 
 
 - The `PDO::prepare()` method prepares an SQL statement for execution using the `PDOStatement::execute()` method and returns a `PDOStatement` object.
 
@@ -12,7 +8,9 @@ SQL injection `(SQLI)` is a code injection technique that alters SQL commands an
 
 - The `PDOStatement::fetchAll()` method fetches a result set and returns an array of the remaining rows in a result set.
 
-`Placeholders` are used to substitute the input values in an SQL statement to protect against SQL injection. A `placeholder` is often indicated by a question mark `?` called `positional placeholder` or a colon followed by a variable name `:variable_name` called `named placeholder`. 
+Using `placeholders` instead of actual parameter values in a prepared statement is useful against SQL injection attacks because `placeholders` substitute the actual input values in an SQL statement. A `placeholder` is often indicated by a question mark `?` called `positional placeholder` or a colon followed by a variable name `:variable_name` called `named placeholder`. 
+
+SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It could bypass authentication then accesses, modifies, and deletes data in a database. 
 
 The example code below shows how to prepare and execute an SQL statement using different types of placeholder in PHP.
 
