@@ -188,7 +188,7 @@ In `student.php`, which of the following represents the positional placeholder a
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the positional placeholders as parameters `(?,?,?,?)` do on line 10?
+In student.php, what does the positional placeholder `?` as parameters do on line 10?
 
 - It removes question mark values in the SQL statement.
 
@@ -207,13 +207,13 @@ In `student.php`, which statements correctly describe `INSERT INTO students (fir
 
 - It sets to add new records into the `students` table.
 
-- It replaces the values in the SQL statement with question marks `?,?,?,?`.
+- It replaces the values in the SQL statement with question marks `?`.
 
-- It uses question marks `?,?,?,?` as parameters to be inserted into the `students` table.
+- It uses question marks `?` as parameters to be inserted into the `students` table.
 
-- It modifies the values to be inserted into the `students` table with positional placeholders `?,?,?,?`
+- It modifies the values to be inserted into the `students` table with positional placeholders `?`.
 
-- It uses positional placeholders `?,?,?,?` to associate the values to be inserted into the `students` table.
+- It uses positional placeholders `?` to associate the values to be inserted into the `students` table.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -480,7 +480,7 @@ In `student.php`, which named placeholder is associated with the value `Daron` o
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes `(first_name, last_name, birth_date, gender)` on line 9 of `student.php`?
+Which statement correctly describes `(:first_name, :last_name, :birth_date, :gender)` on line 9 of `student.php`?
 
 - It locates the values in the SQL statement using positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender`.
 
@@ -733,7 +733,7 @@ Which statement correctly describes the code on lines 4, 5, 6, and 7 of `student
 - It creates the associative array named `$data` with two elements `gender` and `female_gender`.
 
 
-/// type=MS, answer=[4,5]
+/// type=MS, answer=[3,4,5]
 
 Which statements correctly describe `UPDATE students SET gender = :gender WHERE gender = :female_gender` on line 10 of `student.php`?
 
@@ -860,7 +860,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully updated values in the table.`.
 
 
-/// type=MS, answer=[4,5]
+/// type=MS, answer=[3,4,5]
 
 Which statements correctly describe `UPDATE students SET gender = ? WHERE gender = ?` on line 5 of `student.php`?
 
@@ -1139,9 +1139,9 @@ Which statements correctly describe the error message?
 
 - On line 10, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
 
-- In `student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns on line 10.
-
 - On line 10, the statement `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender)");` is incorrect.
+
+- In `student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns of the `students` table on line 10.
 
 :::
 
@@ -1691,7 +1691,7 @@ Write a program that uses two PHP files named `connection.php` and `student.php`
 Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'M']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'F']` using the `array()` construct. Then, add a statement that assigns the SQL statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
 ```php
-// connectiion.php
+// connection.php
 <?php
 
 ?>
