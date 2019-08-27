@@ -308,7 +308,7 @@ In `student.php`, what value is returned by `!$pstmt->execute($row)` on line 12?
 
 /// type=SS, answer=[3]
 
-Which statement correctly describes the code on lines 12, 13, and 14 of `student.php`?
+Which statement best describes the code on lines 12, 13, and 14 of `student.php`?
 
 - The statement displays the values assigned to the `$row` variable.
 
@@ -480,7 +480,7 @@ In `student.php`, which named placeholder is associated with the value `Daron` o
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes `(:first_name, :last_name, :birth_date, :gender)` on line 9 of `student.php`?
+Which statement best describes `(:first_name, :last_name, :birth_date, :gender)` on line 9 of `student.php`?
 
 - It locates the values in the SQL statement using positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender`.
 
@@ -641,7 +641,7 @@ Which statements correctly describe the code on line 6 of `student.php`?
 
 /// type=SS, answer=[4]
 
-Which statement correctly describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';` on line 6 of `student.php`?
+Which statement best describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';` on line 6 of `student.php`?
 
 - It assigns the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` to `$row`.
 
@@ -720,7 +720,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[4]
 
-Which statement correctly describes the code on lines 4, 5, 6, and 7 of `student.php`?
+Which statement best describes the code on lines 4, 5, 6, and 7 of `student.php`?
 
 - It adds the associative array named `$data` to the database.
 
@@ -987,7 +987,7 @@ What argument is passed in the `PDO::prepare()` method?
 
 /// type=SS, answer=[4]
 
-Which statement correctly describes `PDOStatement::execute()`?
+Which statement best describes `PDOStatement::execute()`?
 
 - It prepares an SQL statement.
 
