@@ -128,7 +128,7 @@ Which statements correctly describe the code on lines 4, 5, 6, and 7 of `student
 
 /// type=MS, answer=[2,3]
 
-In `student.php` what does the `prepare()` method do on line 10?
+In `student.php`, what does the `prepare()` method do on line 10?
 
 - It executes the SQL statement.
 
@@ -188,7 +188,7 @@ In `student.php`, which of the following represents the positional placeholder a
 
 /// type=SS, answer=[5]
 
-In student.php, what does the positional placeholder `?` as parameters do on line 10?
+In `student.php`, what does the positional placeholder `?` as parameters do on line 10?
 
 - It removes question mark values in the SQL statement.
 
@@ -490,7 +490,7 @@ Which statement correctly describes `(:first_name, :last_name, :birth_date, :gen
 
 - It replaces the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to have randomized values.
 
-- It substitutes the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to prevent from SQL injections.
+- It substitutes the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to prevent SQL injections.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -581,7 +581,7 @@ Which statements correctly describe the code on line 4 of `student.php`?
 
 /// type=SS, answer=[5]
 
-Which statements correctly describe `WHERE gender = ?` on line 4 of `student.php`?
+Which statements best describe `WHERE gender = ?` on line 4 of `student.php`?
 
 - It selects all columns in the `students` table.
 
@@ -1032,7 +1032,7 @@ Which types of placeholders are supported by the prepared statement?
 
 /// type=SS, answer=[5]
 
-Which statements correctly describe a prepared statement?
+Which statement best describes a prepared statement?
 
 - It is used to alter SQL commands.
 
@@ -1047,7 +1047,7 @@ Which statements correctly describe a prepared statement?
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes an SQL injection?
+Which statement best describes an SQL injection?
 
 - It is a method fetches large result sets.
 
