@@ -1,4 +1,4 @@
-# Prepared Statement with Execute
+# Prepared Statement with Binding Methods
 
 +++
 
@@ -82,9 +82,9 @@ Which of the following are array values in the associative array `$data`?
 - `max_birth_date`
 
 
-/// type=MS, answer=[2,3,5]
+/// type=SS, answer=[5]
 
-Which statements correctly describe the code on lines 4, 5, 6, and 7 of `student.php`?
+Which statement best describes the code on lines 4, 5, 6, and 7 of `student.php`?
 
 - It displays the elements of the associative array `$data`.
 
@@ -99,7 +99,7 @@ Which statements correctly describe the code on lines 4, 5, 6, and 7 of `student
 
 /// type=MS, answer=[4,5]
 
-In `student.php`, which of the following represent the named placeholders as parameters?
+In `student.php`, which of the following are named placeholders?
 
 - `students`
 
@@ -114,7 +114,7 @@ In `student.php`, which of the following represent the named placeholders as par
 
 /// type=SS, answer=[1]
 
-In `student.php`, what value associates to the named placeholder `:min_birth_date` on line 9?
+In `student.php`, what value is associated with the named placeholder `:min_birth_date` on line 9?
 
 - `1999-01-01`
 
@@ -129,7 +129,7 @@ In `student.php`, what value associates to the named placeholder `:min_birth_dat
 
 /// type=SS, answer=[2]
 
-In `student.php`, what value associates to the named placeholder `:max_birth_date` on line 9?
+In `student.php`, what value is associated with the named placeholder `:max_birth_date` on line 9?
 
 - `1999-01-01`
 
@@ -142,9 +142,9 @@ In `student.php`, what value associates to the named placeholder `:max_birth_dat
 - `max_birth_date`
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
-Which statement correctly describes `WHERE birth_date >= :min_birth_date AND birth_date < :max_birth_date` on line 9 of `student.php`?
+Which statement best describes `WHERE birth_date >= :min_birth_date AND birth_date < :max_birth_date` on line 9 of `student.php`?
 
 - It returns all records of students whose `birth_date` starts with `1999-01-01` or `2000-01-01`.
 
@@ -152,9 +152,9 @@ Which statement correctly describes `WHERE birth_date >= :min_birth_date AND bir
 
 - It selects all columns in the `students` table equivalent to the dates `1999-01-01` and `2000-01-01`.
 
-- It returns all records of students whose `birth_date` is between the dates `1999-01-01` and `2000-01-01`.
-
 - It updates all columns in the `students` table whose `birth_date` is between the dates `1999-01-01` and `2000-01-01`.
+
+- It returns all records of students whose `birth_date` is greater than or equal to the date `1999-01-01` and less than the date `2000-01-01`.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -189,7 +189,7 @@ In `student.php`, which of the following is the parameter identifier in the stat
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the variable that is passed to the parameter in the argument `(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR)` on line 12?
+In `student.php`, which of the following represents the value to bind in the SQL statement on line 12?
 
 - `$data`
 
@@ -204,7 +204,7 @@ In `student.php`, which of the following represents the variable that is passed 
 
 /// type=SS, answer=[3]
 
-In `student.php`, which of the following represents the explicit data type in the argument `(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR)` on line 12?
+In `student.php`, which of the following represents the explicit data type in the statement `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'],PDO::PARAM_STR);` on line 12?
 
 - `$data`
 
@@ -217,34 +217,34 @@ In `student.php`, which of the following represents the explicit data type in th
 - `$data['max_birth_date']`
 
 
-/// type=MS, answer=[3,4]
+/// type=MS, answer=[1,4]
 
 In `student.php`, which statements correctly describe `(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR)` on line 12?
+
+- It represents the parameter of the `bindParam()` method.
 
 - It contains the key, array variable, data type of the parameter.
 
 - It contains the variable, value, and data type of the parameter.
 
-- It contains the key, variable, and constant data type of the parameter.
-
-- It represents the argument that is passed in the `bindParam()` method.
+- It contains the key, array element, and constant data type of the parameter.
 
 - It contains the parameter identifier, variable, and data type of the parameter.
 
 
 /// type=SS, answer=[4]
 
-In `student.php`, what does the `bindParam()` do on line 12?
+In `student.php`, what does the `bindParam()` method do on line 12?
 
 - It assigns the value `1999-01-01` to the named placeholder `:min_birth_date`.
 
-- It modifies the value `2000-01-01` to the named placeholder as parameter `:max_birth_date`.
-
 - It updates the value `1990-01-01` to the named placeholder as parameter `:min_birth_date`.
 
-- It binds the named placeholder `:min_birth_date` to the specified variable `$data['min_birth_date']`.
+- It modifies the value `2000-01-01` to the named placeholder as parameter `:max_birth_date`.
 
-- It binds the named placeholder `:max_birth_date` to the specified variable `$data['max_birth_date']`.
+- It binds the named placeholder `:min_birth_date` to the specified array element `$data['min_birth_date']`.
+
+- It binds the named placeholder `:max_birth_date` to the specified array element `$data['max_birth_date']`.
 
 
 /// type=MS, answer=[2,3,5]
@@ -259,12 +259,12 @@ Which statements correctly describe `$pstmt->bindParam(':min_birth_date', $data[
 
 - It assigns the named placeholder `:min_birth_date` to `$pstmt`.
 
-- It binds the argument `(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR)`.
+- It binds the array element `$data['min_birth_date]` to the named placeholder `:min_birth_date` in the SQL statement.
 
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the variable that is passed to the placeholder in the argument `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR);` on line 13?
+In `student.php`, which of the following represents the variable to bind in the SQL statement on line 13?
 
 - `$data`
 
@@ -300,11 +300,11 @@ In `student.php`, what does the `bindParam()` method do on line 13?
 
 - It modifies the named placeholder `:max_birth_date` to the value `2000-01-01`.
 
-- It binds the named placeholder `:max_birth_date` to the specified variable `$data['max_birth_date']`.
+- It binds the named placeholder `:max_birth_date` to the specified array element `$data['max_birth_date']`.
 
-- It updates the named placeholder `:max_birth_date` to the specified variable `$data[max_birth_date]`.
+- It updates the named placeholder `:max_birth_date` to the specified array element `$data[max_birth_date]`.
 
-- It binds the named placeholder `:min_birth_date` to the specified variable `$data['min_birth_date']`.
+- It binds the named placeholder `:min_birth_date` to the specified array element `$data['min_birth_date']`.
 
 
 /// type=SS, answer=[3]
@@ -322,7 +322,7 @@ In `student.php`, what does the `execute()` method do on line 14?
 - It duplicates the name placeholders in the `bindParam()` method.
 
 
-/// type=MS, answer=[2,4,5]
+/// type=MS, answer=[2,3,5]
 
 Which statements correctly describe the code on line 16 of `student.php`?
 
@@ -330,11 +330,11 @@ Which statements correctly describe the code on line 16 of `student.php`?
 
 - It calls the `fetchAll()` method of the `$pstmt` object.
 
+- It returns the array containing all of the result set rows.
+
 - It executes the argument `$pstmt` in the `fetchAll()` method.
 
-- It returns the array that contains the result set of the remaining rows.
-
-- It assigns the return value of `fetchAll()` method to the variable `$data`.
+- It assigns the returned value of `fetchAll()` method to the variable `$data`.
 
 :::
 
@@ -400,7 +400,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[1]
 
-Which variable holds the SQL statement in the code?
+Which variable holds the SQL statement in `student.php`?
 
 - `$sql`
 
@@ -413,9 +413,11 @@ Which variable holds the SQL statement in the code?
 - `first_name`
 
 
-/// type=MS, answer=[4,5]
+/// type=SS, answer=[1]
 
-In `student.php`, which of the following are positional placeholders as parameters on line 4?
+In `student.php`, which of the following is a positional placeholder as a parameter on line 4?
+
+- `?`
 
 - `$sql`
 
@@ -423,24 +425,22 @@ In `student.php`, which of the following are positional placeholders as paramete
 
 - `DELETE FROM`
 
-- `last_name = ?`
-
 - `first_name = ?`
 
 
-/// type=SS, answer=[2]
+/// type=SS, answer=[5]
 
-In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what is `1`? 
+In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what is `1`?
 
-- It is the data type.
+- It is the predefined constant that represents the string data type.
 
-- It is the index position of the parameter.
+- It is the value to bind to the positional placeholder `?` in the SQL statement.
 
-- It is the value to bind to the positional placeholder.
+- It is the data type of the positional placeholder in the SQL statement `first_name = ?`.
 
-- It is the variable to bind to the positional placeholder.
+- It is the variable to bind to the positional placeholder in the SQL statement `first_name = ?`.
 
-- It is the predefined constant that represents a string data type.
+- It is the index position of the parameter corresponding to the question mark placeholder in the SQL statement `first_name = ?`.
 
 
 /// type=SS, answer=[3]
@@ -458,37 +458,37 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 - It is the variable that is passed to the positional placeholder.
 
 
-/// type=MS, answer=[3,5]
+/// type=MS, answer=[3,4]
 
 Which statements correctly describe `(1, 'John')` on line 8 of `student.php`?
 
-- It represents the index and value of the parameter.
+- It contains the key and array value of the parameter.
 
-- It represents the key and array value of the parameter.
+- It contains the key and array element of the parameter.
 
-- It represents the parameter identifier and value of the parameter.
+- It represents the parameter of the `bindValue()` method.
 
-- It represents the variable and constant data type of the parameter.
+- It contains the parameter identifier and value of the parameter.
 
-- It represents the argument that is passed in the `bindValue()` method.
+- It contains the variable and constant data type of the parameter.
 
 
-/// type=SS, answer=[2]
+/// type=SS, answer=[1]
 
 In `student.php`, what does the `bindValue()` do on line 8?
 
-- It binds the value `John` to the positional placeholder `last_name = ?`.
+- It binds the value `John` to the first positional placeholder `?` of the variable `first_name`.
 
-- It binds the value `John` to the positional placeholder `first_name= ?`.
+- It binds the value `John` to the second positional placeholder `?` of the variable `last_name`.
 
-- It replaces the value `John` to the positional placeholder `last_name= ?`.
+- It replaces the value `John` to the first positional placeholder `?` of the variable `first_name`.
 
-- It replaces the value `John` to the positional placeholder `first_name= ?`.
+- It replaces the value `John` to the second positional placeholder `?` of the variable `last_name`.
 
-- It assigns the value `John` to the positional placeholder `first_name = ?`.
+- It assigns the value `John` to the first positional placeholder `firstname = ?` in the SQL statement.
 
 
-/// type=MS, answer=[2,3,5]
+/// type=MS, answer=[2,4,5]
 
 Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`?
 
@@ -496,16 +496,16 @@ Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 8 of 
 
 - It returns the boolean value `true`.
 
-- It binds the argument `(1, 'John')`.
-
 - It assigns the value `John` to `$pstmt`.
 
 - It calls the `bindValue()` method of the `$pstmt` object.
 
+- It binds the value `John` to the first positional placeholder `?` of the variable `first_name`.
+
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following represents the index position of the parameter on line 9?
+In `student.php`, which of the following is the parameter identifier in the statement `$pstmt->bindValue(2, 'Smith');` on line 9?
 
 - `2`
 
@@ -518,19 +518,19 @@ In `student.php`, which of the following represents the index position of the pa
 - `bindValue()`
 
 
-/// type=SS, answer=[1]
+/// type=SS, answer=[2]
 
-In `student.php`, what does the `bindValue()` do on line 9?
+In `student.php`, what does `bindValue()` do on line 9?
 
-- It binds the value `Smith` to the positional placeholder `last_name= ?`.
+- It binds the value `John` to the first positional placeholder `?` of the variable `first_name`.
 
-- It binds the value `Smith` to the positional placeholder `first_name = ?`.
+- It binds the value `Smith` to the second positional placeholder `?` of the variable `last_name`.
 
-- It replaces the value `Smith` to the positional placeholder `last_name= ?`.
+- It replaces the value `John` to the first positional placeholder `?` of the variable `first_name`.
 
-- It assigns the value `Smith` to the positional placeholder `last_name = ?`.
+- It assigns the value `Smith` to the second positional placeholder `?` of the variable `last_name`.
 
-- It replaces the value `Smith` to the positional placeholder `first_name= ?`.
+- It replaces the value `Smith` to the second positional placeholder `?` of the variable `last_name`.
 
 :::
 
@@ -605,7 +605,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[4]
 
-On lines 5 and 6 of `student.php`, replace the string values `John` and `Smith` with `Alisa` and `Ells`. Execute the program. What is its output?
+On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `Alisa` and `Ells`. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -715,7 +715,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[3,4]
 
-What are the SQL commands used in the code?
+What are the SQL statements used in the `student.php`?
 
 - `VALUES`
 
@@ -775,9 +775,9 @@ Which statements correctly describe the code on lines 9, 10, and 11 of `student.
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following represents the positional placeholders as parameters?
+In `student.php`, which of the following represents a positional placeholder as a parameter?
 
-- `(?,?)`
+- `?`
 
 - `$data`
 
@@ -805,7 +805,7 @@ What value is assigned to `$data[0]` on line 13?
 
 /// type=MS, answer=[3,4]
 
-In `student.php`, what variables are passed to the positional placeholders `(?,?)` on line 12?
+In `student.php`, what values are passed to the positional placeholders on line 12?
 
 - `1`
 
@@ -970,35 +970,35 @@ Which statements correctly describe `PDOStatement::bindParam()`?
 
 What arguments are passed in `PDOStatement::bindValue()`?
 
-- The parameter identifier.
+- A parameter identifier.
 
-- The row number of the parameter.
+- A row number of the parameter.
 
-- The explicit data type for the parameter.
+- An explicit data type for the parameter.
 
-- The return value either `true` or `false`. 
+- A return value either `true` or `false`. 
 
-- The value or variable to bind to the parameter.
+- A value or variable to bind to the parameter.
 
 
 /// type=MS, answer=[1,4,5]
 
 What arguments are passed in `PDOStatement::bindParam()`?
 
-- The parameter identifier.
+- A parameter identifier.
 
-- The row number of the parameter.
+- A row number of the parameter.
 
-- The value to bind to the parameter.
+- A value to bind to the parameter.
 
-- The variable to bind to the parameter.
+- A variable to bind to the parameter.
 
-- The explicit data type for the parameter.
+- An explicit data type for the parameter.
 
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes `PDO::PARAM_STR`?
+Which statement best describes `PDO::PARAM_STR`?
 
 - It is a predefined constant that represents a boolean data type.
 
@@ -1080,7 +1080,7 @@ Execute the program. What is the error message?
 - syntax error, unexpected `$data` (T_VARIABLE), expecting `,` or `)` on line 12 
 
 
-/// type=MS, answer=[4,5]
+/// type=MS, answer=[3,5]
 
 Which statements correctly describe the error?
 
@@ -1088,11 +1088,11 @@ Which statements correctly describe the error?
 
 - In `student.php`, the semicolon `;` and close parenthesis `)` are misplaced on line 7.
 
+- On line 12, the parameter identifier `:min_birth_date` should be an index position of value `1`.
+
 - On lines 5 and 6, the values set by the keys `:min_birth_date` and `:max_birth_date` is incorrect.
 
-- On line 12, the parameter identifier should be an index position of `1`, not a named placeholder `:min_birth_date`.
-
-- On line 12, the parameter identifier `:min_birth_date` in the argument `(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR)` is incorrect.
+- On line 12, the parameter identifier `:min_birth_date` in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` is incorrect.
 
 :::
 
@@ -1217,7 +1217,7 @@ Which statements correctly describe the error?
 
 - On lines 8 and 9, the statements `bindValue(1, 'John')` and `bindValue(2, 'Smith');` are incorrect.
 
-- In `student.php`, there are no `$pstmt` object and object operator `->` before the `bindValue()` methods on lines 8 and 9. 
+- In `student.php`, there are no `$pstmt` object and object operator `->` before the `bindValue()` method on lines 8 and 9. 
 
 :::
 
@@ -1478,13 +1478,13 @@ Which statements correctly describe the error?
 
 - On line 4, the statement `$data = 'Anne','Frank;'` is incorrect.
 
-- On line 4, the strings `Anne` and `Frank` are enclosed in single quotes `''`
+- On line 4, the strings `Anne` and `Frank` are enclosed in single quotes `''`.
 
-- There are no parentheses `()` that enclosed the strings `Anne` and `Frank` on line 4.
+- On line 4, a comma `,` between the values `Anne` and `Frank` is not allowed.
 
-- On the 4, the strings `Anne` and `Frank` are not enclosed inside square brackets `[]`.
+- On line 4, the strings `Anne` and `Frank` are not enclosed in square brackets `[]`.
 
-- On line 4, a comma `,` between the array elements `Anne` and `Frank` is not allowed.
+- There are no parentheses `()` that enclosed the values `Anne` and `Frank` on line 4.
 
 :::
 
@@ -1541,7 +1541,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 /// type=CR, answer=[tests/PDOExecuteStatement/CreatePHPProgramUsingBindValue.php], init=[commands/PDOExecuteStatement/InsertStephenHawkingData.sql], filename=[connection.php,author.php]
 
-Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindValue()` method to bind a value to a parameter. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (?,?)` to the `$pstmt` variable. Then, add the `bindValue()` method call of the `$pstmt` object which passes the argument `(1, 'Stephen', PDO::PARAM_STR)`. Add another `bindValue()` method call of the `$pstmt` object which passes the argument `(2, 'Hawking', PDO::PARAM_STR)`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
+Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindValue()` method to bind a value to a parameter. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (?,?)` to the `$pstmt` variable. Then, add the `bindValue()` method call of the `$pstmt` object which contains the parameter `(1, 'Stephen', PDO::PARAM_STR)`. Add another `bindValue()` method call of the `$pstmt` object which contains the parameter `(2, 'Hawking', PDO::PARAM_STR)`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
 ```php
 // connection.php
@@ -1571,7 +1571,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
 
 /// type=CR, answer=[tests/PDOExecuteStatement/CreatePHPProgramUsingBindParam.php],  init=[commands/PDOExecuteStatement/InsertFarleyMowatData.sql], filename=[connection.php,author.php]
 
-Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which passes the argument `(':first_name', $data[0], PDO::PARAM_STR)`. Add another `bindParam()` method call of the `$pstmt` object which passes the argument `(':last_name', $data[1], PDO::PARAM_STR);`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
+Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which contains the parameter `(':first_name', $data[0], PDO::PARAM_STR)`. Add another `bindParam()` method call of the `$pstmt` object which contains the parameter `(':last_name', $data[1], PDO::PARAM_STR);`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
 ```php
 // connection.php
@@ -1598,3 +1598,5 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
 
 ?>
 ```
+
++++
