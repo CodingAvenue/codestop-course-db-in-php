@@ -44,7 +44,6 @@
     $pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);
     $pstmt->bindParam(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR);
     $pstmt->execute();
-
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
@@ -159,7 +158,7 @@ Which statement best describes `WHERE birth_date >= :min_birth_date AND birth_da
 
 /// type=MS, answer=[2,3,4,5]
 
-Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 of `student.php`?
+Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 11 of `student.php`?
 
 - It executes the SQL statement.
 
@@ -204,20 +203,20 @@ In `student.php`, which of the following represents the value to bind in the SQL
 
 /// type=SS, answer=[3]
 
-In `student.php`, which of the following represents the explicit data type in the statement `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'],PDO::PARAM_STR);` on line 12?
+In `student.php`, which of the following represents the explicit data type in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 12?
 
 - `$data`
 
-- `max_birth_date`
+- `min_birth_date`
 
 - `PDO::PARAM_STR`
 
-- `:max_birth_date`
+- `:min_birth_date`
 
-- `$data['max_birth_date']`
+- `$data['min_birth_date']`
 
 
-/// type=MS, answer=[1,4]
+/// type=MS, answer=[1,5]
 
 In `student.php`, which statements correctly describe `(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR)` on line 12?
 
@@ -229,7 +228,7 @@ In `student.php`, which statements correctly describe `(':min_birth_date', $data
 
 - It contains the key, array element, and constant data type of the parameter.
 
-- It contains the parameter identifier, variable, and data type of the parameter.
+- It contains the parameter identifier, array element, and data type of the parameter.
 
 
 /// type=SS, answer=[4]
@@ -264,7 +263,7 @@ Which statements correctly describe `$pstmt->bindParam(':min_birth_date', $data[
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the variable to bind in the SQL statement on line 13?
+In `student.php`, which of the following represents the value to bind in the SQL statement on line 13?
 
 - `$data`
 
@@ -319,12 +318,12 @@ In `student.php`, what does the `execute()` method do on line 14?
 
 - It fetches the result set of the `bindParam()` method.
 
-- It duplicates the name placeholders in the `bindParam()` method.
+- It duplicates the named placeholders in the `bindParam()` method.
 
 
 /// type=MS, answer=[2,3,5]
 
-Which statements correctly describe the code on line 16 of `student.php`?
+Which statements correctly describe the code on line 15 of `student.php`?
 
 - It queries the SQL statement.
 
@@ -475,7 +474,7 @@ Which statements correctly describe `(1, 'John')` on line 8 of `student.php`?
 
 /// type=SS, answer=[1]
 
-In `student.php`, what does the `bindValue()` do on line 8?
+In `student.php`, what does `bindValue()` do on line 8?
 
 - It binds the value `John` to the first positional placeholder `?` of the variable `first_name`.
 
@@ -633,19 +632,19 @@ On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bind
 - It prints `Successfully connected to the database.` and `Student record not found.`.
 
 
-/// type=MS, answer=[4,5]
+/// type=MS, answer=[3,5]
 
-What does the `if` construct do on line 17 of `student.php`?
+Which statements correctly describe the code on lines 17, 18, and 19 of `student.php`?
 
 - It adds the values to `$data`.
 
 - It displays the values of `$data`.
 
+- It returns the boolean value `false`.
+
 - It assigns the values to the array variable `$data`.
 
-- It evaluates the array variable `$data` inside the parentheses `()`.
-
-- It uses the `empty()` function to check if the array variable `$data` is empty or not.
+- It checks the array variable `$data` if empty or not.
 
 :::
 
@@ -715,7 +714,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[3,4]
 
-What are the SQL statements used in the `student.php`?
+What are the SQL statements used in `student.php`?
 
 - `VALUES`
 
@@ -936,34 +935,34 @@ In the statement `$pstmt->bindValue(':first_name', $author_name, PDO::PARAM_STR)
 
 ### Part 2: Knowledge Assessment
 
-/// type=MS, answer=[2,4,5]
+/// type=MS, answer=[3,4]
 
 Which statements correctly describe `PDOStatement::bindValue()`?
 
-- It passes only a variable.
-
-- It binds a value to a parameter.
+- It replaces a value or variable.
 
 - It executes a prepared statement.
 
 - It passes both value and variable.
 
-- It returns `true` on success and `false` on failure.
+- It binds a value or variable to a parameter.
+
+- It binds a parameter exclusively to a specified variable.
 
 
-/// type=MS, answer=[1,4,5]
+/// type=MS, answer=[1,5]
 
 Which statements correctly describe `PDOStatement::bindParam()`?
 
-- It passes only a variable.
+- It binds only a variable.
 
 - It executes a prepared statement.
 
 - It passes both value and variable.
 
-- It binds a parameter to a specified variable name.
+- It binds a value or variable to a parameter.
 
-- It returns `true` on success and `false` on failure.
+- It binds a parameter exclusively to a specified variable.
 
 
 /// type=MS, answer=[1,3,5]
