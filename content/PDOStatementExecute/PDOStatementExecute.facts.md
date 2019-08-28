@@ -6,14 +6,6 @@ Parameter binding in a prepared statement is essential against SQL injections. T
 
 - `PDOStatement::bindParam()` method binds a parameter exclusively to a specified variable. The variable is bound as a reference.
 
-The parameter of `bindValue()` and `bindParam()` methods is composed of:
-
-- `parameter identifier` - The indexed position of the parameter for positional placeholders and parameter name `:variable` for named placeholders.
-
-- `variable name` or `value` - The variable name or value to bind to the SQL statement.
-
-- `data_type` - The explicit data type of the parameter using `PDO::PARAM_*constants`.
-
 The example code below shows how to execute a prepared statement that uses `PDOStatement::bindParam()` and `PDOStatement::bindValue()`:
 
 ```php
