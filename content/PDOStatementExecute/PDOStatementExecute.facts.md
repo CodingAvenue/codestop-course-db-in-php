@@ -21,9 +21,9 @@ $pstmt->execute();
 ```
 - `$pstmt->bindParam(1, $data['first_name'], PDO::PARAM_STR);` and `$pstmt->bindParam(2, $data['birth_date'], PDO::PARAM_STR);` binds the array elements `$data['first_name]` and `$data['birth_date']` to the corresponding question mark placeholders in the SQL statement which are `first_name = ?` and `birth_date = ?` respectively.
 
-- The `(1, $data['first_name'], PDO::PARAM_STR)` and `(2, $data['birth_date'], PDO::PARAM_STR)` are parameters of the `bindParam()` method that contain the index position as the parameter identifier, variable to bind to the placeholder, and explicit data type for the parameter.
+- The `(1, $data['first_name'], PDO::PARAM_STR)` and `(2, $data['birth_date'], PDO::PARAM_STR)` are parameters of the `bindParam()` method that contain the index position as the parameter identifier, variable to bind to the placeholder, and explicit data type for the parameter using `PDO::PARAM_*constants`.
 
-- The `PDO::PARAM_STR` is a predefined constant that represents an `SQL CHAR`, `VARCHAR`, or other string data type.
+- The `PDO::PARAM_STR` is a predefined constant of a string data type or SQL CHAR, VARCHAR.
 
 - `$pstmt->execute();` executes the prepared statement of `$pstmt`.
 
