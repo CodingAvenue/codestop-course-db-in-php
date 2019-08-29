@@ -310,7 +310,7 @@ In `student.php`, what value is returned by `!$pstmt->execute($row)` on line 12?
 
 Which statement best describes the code on lines 12, 13, and 14 of `student.php`?
 
-- The statement displays the values assigned to the `$row` variable.
+- The statement displays the values assigned to the variable `$row`.
 
 - The `if` statement evaluates to `true` and the statement on line 13 is executed.
 
@@ -581,7 +581,7 @@ Which statements correctly describe the code on line 4 of `student.php`?
 
 /// type=SS, answer=[5]
 
-Which statements best describe `WHERE gender = ?` on line 4 of `student.php`?
+Which statement best describes `WHERE gender = ?` on line 4 of `student.php`?
 
 - It selects all columns in the `students` table.
 
