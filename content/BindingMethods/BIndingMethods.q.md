@@ -81,19 +81,19 @@ Which of the following are array values in the associative array `$data`?
 - `max_birth_date`
 
 
-/// type=SS, answer=[5]
+/// type=SS, answer=[4]
 
 Which statement best describes the code on lines 4, 5, 6, and 7 of `student.php`?
 
 - It displays the elements of the associative array `$data`.
 
-- It holds the elements of the associative array `$data` using the `array()` construct.
-
 - It holds two keys with one value in each key such as `1999-01-01` and `2000-01-01`.
 
-- It accesses the elements of `$data` using the `array()` construct and the `[]` short array syntax.
+- It holds the elements of the associative array `$data` using the `array()` language construct.
 
 - It creates the associative array named `$data` with two keys `min_birth_date` and `max_birth_date`.
+
+- It accesses the elements of `$data` using the `array()` language construct and the short array syntax `[]`.
 
 
 /// type=MS, answer=[4,5]
@@ -1355,7 +1355,7 @@ Which statements correctly describe the error?
 
 - On line 4, the values `Carlo` and `Pears` are enclosed in single quotes `""`.
 
-- On line 4, there is no `array()` construct to create and initialize the array variable `$data`.
+- On line 4, there is no `array()` language construct to create and initialize the array variable `$data`.
 
 - In `student.php`, there are no `$pstmt` object and object operator `->` before the `fetchAll()` method on line 13.
 
@@ -1570,7 +1570,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
 
 /// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindParam.php],  init=[commands/BindingMethods/InsertFarleyMowatData.sql], filename=[connection.php,author.php]
 
-Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which contains the parameter `(':first_name', $data[0], PDO::PARAM_STR)`. Add another `bindParam()` method call of the `$pstmt` object which contains the parameter `(':last_name', $data[1], PDO::PARAM_STR);`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
+Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` language construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which contains the parameter `(':first_name', $data[0], PDO::PARAM_STR)`. Add another `bindParam()` method call of the `$pstmt` object which contains the parameter `(':last_name', $data[1], PDO::PARAM_STR);`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
 ```php
 // connection.php
