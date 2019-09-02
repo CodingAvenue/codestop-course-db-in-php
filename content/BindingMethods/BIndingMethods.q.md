@@ -340,7 +340,7 @@ Which statements correctly describe the code on line 15 of `student.php`?
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/PDStatementExecute/DeleteJohnSmithStudentData.sql], filename=[connection.php,student.php]
+/// type=REPL, readonly=true, init=[commands/BindingMethods/DeleteJohnSmithStudentData.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -536,7 +536,7 @@ In `student.php`, what does `bindValue()` do on line 9?
 
 :::
 
-/// type=REPL, filename=[conneciton.php,student.php]
+/// type=REPL, filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -651,7 +651,7 @@ Which statements correctly describe the code on lines 17, 18, and 19 of `student
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/PDOStatementExecute/CreateAuthorsTableAndInsertData.sql], filename=[connection.php,student.php]
+/// type=REPL, readonly=true, init=[commands/BindingMethods/CreateAuthorsTableAndInsertData.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -1096,7 +1096,7 @@ Which statements correctly describe the error?
 :::
 
 
-/// type=CR, answer=[tests/PDOStatementExecute/IncorrectParameterIdentifierInBindParamArgument.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/IncorrectParameterIdentifierInBindParamArgument.php], filename=[connection.php,student.php]
 
 Correct the code so that it outputs `Successfully connected to the database.` and `2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F`.
 
@@ -1221,7 +1221,7 @@ Which statements correctly describe the error?
 :::
 
 
-/// type=CR, answer=[tests/PDOStatementExecute/MissingObjectAndOperatorInBindValue.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInBindValue.php], filename=[connection.php,student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully deleted the student data in the table.`.
 
@@ -1362,7 +1362,7 @@ Which statements correctly describe the error?
 :::
 
 
-/// type=CR, answer=[tests/PDOStatementExecute/MissingObjectAndOperatorInFetchAll.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInFetchAll.php], filename=[connection.php,student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `7CarloPears1998-04-04M `.
 
@@ -1487,7 +1487,7 @@ Which statements correctly describe the error?
 
 :::
 
-/// type=CR, answer=[tests/PDOStatementExecute/MissingSquareBrackets.php], init=[commands/PDStatementExecute/InsertAnneFrankValue.sql], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/MissingSquareBrackets.php], init=[commands/BindingMethods/InsertAnneFrankValue.sql], filename=[connection.php,student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`
 
@@ -1538,7 +1538,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 ### Part 4: Practice
 
-/// type=CR, answer=[tests/PDOExecuteStatement/CreatePHPProgramUsingBindValue.php], init=[commands/PDOExecuteStatement/InsertStephenHawkingData.sql], filename=[connection.php,author.php]
+/// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindValue.php], init=[commands/BindingMethods/InsertStephenHawkingData.sql], filename=[connection.php,author.php]
 
 Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindValue()` method to bind a value to a parameter. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (?,?)` to the `$pstmt` variable. Then, add the `bindValue()` method call of the `$pstmt` object which contains the parameter `(1, 'Stephen', PDO::PARAM_STR)`. Add another `bindValue()` method call of the `$pstmt` object which contains the parameter `(2, 'Hawking', PDO::PARAM_STR)`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
@@ -1568,7 +1568,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
 ?>
 ```
 
-/// type=CR, answer=[tests/PDOExecuteStatement/CreatePHPProgramUsingBindParam.php],  init=[commands/PDOExecuteStatement/InsertFarleyMowatData.sql], filename=[connection.php,author.php]
+/// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindParam.php],  init=[commands/BindingMethods/InsertFarleyMowatData.sql], filename=[connection.php,author.php]
 
 Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which contains the parameter `(':first_name', $data[0], PDO::PARAM_STR)`. Add another `bindParam()` method call of the `$pstmt` object which contains the parameter `(':last_name', $data[1], PDO::PARAM_STR);`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
