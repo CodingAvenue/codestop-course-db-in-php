@@ -38,7 +38,6 @@ $data = array(
 );
 
 $pstmt = $conn->prepare("SELECT * FROM students WHERE first_name = :first_name AND birth_date = :birth_date");
-
 $pstmt->bindValue(':first_name', $data['first_name'], PDO::PARAM_STR);
 $pstmt->bindValue(':birth_date', $data['birth_date'], PDO::PARAM_STR);
 
