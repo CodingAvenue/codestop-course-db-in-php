@@ -441,7 +441,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
 
     $stmt = $conn->query("SELECT * FROM students");
     foreach ($stmt as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender'];
     }
 ?>
 ```
@@ -460,6 +460,21 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male`.
 
 
+/// type=SS, answer=[2]
+
+Which value represents the `student_id` in the output `1JohnSmith1999-02-10Male`?
+
+- `1`
+
+- `John`
+
+- `Male`
+
+- `Smith`
+
+- `1999-02-10`
+
+
 /// type=MS, answer=[3,5]
 
 Which statements correctly describe the `foreach` construct on line 5 of `student.php`?
@@ -473,21 +488,6 @@ Which statements correctly describe the `foreach` construct on line 5 of `studen
 - It removes all the elements in the multidimensional array `$stmt`.
 
 - It assigns the value of the current element on each iteration to `$row`.
-
-
-/// type=SS, answer=[2]
-
-What value is assigned to `student_id`?
-
-- `0`
-
-- `1`
-
-- `John`
-
-- `Smith`
-
-- No value is assigned.
 
 
 /// type=MS, answer=[3,4,5]
@@ -519,6 +519,110 @@ In `student.php`, which statement correctly describes `echo $row['student_id'].$
 
 - It accesses the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from the `students` table.
 
+
+:::
+
+
+:::
+
+/// type=REPL, readonly=true, init=[commands/DataObjects/UpdateBirthDate.sql], filename=[connection.php,student.php]
+
+```php
+// connection.php
+<?php
+    $host = 'localhost';
+    $db = 'LibraryDB';
+    $port = '5432';
+    $username = 'postgres';
+    $password = 'Admin01';
+
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
+
+    try {
+        $conn = new PDO($dsn);
+        if ($conn) {
+            echo "Successfully connected to the database. ";
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection."; 
+    }
+?>
+```
+
+```php
+// student.php
+<?php
+    require_once("connection.php");
+
+    try {
+        $stmt = $conn->query("UPDATE students SET birth_date = '1990-12-24' WHERE first_name = 'John' AND last_name = 'Smith'");
+        if (!$stmt) {
+            throw new Exception("Unable to update values in the table.");
+        }
+        echo "Successfully updated values in the table.";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
+/// type=SS, answer=[5]
+
+Execute the program. What is its output?
+
+- It produces an error.
+
+- No output is displayed.
+
+- It prints `Unable to establish a connection.`.
+
+- It prints `Successfully connected to the database.` and `Unable to update values in the table.`.
+
+- It prints `Successfully connected to the database.` and `Successfully updated values in the table.`.
+
+
+/// type=SS, answer=[4]
+
+In `student.php`, which variable holds the result set as a `PDOStatement` object of the `query()` method?
+
+- `$e`
+
+- `$db`
+
+- `$dsn`
+
+- `$stmt`
+
+- `$conn`
+
+
+/// type=SS, answer=[5]
+
+Which column is updated by the query on line 5 of `student.php`?
+
+- `gender`
+
+- `student`
+
+- `last_name`
+
+- `first_name`
+
+- `birth_date`
+
+
+/// type=MS, answer=[2,5]
+
+In `student.php`, what does the `query()` method do on line 5?
+
+- It returns the boolean value `true`.
+
+- It returns the result set as a `PDOStatement` object.
+
+- It holds the value of SQL statment `UPDATE students SET birth_date = '1990-12-24' WHERE first_name = 'John' AND last_name = 'Smith'`.
+
+- It updates the prepared statement `UPDATE students SET birth_date = '1990-12-24' WHERE first_name = 'John' AND last_name = 'Smith'`.
+
+- It executes the SQL statement `UPDATE students SET birth_date = '1990-12-24' WHERE first_name = 'John' AND last_name = 'Smith'` in a single function call.
 
 :::
 
@@ -841,6 +945,119 @@ Correct the code so that it outputs the strings `Successfully connected to the d
             throw new Exception('Unable to create a table.');
         }
         echo "Successfully created a table.";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
+
+
+:::
+
+/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/DataObjects/UpdateBirthDateJohnSmith.sql]
+
+```php
+// connection.php
+<?php
+    $host = 'localhost';
+    $db = 'LibraryDB';
+    $port = '5432';
+    $username = 'postgres';
+    $password = 'Admin01';
+
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
+
+    try {
+        $conn = new PDO($dsn);
+        if ($conn) {
+            echo "Successfully connected to the database. ";
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection."; 
+    }
+?>
+```
+
+```php
+// student.php
+<?php
+     try {
+        $stmt = $conn->query("UPDATE students SET birth_date = '1990-02-10' WHERE birth_date = '1990-12-24' AND first_name = 'John'");
+        if (!$stmt) {
+            throw new Exception("Unable to update values in the table.");
+        }
+        echo "Successfully updated values in the table.";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
+/// type=MS, answer=[1,5]
+
+Execute the program. What are the error messages?
+
+- Undefined variable: `conn` on line 3
+
+- syntax error, unexpected `)` on line 3
+
+- Uncaught Error: Call to undefined function `query()` on line 3
+
+- syntax error, unexpected `}`, expecting the end of file on line 5
+
+- Uncaught Error: Call to a member function `query()` on null thrown on line 3
+
+
+/// type=SS, answer=[4]
+
+Which statement correctly describes the error messages?
+
+- In `student.php`, there is no semicolon `;` at the end of the statement on line 3.
+
+- In `student.php`, the semicolon `;` and close parenthesis `)` are misplaced on line 3.
+
+- On line 3, the values `1990-02-10`, `1990-12-24`, and `John` are enclosed in single quotes `''`.
+
+- In `student.php`, there is no `require_once()` statement to have the `connection.php` file included.
+
+- On line 3, the SQL statement `UPDATE students SET birth_date = '1990-02-10' WHERE birth_date = '1990-12-24' AND first_name = 'John'` is incorrect.
+
+:::
+
+/// type=CR, answer=[tests/DataObjects/MissingRequireOnceStatement.php], filename=[connection.php,student.php]
+
+Correct the code so that it updates a record in the `birth_date` column with the value `1990-02-10` and displays the strings `Successfully connected to the database.` and `Successfully updated values in the table.`.
+
+```php
+// connection.php
+<?php
+    $host = 'localhost';
+    $db = 'LibraryDB';
+    $port = '5432';
+    $username = 'postgres';
+    $password = 'Admin01';
+
+    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
+
+    try {
+        $conn = new PDO($dsn);
+        if ($conn) {
+            echo "Successfully connected to the database. ";
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection."; 
+    }
+?>
+```
+
+```php
+// student.php
+<?php
+     try {
+        $stmt = $conn->query("UPDATE students SET birth_date = '1990-02-10' WHERE birth_date = '1990-12-24' AND first_name = 'John'");
+        if (!$stmt) {
+            throw new Exception("Unable to update values in the table.");
+        }
+        echo "Successfully updated values in the table.";
     } catch (Exception $e) {
         echo $e->getMessage();
     }
