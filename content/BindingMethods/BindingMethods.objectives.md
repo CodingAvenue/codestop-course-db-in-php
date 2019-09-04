@@ -8,4 +8,4 @@ After completing the lesson, the students should be able to:
 
 - Use `PDOStatement::bindParam()` and `PDOStatement::bindValue()` in binding values to placeholders as parameters in an SQL statement.
 
-- Write a program that uses `PDOStatement::bindParam()` and `PDOStatement::bindValue` in a prepared statement.
+- Write a program that uses `PDOStatement::bindParam()` and `PDOStatement::bindValue()` in a prepared statement.
