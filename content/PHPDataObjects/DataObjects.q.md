@@ -507,7 +507,7 @@ Which statements correctly describe `$stmt = $conn->query("SELECT * FROM student
 
 /// type=SS, answer=[4]
 
-In `student.php`, which statement correctly describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';` on line 6?
+In `student.php`, which statement correctly describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender'];` on line 6?
 
 - It assigns the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` to `$row`.
 
@@ -1356,7 +1356,7 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected to the database.` and `2SamanthaDanes1999-10-12Female`.
 
-- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female`.
+- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female `.
 
 
 /// type=SS, answer=[2]
@@ -1393,7 +1393,7 @@ Which statement correctly describes the error?
 
 /// type=CR, answer=[tests/DataObjects/IncorrectForeachStatement.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female`.
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female `.
 
 ```php
 // connection.php
