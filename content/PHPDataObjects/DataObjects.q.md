@@ -6,7 +6,7 @@
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/DataObjects/CreateTableStudents.sql]
+/// type=REPL, readonly=true, init=[commands/DataObjects/CreateTableStudents.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -292,7 +292,7 @@ Which statement correctly describes the code on lines 12, 13, and 14 of `student
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/DataObjects/InsertJohnSmith.sql]
+/// type=REPL, readonly=true, init=[commands/DataObjects/InsertJohnSmith.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -460,7 +460,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male`.
 
 
-/// type=SS, answer=[2]
+/// type=SS, answer=[1]
 
 Which value represents the `student_id` in the output `1JohnSmith1999-02-10Male`?
 
@@ -954,7 +954,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/DataObjects/UpdateBirthDateJohnSmith.sql]
+/// type=REPL, readonly=true, init=[commands/DataObjects/UpdateBirthDateJohnSmith.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -1189,7 +1189,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/DataObjects/InsertSamanthaDanes.sql]
+/// type=REPL, readonly=true, init=[commands/DataObjects/InsertSamanthaDanes.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
