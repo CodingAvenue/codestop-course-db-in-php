@@ -19,7 +19,7 @@ $pstmt->bindParam(1, $data['first_name'], PDO::PARAM_STR);
 $pstmt->bindParam(2, $data['birth_date'], PDO::PARAM_STR);
 $pstmt->execute();
 ```
-- `$pstmt->bindParam(1, $data['first_name'], PDO::PARAM_STR);` and `$pstmt->bindParam(2, $data['birth_date'], PDO::PARAM_STR);` binds `$data['first_name]` and `$data['birth_date']` to the corresponding positional placeholders in the SQL statement which are `first_name = ?` and `birth_date = ?` respectively.
+- `$pstmt->bindParam(1, $data['first_name'], PDO::PARAM_STR);` and `$pstmt->bindParam(2, $data['birth_date'], PDO::PARAM_STR);` binds `$data['first_name]` and `$data['birth_date']` to the corresponding positional placeholders `?` in `first_name = ?` and `birth_date = ?` of the SQL statement.
 
 - `1`, `$data['first_name']`, `2`, `$data['birth_date']`, and `PDO::PARAM_STR` are arguments in the `bindParam()` method.
 
@@ -45,6 +45,6 @@ $pstmt->execute();
 
 - `:first_name`, `$data['first_name']`, `:birth_date`, `1999-06-30`, and `PDO::PARAM_STR` are arguments in the `bindValue()` method.
 
-- `:first_name` and `:birth_date` represent the parameter name as the parameter identifier for the named placeholders in the SQL statement.
+- `:first_name` and `:birth_date` represent the parameter identifier for the named placeholders in the SQL statement.
 
 - `$data['first_name']` and `1999-06-30` represent the values to bind to the corresponding named placeholders `:first_name` and `:birth_date` in the SQL statement.

@@ -14,7 +14,7 @@
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
 
     try {
@@ -61,9 +61,9 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `7CarloPears1998-04-04M 8GenevieLieser1996-05-25F`.
+- It prints `Successfully connected to the database.` and `7CarloPears1998-04-04M 8GenevieLieser1996-05-25F `.
 
-- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10M 2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F`.
+- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10M 2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F `.
 
 
 /// type=MS, answer=[2,3]
@@ -147,13 +147,13 @@ Which statement best describes `WHERE birth_date >= :min_birth_date AND birth_da
 
 - It selects the rows in the `students` table related to the values `1999-01-01` and `2000-01-01`.
 
-- It selects the rows in the `students` table equivalent to the dates `1999-01-01` and `2000-01-01`.
+- It selects the rows in the `students` table equivalent to the values `1999-01-01` and `2000-01-01`.
 
 - It returns all records in the `students` table whose `birth_date` starts with `1999-01-01` or `2000-01-01`.
 
-- It updates the rows in the `students` table whose `birth_date` is between the dates `1999-01-01` and `2000-01-01`.
+- It updates the rows in the `students` table whose `birth_date` is between the values `1999-01-01` and `2000-01-01`.
 
-- It filters the rows in the `students` table whose `birth_date` is greater than or equal to the date `1999-01-01` and less than the date `2000-01-01`.
+- It filters the rows in the `students` table whose `birth_date` is greater than or equal to the value `1999-01-01` and less than the value `2000-01-01`.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -173,7 +173,7 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 11 o
 
 /// type=SS, answer=[3]
 
-In `student.php`, which of the following represents the parameter name in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 12?
+In `student.php`, which of the following represents the parameter identifier in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 12?
 
 - `$data`
 
@@ -216,9 +216,9 @@ In `student.php`, which argument represents the explicit data type in the statem
 - `$data['min_birth_date']`
 
 
-/// type=MS, answer=[1,4]
+/// type=MS, answer=[1,5]
 
-In `student.php`, which statements correctly describe `(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR)` on line 12?
+In `student.php`, which statements correctly describe `:min_birth_date`, `$data['min_birth_date']`, and `PDO::PARAM_STR` on line 12?
 
 - It represents the arguments of the `bindParam()` method.
 
@@ -226,9 +226,9 @@ In `student.php`, which statements correctly describe `(':min_birth_date', $data
 
 - It contains the variable, value, and data type of the parameter.
 
-- It represents the parameter name, value, and data type of the parameter.
-
 - It contains the key, array element, and constant data type of the parameter.
+
+- It represents the parameter identifier, value, and data type of the parameter.
 
 
 /// type=SS, answer=[4]
@@ -267,9 +267,9 @@ In `student.php`, which of the following represents the value to bind in the SQL
 
 - `$data`
 
-- `:max_birth_date`
-
 - `max_birth_date`
+
+- `:max_birth_date`
 
 - `$data['max_birth_date']`
 
@@ -278,7 +278,7 @@ In `student.php`, which of the following represents the value to bind in the SQL
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the parameter name in the statement `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR);` on line 13?
+In `student.php`, which of the following represents the parameter identifier in the statement `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR);` on line 13?
 
 - `$data`
 
@@ -348,7 +348,7 @@ Which statements correctly describe the code on line 15 of `student.php`?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
 
     try {
@@ -414,7 +414,7 @@ Which variable holds the SQL statement in `student.php`?
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following is a positional placeholder as a parameter on line 4?
+In `student.php`, which of the following is a positional placeholder?
 
 - `?`
 
@@ -431,9 +431,9 @@ In `student.php`, which of the following is a positional placeholder as a parame
 
 In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what is `1`?
 
-- It represents the explicit data type for the parameter.
+- It represents the named placeholder.
 
-- It represents the parameter name as the parameter identifier.
+- It represents the explicit data type for the parameter.
 
 - It represents the value to bind to the positional placeholder `?` in the SQL statement. 
 
@@ -446,7 +446,7 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 
 In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what does `John` represent?
 
-- The parameter name.
+- The named placeholder.
 
 - The explicit data type.
 
@@ -459,7 +459,7 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 
 /// type=MS, answer=[3,4]
 
-Which statements correctly describe `(1, 'John')` on line 8 of `student.php`?
+Which statements correctly describe `1` and `John` on line 8 of `student.php`?
 
 - It contains the key and array value of the parameter.
 
@@ -476,15 +476,15 @@ Which statements correctly describe `(1, 'John')` on line 8 of `student.php`?
 
 In `student.php`, what does `bindValue()` do on line 8?
 
-- It assigns the value `John` to the second positional placeholder `firstname = ?` in the SQL statement.
+- It binds the value `John` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It binds the value `John` to the first positional placeholder `?` of the variable `first_name` in the SQL statement.
+- It binds the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
 
-- It binds the value `John` to the second positional placeholder `?` of the variable `last_name` in the SQL statement.
+- It assigns the value `John` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It replaces the value `John` to the first positional placeholder `?` of the variable `first_name` in the SQL statement.
+- It replaces the value `John` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It replaces the value `John` to the second positional placeholder `?` of the variable `last_name` in the SQL statement.
+- It replaces the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
 
 
 /// type=MS, answer=[2,4,5]
@@ -499,7 +499,7 @@ Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 8 of 
 
 - It calls the `bindValue()` method of the `$pstmt` object.
 
-- It binds the value `John` to the first positional placeholder `?` of the variable `first_name`.
+- It binds the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
 
 
 /// type=SS, answer=[1]
@@ -517,19 +517,19 @@ In `student.php`, which of the following represents the 1-index position as the 
 - `bindValue()`
 
 
-/// type=SS, answer=[2]
+/// type=SS, answer=[1]
 
 In `student.php`, what does `bindValue()` do on line 9?
 
-- It binds the value `John` to the first positional placeholder `?` of the variable `first_name` in the SQL statement.
+- It binds the value `Smith` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It binds the value `Smith` to the second positional placeholder `?` of the variable `last_name` in the SQL statement.
+- It binds the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
 
-- It replaces the value `John` to the first positional placeholder `?` of the variable `first_name` in the SQL statement.
+- It assigns the value `Smith` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It assigns the value `Smith` to the second positional placeholder `?` of the variable `last_name` in the SQL statement.
+- It replaces the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
 
-- It replaces the value `Smith` to the second positional placeholder `?` of the variable `last_name` in the SQL statement.
+- It replaces the value `Smith` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
 
 :::
 
@@ -544,7 +544,7 @@ In `student.php`, what does `bindValue()` do on line 9?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
 
     try {
@@ -612,11 +612,66 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `6AlisaElls1999-06-30F`.
+- It prints `Successfully connected to the database.` and `6AlisaElls1999-06-30F `.
 
 - It prints `Successfully connected to the database.` and `Student record not found.`.
 
+:::
 
+
+:::
+
+/// type=REPL, filename=[connection.php,student.php]
+
+```php
+// connection.php
+<?php
+    $host = 'localhost';
+    $db = 'LibraryDB';
+    $port = '5432';
+    $username = 'UserAdmin';
+    $password = 'Admin01';
+
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
+        if ($conn) {
+            echo "Successfully connected to the database. <br />";
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection."; 
+    }
+?>
+```
+
+```php
+// student.php
+<?php
+    require_once("connection.php");
+
+    $data = array(
+        'first_name' => 'Alisa',
+        'last_name' => 'Ells'
+    );
+
+    $sql = "SELECT * FROM students WHERE first_name = :first_name and last_name = :last_name";
+
+    try {
+        $pstmt = $conn->prepare($sql);
+        $pstmt->bindValue(':first_name', $data['first_name'], PDO::PARAM_STR);
+        $pstmt->bindValue(':last_name', $data['last_name'], PDO::PARAM_STR);
+        $pstmt->execute();
+        $data = $pstmt->fetchAll();
+        if (empty($data)) {
+            throw new Exception("Student record not found.");
+        }
+        foreach ($data as $row) {
+            echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        }
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
 /// type=SS, answer=[4]
 
 On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bindParam()`. Execute the program. What is its output?
@@ -627,7 +682,7 @@ On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bind
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `6AlisaElls1999-06-30F`.
+- It prints `Successfully connected to the database.` and `6AlisaElls1999-06-30F `.
 
 - It prints `Successfully connected to the database.` and `Student record not found.`.
 
@@ -659,7 +714,7 @@ Which statements correctly describe the code on lines 17, 18, and 19 of `student
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -774,7 +829,7 @@ Which statements correctly describe the code on lines 9, 10, and 11 of `student.
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following represents a positional placeholder as a parameter?
+In `student.php`, which of the following is a positional placeholder?
 
 - `?`
 
@@ -859,7 +914,7 @@ In `student.php`, which argument represents the 1-index position of the position
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1026,7 +1081,7 @@ Which statement best describes `PDO::PARAM_STR`?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
 
     try {
@@ -1098,7 +1153,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/BindingMethods/IncorrectParameterIdentifierInBindParamArgument.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs `Successfully connected to the database.` and `2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F`.
+Correct the code so that it outputs `Successfully connected to the database.` and `2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F `.
 
 ```php
 // connection.php
@@ -1106,7 +1161,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
 
     try {
@@ -1156,7 +1211,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1231,7 +1286,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1276,7 +1331,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1372,7 +1427,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1423,7 +1478,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1497,7 +1552,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1548,7 +1603,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1578,7 +1633,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'UserAdmin';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
