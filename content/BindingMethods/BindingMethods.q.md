@@ -20,7 +20,7 @@
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -47,23 +47,23 @@
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
-/// type=SS, answer=[5] 
+/// type=SS, answer=[3] 
 
-Execute the program. What is its output?
-
-- It produces an error.
-
-- No output is displayed.
+Execute the program. What is printed on lines 2, 3, and 4?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `7CarloPears1998-04-04M 8GenevieLieser1996-05-25F `.
+- It prints `Successfully connected to the database.`.
 
-- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10M 2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F `.
+- It prints `1 John Smith 1999-02-10 M`, `2 Samantha Danes 1999-10-12 F`, and `6 Alisa Ells 1999-06-30 F`.
+
+- It prints `1 John Smith 1999-02-10 Male`, `2 Samantha Danes 1999-10-12 Female`, and `6 Alisa Ells 1999-06-30 Female`.
+
+- It prints `Successfully connected to the database.`, `2 Samantha Danes 1999-10-12 F` and `6 Alisa Ells 1999-06-30 F`.
 
 
 /// type=MS, answer=[2,3]
@@ -354,7 +354,7 @@ Which statements correctly describe the code on line 15 of `student.php`?
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -550,7 +550,7 @@ In `student.php`, what does `bindValue()` do on line 9?
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -580,7 +580,7 @@ In `student.php`, what does `bindValue()` do on line 9?
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -602,7 +602,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Student record not found.`.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `Alisa` and `Ells`. Execute the program. What is its output?
 
@@ -612,9 +612,9 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `6AlisaElls1999-06-30F `.
-
 - It prints `Successfully connected to the database.` and `Student record not found.`.
+
+- It prints `Successfully connected to the database.` and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
 :::
 
@@ -635,7 +635,7 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -665,14 +665,14 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
     }
 ?>
 ```
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
 On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bindParam()`. Execute the program. What is its output?
 
@@ -682,9 +682,9 @@ On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bind
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `6AlisaElls1999-06-30F `.
-
 - It prints `Successfully connected to the database.` and `Student record not found.`.
+
+- It prints `Successfully connected to the database.` and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
 
 /// type=MS, answer=[3,5]
@@ -719,7 +719,7 @@ Which statements correctly describe the code on lines 17, 18, and 19 of `student
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -919,7 +919,7 @@ In `student.php`, which argument represents the 1-index position of the position
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -944,7 +944,7 @@ In `student.php`, which argument represents the 1-index position of the position
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['author_id'].$row['first_name'].$row['last_name'].' ';
+            echo $row['author_id']."\t".$row['first_name']."\t".$row['last_name']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -961,9 +961,9 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `1NaomiWolf`.
-
 - It prints `Successfully connected to the database.` and `Student record not found.`.
+
+- It prints `Successfully connected to the database.` and `1 Naomi Wolf` in separate lines.
 
 
 /// type=SS, answer=[4]
@@ -976,9 +976,9 @@ In the statement `$pstmt->bindValue(':first_name', $author_name, PDO::PARAM_STR)
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `1NaomiWolf`.
+- It prints `Successfully connected to the database.` and `1 Naomi Wolf` in separate lines.
 
-- It prints `Successfully connected to the database.` and `Student record not found.`.
+- It prints `Successfully connected to the database.` and `Student record not found.` in separate lines.
 
 :::
 
@@ -1087,7 +1087,7 @@ Which statement best describes `PDO::PARAM_STR`?
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1115,7 +1115,7 @@ Which statement best describes `PDO::PARAM_STR`?
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
@@ -1153,7 +1153,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/BindingMethods/IncorrectParameterIdentifierInBindParamArgument.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs `Successfully connected to the database.` and `2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F `.
+Correct the code so that it outputs `Successfully connected to the database.`, `2 Samantha Danes 1999-10-12 F`, and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
 ```php
 // connection.php
@@ -1167,7 +1167,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1195,7 +1195,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
@@ -1216,7 +1216,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1291,7 +1291,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1336,7 +1336,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1363,7 +1363,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -1380,9 +1380,9 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected to the database.` and produces an error.
 
-- It prints `Successfully connected to the database.` and `7CarloPears1998-04-04M `.
-
 - It prints `Successfully connected to the database.` and `Student record not found`.
+
+- It prints `Successfully connected to the database.` and `7 Carlo Pears 1998-04-04 M` in separate lines.
 
 
 /// type=SS, answer=[4]
@@ -1419,7 +1419,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInFetchAll.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `7CarloPears1998-04-04M `.
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `7 Carlo Pears 1998-04-04 M` in separate lines.
 
 ```php
 // connection.php
@@ -1432,7 +1432,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1459,7 +1459,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -1483,7 +1483,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1544,7 +1544,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/BindingMethods/MissingSquareBrackets.php], init=[commands/BindingMethods/InsertAnneFrankValue.sql], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`.
 
 ```php
 // connection.php
@@ -1557,7 +1557,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1608,7 +1608,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1638,7 +1638,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
