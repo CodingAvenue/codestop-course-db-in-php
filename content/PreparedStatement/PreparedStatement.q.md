@@ -551,7 +551,7 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 o
 ```
 /// type=SS, answer=[5]
 
-Execute the program. What is the output?
+Execute the program. What is its output?
 
 - It produces an error.
 
