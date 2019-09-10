@@ -1274,7 +1274,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/PreparedStatement/NamedPlaceholdersEnclosedinSingleQuotes.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10M 2SamanthaDanes1999-10-12F 6AlisaElls1999-06-30F`.
+Correct the code so that it outputs `Successfully connected to the database.`, `1 John Smith 1999-02-10 M`, `2 Samantha Danes 1999-10-12 F`, and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
 ```php
 // connection.php
@@ -1517,7 +1517,7 @@ Which statements correctly describe the error message?
 
 /// type=CR, answer=[tests/PreparedStatement/MissingColonNamedPlaceholders.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the string `Successfully connected to the database.` and `Successfully inserted values into the table.`.
+Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`.
 
 ```php
 // connection.php
@@ -1640,7 +1640,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/DataObjects/MissingArgumentInPrepare.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `5DaronGuilliams2001-09-27Male `.
+Correct the code so that it outputs `Successfully connected to the database.` and `5 Daron Guilliams 2001-09-27 Male` in separate lines.
 
 ```php
 // connection.php
