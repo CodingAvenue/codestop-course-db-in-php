@@ -6,7 +6,7 @@
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/InsertValuesBerryVikkiIntoStudentTable.sql]
+/// type=REPL, readonly=true, init=[commands/PreparedStatement/InsertValuesBerryVikkiIntoStudentTable.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -20,7 +20,7 @@
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. ";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -171,13 +171,13 @@ In `student.php`, what does `$pstmt` do on line 10?
 - It stores the values of the `students` table.
 
 
-/// type=SS, answer=[3]
+/// type=SS, answer=[1]
 
 In `student.php`, which of the following represents the positional placeholder as a parameter?
 
-- `students`
+- `?`
 
-- `(?,?,?,?)`
+- `students`
 
 - `first_name`
 
@@ -326,7 +326,7 @@ Which statement best describes the code on lines 12, 13, and 14 of `student.php`
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/InsertValuesDaronAlisaIntoStudentTable.sql]
+/// type=REPL, readonly=true, init=[commands/PreparedStatement/InsertValuesDaronAlisaIntoStudentTable.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -433,19 +433,19 @@ In `student.php`, what does `$sql` do on line 9?
 - It stores the array values of the multidimensional array `$data`.
 
 
-/// type=SS, answer=[4]
+/// type=MS, answer=[1,4,5]
 
-In `student.php`, which of the following represents the named placeholder as a parameter?
+In `student.php`, which of the following represent the named placeholders?
 
-- `students`
+- `:gender`
 
-- `INSERT INTO`
+- `last_name`
 
-- `(first_name, last_name, birth_date, gender)`
+- `first_name`
 
-- `(:first_name, :last_name, :birth_date, :gender)`
+- `:last_name`
 
-- `INSERT INTO students (first_name, last_name, birth_date, gender)`
+- `:first_name`
 
 
 /// type=SS, answer=[4]
@@ -480,7 +480,7 @@ In `student.php`, which named placeholder is associated with the value `Daron` o
 
 /// type=SS, answer=[5]
 
-Which statement best describes `(:first_name, :last_name, :birth_date, :gender)` on line 9 of `student.php`?
+Which statement best describes `:first_name`, `:last_name`, `:birth_date`, and `:gender` on line 9 of `student.php`?
 
 - It locates the values in the SQL statement using positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender`.
 
@@ -527,7 +527,7 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 o
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -543,15 +543,15 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 o
     $pstmt = $conn->prepare("SELECT * FROM students WHERE last_name = ?");
     $pstmt->execute(array('Fernando'));
     $data = $pstmt->fetchAll();
-    
+
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
-/// type=SS, answer=[4]
+/// type=SS, answer=[5]
 
-Execute the program. What is its output?
+Execute the program. What is the output?
 
 - It produces an error.
 
@@ -559,9 +559,9 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `4VikkiFernando2005-05-17Female `.
+- It prints `Successfully connected to the database.` and `4 Vikki Fernando` in separate lines.
 
-- It prints `Successfully connected to the database.` and `Vikki Fernando 2005-05-17 Female `.
+- It prints `Successfully connected to the database.` and `4 Vikki Fernando 2005-05-17 Female` in separate lines.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -641,7 +641,7 @@ Which statements correctly describe the code on line 6 of `student.php`?
 
 /// type=SS, answer=[4]
 
-Which statement best describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';` on line 6 of `student.php`?
+Which statement best describes `echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";` on line 9 of `student.php`?
 
 - It assigns the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` to `$row`.
 
@@ -659,7 +659,7 @@ Which statement best describes `echo $row['student_id'].$row['first_name'].$row[
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/UpdateFemaleGender.sql]
+/// type=REPL, readonly=true, init=[commands/PreparedStatement/UpdateFemaleGender.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -673,7 +673,7 @@ Which statement best describes `echo $row['student_id'].$row['first_name'].$row[
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -766,7 +766,7 @@ Which statements correctly describe `UPDATE students SET gender = :gender WHERE 
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -784,29 +784,30 @@ Which statements correctly describe `UPDATE students SET gender = :gender WHERE 
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+         echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
-/// type=SS, answer=[4]
+/// type=SS, answer=[1]
 
-In the statement `$pstmt->execute(array('Female'));` on line 5 of `student.php`, replace the value `Female` with `F`. Execute the program. What is its output?
+In the statement `$pstmt->execute(array('Female'));` on line 5 of `student.php`, replace the value `Female` with `F`. Execute the program. What is printed on line 2?
 
-- It produces an error.
+- `2 Samantha Danes 1999-10-12 F`
 
-- No output is displayed.
+- `4 Vikki Fernando 2005-05-17 F`
 
-- It prints `Unable to establish a connection.`.
+- `Unable to establish a connection.`
 
-- It prints `Successfully connected to the database.` and `2SamanthaDanes1999-10-12F 4VikkiFernando2005-05-17F 6AlisaElls1999-06-30F`.
+- `2 Samantha Danes 1999-10-12 Female`
 
-- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 3BerryMeisner2002-09-09Male 5DaronGuilliams2001-09-27Male`.
+- `Successfully connected to the database.`
+
 
 :::
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php], init=[commands/PreparedStatement/UpdateMaleGender.sql]
+/// type=REPL, readonly=true, init=[commands/PreparedStatement/UpdateMaleGender.sql], filename=[connection.php,student.php]
 
 ```php
 // connection.php
@@ -820,7 +821,7 @@ In the statement `$pstmt->execute(array('Female'));` on line 5 of `student.php`,
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -909,7 +910,7 @@ Which statements correctly describe `$pstmt->execute(array('M', 'Male'))` on lin
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -927,23 +928,24 @@ Which statements correctly describe `$pstmt->execute(array('M', 'Male'))` on lin
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
-/// type=SS, answer=[4]
+/// type=SS, answer=[2]
 
-In the statement `$pstmt->execute(array('Male'));` on line 5 of `student.php`, replace the value `Male` with `M`. Execute the program. What is its output?
+In the statement `$pstmt->execute(array('Male'));` on line 5 of `student.php`, replace the value `Male` with `M`. Execute the program. What is printed on line 2?
 
-- It produces an error.
+- `1 John Smith 1999-02-10 M`.
 
-- No output is displayed.
+- `3 Berry Meisner 2002-09-09 M`.
 
-- It prints `Unable to establish a connection.`.
+- `5 Daron Guilliams 2001-09-27 M`.
 
-- It prints `Successfully connected to the database. ` and `1JohnSmith1999-02-10M 3BerryMeisner2002-09-09M 5DaronGuilliams2001-09-27M`.
+- `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database. ` and `2SamanthaDanes1999-10-12F 4VikkiFernando2005-05-17F 6AlisaElls1999-06-30F`.
+- `Succesfully connected to the database.`.
+
 
 :::
 
@@ -1211,7 +1213,7 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1235,7 +1237,7 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
@@ -1286,7 +1288,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database. <br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1310,7 +1312,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
@@ -1332,7 +1334,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database.<br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1405,7 +1407,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
         if ($conn) {
-            echo "Successfully connected to the database.<br />";
+            echo "Successfully connected to the database.\n";
         }
     } catch (Exception $e) {
         echo "Unable to establish a connection."; 
@@ -1600,7 +1602,7 @@ Correct the code so that it outputs the string `Successfully connected to the da
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
@@ -1672,7 +1674,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender']. ' ';
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
