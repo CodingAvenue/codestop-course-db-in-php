@@ -216,7 +216,7 @@ In `student.php`, which argument represents the explicit data type in the statem
 - `$data['min_birth_date']`
 
 
-/// type=MS, answer=[1,5]
+/// type=MS, answer=[1,4]
 
 In `student.php`, which statements correctly describe `:min_birth_date`, `$data['min_birth_date']`, and `PDO::PARAM_STR` on line 12?
 
