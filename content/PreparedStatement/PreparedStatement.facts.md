@@ -33,7 +33,7 @@ foreach ($data as $row) {
 
 - `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
 
-- The `VALUES (?,?,?,?)` clause uses positional placeholders `?` to substitute the values to be inserted into the table to prevent SQL injections.
+- The `VALUES (?,?,?,?)` clause uses positional placeholders `?` to substitute the values to be inserted into the table to prevent from SQL injections.
 
 - The `foreach` statement iterates through each key in the multidimensional array `$data`.
 

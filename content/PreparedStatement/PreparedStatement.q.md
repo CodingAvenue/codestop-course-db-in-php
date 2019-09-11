@@ -482,15 +482,15 @@ In `student.php`, which named placeholder is associated with the value `Daron` o
 
 Which statement best describes `:first_name`, `:last_name`, `:birth_date`, and `:gender` on line 9 of `student.php`?
 
-- It locates the values in the SQL statement using positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender`.
+- These are values in the SQL statement.
 
-- It assigns the named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to be inserted into the `students` table.
+- These are named placeholders that locates the values in the SQL statement.
 
-- It sets the positional placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to replace the values in the SQL statement.
+- These are named placeholders that substitutes the values in the SQL statement.
 
-- It replaces the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to have randomized values.
+- These are positional placeholders that replaces the values in the SQL statement.
 
-- It substitutes the values in the SQL statement with named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to prevent SQL injections.
+- These are positional placeholders that substitutes the parameters in the SQL statement.
 
 
 /// type=MS, answer=[2,3,4,5]
@@ -1384,9 +1384,9 @@ Which statements correctly describe the error message?
 
 - In `student.php`, the colon `:` and positional placeholder `?` are misplaced on line 5.
 
-- On line 5, the statement `$sql = "UPDATE students SET gender = :? WHERE gender = :?";` is incorrect.
-
 - On line 5, the positional placeholders in `SET gender = :?` and `WHERE gender = :?` contain a colon `:`.
+
+- On line 5, the statement `$sql = "UPDATE students SET gender = :? WHERE gender = :?";` is incorrect.
 
 :::
 
