@@ -478,7 +478,7 @@ In `student.php`, which named placeholder is associated with the value `Daron` o
 - `:first_name`
 
 
-/// type=SS, answer=[5]
+/// type=SS, answer=[3]
 
 Which statement best describes `:first_name`, `:last_name`, `:birth_date`, and `:gender` on line 9 of `student.php`?
 
