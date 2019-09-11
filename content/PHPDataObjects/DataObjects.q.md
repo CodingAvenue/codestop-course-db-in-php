@@ -165,7 +165,7 @@ In `student.php`, which statements correctly describe `CREATE TABLE IF NOT EXIST
 
 - It modifies the `students` table if it does not exist in the `LibraryDB` database.
 
-- It throws an error if the `students` table already exsits in the `LibraryDB` database.
+- It throws an error if the `students` table already exists in the `LibraryDB` database.
 
 
 /// type=SS, answer=[1]
@@ -441,7 +441,7 @@ Which statements correctly describe the code on line 5 of `student.php`?
 
     $stmt = $conn->query("SELECT * FROM students");
     foreach ($stmt as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender'];
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
     }
 ?>
 ```
@@ -455,9 +455,9 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `JohnSmith1999-10-02Male`.
+- It prints `Successfully connected to the database.` and `John Smith 1999-10-02 Male` in separate lines.
 
-- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male`.
+- It prints `Successfully connected to the database.` and `1 John Smith 1999-02-10 Male` in separate lines.
 
 
 /// type=SS, answer=[1]
@@ -507,7 +507,7 @@ Which statements correctly describe `$stmt = $conn->query("SELECT * FROM student
 
 /// type=SS, answer=[4]
 
-In `student.php`, which statement correctly describes `echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender'];` on line 6?
+In `student.php`, which statement correctly describes `echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";` on line 6?
 
 - It assigns the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` to `$row`.
 
@@ -1340,23 +1340,22 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
 
     $stmt = $conn->query("SELECT * FROM students");
     foreach ($stmt as $row) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender'].' ';
-    }
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
 ?>
 ```
-/// type=SS, answer=[5]
+/// type=MS, answer=[2,4]
 
-Execute the program. What is its output?
-
-- It produces an error.
+Execute the program. What are printed on lines 2 and 3?
 
 - No output is displayed.
 
-- It prints `Unable to establish a connection.`.
+- `1 John Smith 1999-02-10 Male`
 
-- It prints `Successfully connected to the database.` and `2SamanthaDanes1999-10-12Female`.
+- `Unable to establish a connection.`
 
-- It prints `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female `.
+- `2 Samantha Danes 1999-10-12 Female`
+
+- `Successfully connected to the database.`
 
 
 /// type=SS, answer=[2]
@@ -1393,7 +1392,7 @@ Which statement correctly describes the error?
 
 /// type=CR, answer=[tests/DataObjects/IncorrectForeachStatement.php], filename=[connection.php,student.php]
 
-Correct the code so that it outputs the strings `Successfully connected to the database.` and `1JohnSmith1999-02-10Male 2SamanthaDanes1999-10-12Female `.
+Correct the code so that it outputs `Successfully connected to the database.`, `1 John Smith 1999-02-10 Male`, and `2 Samantha Danes 1999-10-12 Female` in separate lines.
 
 ```php
 // connection.php
@@ -1422,9 +1421,8 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     require_once("connection.php");
 
     $stmt = $conn->query("SELECT * FROM students");
-    foreach ($stmt) {
-        echo $row['student_id'].$row['first_name'].$row['last_name'].$row['birth_date'].$row['gender'].' ';
-    }
+    foreach ($stmt as $row) {
+        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
 ?>
 ```
 
