@@ -457,7 +457,7 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 - The variable to bind to the positional placeholder `?`.
 
 
-/// type=MS, answer=[3,4]
+/// type=MS, answer=[1,4]
 
 Which statements correctly describe `1` and `John` on line 8 of `student.php`?
 
