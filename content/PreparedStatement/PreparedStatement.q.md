@@ -484,13 +484,13 @@ Which statement best describes `:first_name`, `:last_name`, `:birth_date`, and `
 
 - These are values in the SQL statement.
 
-- These are named placeholders that locates the values in the SQL statement.
+- These are named placeholders that locate the values in the SQL statement.
 
-- These are named placeholders that substitutes the values in the SQL statement.
+- These are named placeholders that substitute the values in the SQL statement.
 
-- These are positional placeholders that replaces the values in the SQL statement.
+- These are positional placeholders that replace the values in the SQL statement.
 
-- These are positional placeholders that substitutes the parameters in the SQL statement.
+- These are positional placeholders that substitute the parameters in the SQL statement.
 
 
 /// type=MS, answer=[2,3,4,5]

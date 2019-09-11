@@ -4,7 +4,7 @@ A `prepared statement` is used to compile an SQL statement once and executes mul
 
 - A `placeholder` is often indicated by a question mark `?` called `positional placeholder` or a colon followed by a variable name `:variable_name` called `named placeholder`.
 
-- SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It could bypass authentication then accesses, modifies, and deletes data in a database. 
+- SQL injection `(SQLI)` is a code injection technique that alters SQL commands and exposes hidden data. It bypasses authentication then accesses, modifies, and deletes data in a database.
 
 The execution of a prepared statement consists of using `prepare()` and `execute()` methods. 
 
