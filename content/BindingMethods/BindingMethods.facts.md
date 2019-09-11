@@ -2,9 +2,9 @@
 
 Parameter binding in a prepared statement is essential against SQL injections. The `bindValue()` and `bindParam()` methods bind variables or values in a prepared statement that contains placeholders as parameters such as a positional placeholder `?` or named placeholder `:variable_name`.
 
-- `PDOStatement::bindValue()` method binds a value or variable to a parameter. It passes both `value` and `variable`. 
+- The `PDOStatement::bindValue()` method binds a value or variable to a parameter. It passes both `value` and `variable`. 
 
-- `PDOStatement::bindParam()` method binds a parameter exclusively to a specified variable. The variable is bound as a reference.
+- The `PDOStatement::bindParam()` method binds a parameter exclusively to a specified variable. The variable is bound as a reference.
 
 The example code below shows how to execute a prepared statement that uses `PDOStatement::bindParam()` and `PDOStatement::bindValue()`:
 

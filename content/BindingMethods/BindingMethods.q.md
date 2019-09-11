@@ -51,19 +51,19 @@
     }
 ?>
 ```
-/// type=SS, answer=[3] 
+/// type=MS, answer=[1,2,3] 
 
-Execute the program. What is printed on lines 2, 3, and 4?
+Execute the program. What are printed on lines 2, 3, and 4?
 
-- It prints `Unable to establish a connection.`.
+- `1 John Smith 1999-02-10 M`
 
-- It prints `Successfully connected to the database.`.
+- `6 Alisa Ells 1999-06-30 F`
 
-- It prints `1 John Smith 1999-02-10 M`, `2 Samantha Danes 1999-10-12 F`, and `6 Alisa Ells 1999-06-30 F`.
+- `2 Samantha Danes 1999-10-12 F`
 
-- It prints `1 John Smith 1999-02-10 Male`, `2 Samantha Danes 1999-10-12 Female`, and `6 Alisa Ells 1999-06-30 Female`.
+- `Unable to establish a connection.`
 
-- It prints `Successfully connected to the database.`, `2 Samantha Danes 1999-10-12 F` and `6 Alisa Ells 1999-06-30 F`.
+- `Successfully connected to the database.`
 
 
 /// type=MS, answer=[2,3]
@@ -220,15 +220,15 @@ In `student.php`, which argument represents the explicit data type in the statem
 
 In `student.php`, which statements correctly describe `:min_birth_date`, `$data['min_birth_date']`, and `PDO::PARAM_STR` on line 12?
 
-- It represents the arguments of the `bindParam()` method.
+- These are arguments of the `bindParam()` method.
 
-- It contains the key, array variable, data type of the parameter.
+- They represent the key, array variable, data type of the parameter.
 
-- It contains the variable, value, and data type of the parameter.
+- They represent the variable, value, and data type of the parameter.
 
-- It contains the key, array element, and constant data type of the parameter.
+- They represent the parameter identifier, value, and data type of the parameter.
 
-- It represents the parameter identifier, value, and data type of the parameter.
+- They represent the key, array element, and constant data type of the parameter.
 
 
 /// type=SS, answer=[4]
@@ -299,7 +299,7 @@ In `student.php`, what does the `bindParam()` method do on line 13?
 
 - It modifies the named placeholder `:max_birth_date` to the value `2000-01-01`.
 
-- It binds the value of `$data['min_birth_date']` to th corresponding named placeholder `:min_birth_date`.
+- It binds the value of `$data['min_birth_date']` to the corresponding named placeholder `:min_birth_date`.
 
 - It updates the named placeholder `:max_birth_date` to the specified array element `$data[max_birth_date]`.
 
@@ -392,9 +392,9 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `Unable to delete student data in the table."`.
+- It prints `Successfully connected to the database.` and `Unable to delete student data in the table.`.
 
-- It prints `Successfully connected to the database.` and `Successfully deleted the student data in the table."`.
+- It prints `Successfully connected to the database.` and `Successfully deleted the student data in the table.`.
 
 
 /// type=SS, answer=[1]
@@ -446,9 +446,9 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 
 In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what does `John` represent?
 
-- The named placeholder.
-
 - The explicit data type.
+
+- The named placeholder.
 
 - The 1-index position of the parameter.
 
@@ -461,30 +461,30 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 
 Which statements correctly describe `1` and `John` on line 8 of `student.php`?
 
-- It contains the key and array value of the parameter.
+- These are the arguments of the `bindValue()` method.
 
-- It contains the key and array element of the parameter.
+- They represent the key and array value of the parameter.
 
-- It represents the arguments of the `bindValue()` method.
+- They represent the key and array element of the parameter.
 
-- It contains the 1-index position and value of the parameter.
+- They represent the 1-index position and value of the parameter.
 
-- It contains the variable and constant data type of the parameter.
+- They represent the variable and constant data type of the parameter.
 
 
 /// type=SS, answer=[2]
 
 In `student.php`, what does `bindValue()` do on line 8?
 
-- It binds the value `John` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
+- It binds the value `John` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It binds the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
+- It binds the value `John` to the corresponding positional placeholder `?` in `first_name = ?` of the SQL statement.
 
-- It assigns the value `John` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
+- It assigns the value `John` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It replaces the value `John` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
+- It replaces the value `John` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It replaces the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
+- It replaces the value `John` to the corresponding positional placeholder `?` in `first_name = ?` of the SQL statement.
 
 
 /// type=MS, answer=[2,4,5]
@@ -499,7 +499,7 @@ Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 8 of 
 
 - It calls the `bindValue()` method of the `$pstmt` object.
 
-- It binds the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
+- It binds the value `John` to the corresponding positional placeholder `?` in `first_name = ?` of the SQL statement.
 
 
 /// type=SS, answer=[1]
@@ -521,15 +521,15 @@ In `student.php`, which of the following represents the 1-index position as the 
 
 In `student.php`, what does `bindValue()` do on line 9?
 
-- It binds the value `Smith` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
+- It binds the value `Smith` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It binds the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
+- It binds the value `John` to the corresponding positional placeholder `?` in `first_name = ?` of the SQL statement.
 
-- It assigns the value `Smith` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
+- It assigns the value `Smith` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
-- It replaces the value `John` corresponding to the positional placeholder `?` in `first_name = ?` of the SQL statement.
+- It replaces the value `John` to the corresponding positional placeholder `?` in `first_name = ?` of the SQL statement.
 
-- It replaces the value `Smith` corresponding to the positional placeholder `?` in `last_name = ?` of the SQL statement.
+- It replaces the value `Smith` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
 :::
 
@@ -599,7 +599,7 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected to the database.`.
 
-- It prints `Successfully connected to the database.` and `Student record not found.`.
+- It prints `Successfully connected to the database.` and `Student record not found.` in separate lines.
 
 
 /// type=SS, answer=[5]
@@ -612,7 +612,7 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `Student record not found.`.
+- It prints `Successfully connected to the database.` and `Student record not found.` in separate lines.
 
 - It prints `Successfully connected to the database.` and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
@@ -682,7 +682,7 @@ On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bind
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `Student record not found.`.
+- It prints `Successfully connected to the database.` and `Student record not found.` in separate lines.
 
 - It prints `Successfully connected to the database.` and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
@@ -961,9 +961,9 @@ Execute the program. What is its output?
 
 - It prints `Unable to establish a connection.`.
 
-- It prints `Successfully connected to the database.` and `Student record not found.`.
-
 - It prints `Successfully connected to the database.` and `1 Naomi Wolf` in separate lines.
+
+- It prints `Successfully connected to the database.` and `Student record not found.` in separate lines.
 
 
 /// type=SS, answer=[4]
@@ -1380,7 +1380,7 @@ Execute the program. What is its output?
 
 - It prints `Successfully connected to the database.` and produces an error.
 
-- It prints `Successfully connected to the database.` and `Student record not found`.
+- It prints `Successfully connected to the database.` and `Student record not found` in separate lines.
 
 - It prints `Successfully connected to the database.` and `7 Carlo Pears 1998-04-04 M` in separate lines.
 
