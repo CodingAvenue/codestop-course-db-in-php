@@ -1388,11 +1388,11 @@ Which statements correctly describe the error message?
 
 - In `student.php`, there is no semicolon `;` at the end of the statement on line 5.
 
+- On lines 5 and 6, the keys `student1` and `student2` hold only three values each and the SQL statement contains four positional placeholders `?`. 
+
 - On line 10, the SQL statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` is enclosed in double quotes `""`.
 
 - On line 10, the statement `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");` is incorrect.
-
-- On lines 5 and 6, the keys `student1` and `student2` hold only three values each and the SQL statement requires four positional placeholders `?` as parameters. 
 
 :::
 

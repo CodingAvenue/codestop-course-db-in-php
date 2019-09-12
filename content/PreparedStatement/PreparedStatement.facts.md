@@ -35,7 +35,9 @@ foreach ($data as $row) {
 
 - The `VALUES (?,?,?,?)` clause uses positional placeholders `?` to substitute the values to be inserted into the table to prevent SQL injections.
 
-- `'student1' => ['Berry', 'Meisner', '2002-09-09', 'Male']` and `'student2' => ['Vikki', 'Fernando', '2005-05-17', 'Female']` contain the values to be inserted into the table. `Berry` and `Vikki` will go to the first positional placeholder `?`, `Meisner` and `Fernando` will go the second positional placeholder `?`, `2002-09-09` and `2005-05-17` will go to the third positional placeholder `?`, and `Male` and `Female` will go the fourth positional placeholder `?`.
+- The array keys `student1` and `student2` contain values to be inserted into the table. Positional placeholders require to order the key values in the same order of which the positional placeholders appear in the SQL statement.
+
+- `Berry` and `Vikki` correspond with the first positional placeholder `?`, `Meisner` and `Fernando` correspond with the second positional placeholder `?`, `2002-09-09` and `2005-05-17` correspond with the third positional placeholder `?`, and `Male` and `Female` correspond with the fourth positional placeholder `?`.
 
 - The `foreach` statement iterates through each key in the multidimensional array `$data`.
 
