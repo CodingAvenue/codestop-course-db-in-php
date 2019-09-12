@@ -35,16 +35,18 @@ foreach ($data as $row) {
 
 - The `VALUES (?,?,?,?)` clause uses positional placeholders `?` to substitute the values to be inserted into the table to prevent SQL injections.
 
+- `'student1' => ['Berry', 'Meisner', '2002-09-09', 'Male']` and `'student2' => ['Vikki', 'Fernando', '2005-05-17', 'Female']` contain the values to be inserted into the table. `Berry` and `Vikki` will go to the first positional placeholder `?`, `Meisner` and `Fernando` will go the second positional placeholder `?`, `2002-09-09` and `2005-05-17` will go to the third positional placeholder `?`, and `Male` and `Female` will go the fourth positional placeholder `?`.
+
 - The `foreach` statement iterates through each key in the multidimensional array `$data`.
 
-- `$pstmt->execute($row);` executes a prepared statement passing the argument `$row`.
+- `$pstmt->execute($row);` executes a prepared statement passing the argument `$row` and returns the boolean value `true`.
 
 2. Using `named placeholders`
 
 ```php
 $data = array (
-    'student1' => ['Berry', 'Meisner', '2002-09-09', 'Male'],
-    'student2' => ['Vikki', 'Fernando', '2005-05-17', 'Female']
+    ['first_name' => 'Berry', 'last_name' => 'Meisner', 'birth_date' => '2002-09-09', 'gender' => 'Male'],
+    ['first_name' => 'Vikki', 'last_name' => 'Fernando', 'birth_date' => '2005-05-17', 'gender' => 'Female']
 );
 
 $sql = "INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (:first_name, :last_name, :birth_date, :gender)";
@@ -57,8 +59,10 @@ foreach ($data as $sqlData => $values) {
 
 - The `VALUES (:first_name, :last_name, :birth_date, :gender)` clause uses named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to substitute the values to be inserted into the table to prevent SQL injections.
 
+- The associative arrays `['first_name' => 'Berry', 'last_name' => 'Meisner', 'birth_date' => '2002-09-09', 'gender' => 'Male']` and `['first_name' => 'Vikki', 'last_name' => 'Fernando', 'birth_date' => '2005-05-17', 'gender' => 'Female']` are used for named placeholders as parameters where keys have to match the named placeholders in the SQL statement.
+
 - `$pstmt = $conn->prepare($sql);` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
 
-- The `foreach` statement iterates through each key of the multidimensional array `$data`.
+- The `foreach` statement iterates through each key of the associative array `$data`.
 
-- `$pstmt->execute($values);` executes a prepared statement passing the argument `$values`.
+- `$pstmt->execute($values);` executes a prepared statement passing the argument `$values` and returns the boolean value `true`.

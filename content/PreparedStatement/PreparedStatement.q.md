@@ -14,7 +14,7 @@
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -334,7 +334,7 @@ Which statement best describes the code on lines 12, 13, and 14 of `student.php`
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -354,8 +354,8 @@ Which statement best describes the code on lines 12, 13, and 14 of `student.php`
     require_once("connection.php");
 
     $data = array(
-        'student1' => ['Daron', 'Guilliams', '2001-09-27', 'Male'],
-        'student2' => ['Alisa', 'Ells', '1999-06-30', 'Female']
+        ['first_name' => 'Daron', 'last_name' => 'Guilliams', 'birth_date' => '2001-09-27', 'gender' => 'Male'],
+        ['first_name' => 'Alisa', 'last_name' => 'Ells', 'birth_date' => '1999-06-30', 'gender' => 'Female']
     );
      
     $sql = "INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (:first_name, :last_name, :birth_date, :gender)";
@@ -390,7 +390,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[1,2,3,4,5]
 
-Which of the following are array values contained in the multidimensional array `$data`?
+Which of the following are array values contained in the associative array `$data`?
 
 - `Daron`
 
@@ -403,9 +403,9 @@ Which of the following are array values contained in the multidimensional array 
 - `1999-06-30`
 
 
-/// type=SS, answer=[3]
+/// type=SS, answer=[4]
 
-How many elements does the multidimensional array `$data` have?
+How many keys does the associative array `$data` have?
 
 - 0
 
@@ -430,7 +430,7 @@ In `student.php`, what does `$sql` do on line 9?
 
 - It holds the elements of the array variable `$data`.
 
-- It stores the array values of the multidimensional array `$data`.
+- It stores the array values of the associative array `$data`.
 
 
 /// type=MS, answer=[1,4,5]
@@ -521,7 +521,7 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 o
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -667,7 +667,7 @@ Which statement best describes `echo $row['student_id']."\t".$row['first_name'].
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -760,7 +760,7 @@ Which statements correctly describe `UPDATE students SET gender = :gender WHERE 
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -815,7 +815,7 @@ In the statement `$pstmt->execute(array('Female'));` on line 5 of `student.php`,
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -904,7 +904,7 @@ Which statements correctly describe `$pstmt->execute(array('M', 'Male'))` on lin
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1079,7 +1079,7 @@ Which statement best describes an SQL injection?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1158,7 +1158,7 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1207,7 +1207,7 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1282,7 +1282,7 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1328,7 +1328,135 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
+    $password = 'Admin01';
+
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
+        if ($conn) {
+            echo "Successfully connected to the database. ";
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection."; 
+    }
+?> 
+```
+
+```php
+// student.php
+<?php
+    require_once("connection.php");
+
+    $data = array(
+        'student1' => ['Berry', 'Meisner', 'Male'],
+        'student2' => ['Vikki', 'Fernando', 'Female']
+    );
+     
+    try {
+        $pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");
+        foreach ($data as $row) {
+            if (!$pstmt->execute($row)) {
+                throw new Exception("Unable to insert values into the table.");
+            }
+        }
+        echo "Successfully inserted values into the table.";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
+/// type=SS, answer=[4]
+
+Execute the program. What is its output?
+
+- It produces an error.
+
+- No output is displayed.
+
+- It prints `Unable to establish a connection.`.
+
+- It prints `Successfully connected to the database.` and `Unable to insert values into the table.`.
+
+- It prints `Successfully connected to the database.` and `Successfully inserted values into the table.`.
+
+
+/// type=SS, answer=[5]
+
+Which statements correctly describe the error message?
+
+- On lines 5 and 6, the values are enclosed in square brackets `[]`.
+
+- In `student.php`, there is no semicolon `;` at the end of the statement on line 5.
+
+- On line 10, the SQL statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` is enclosed in double quotes `""`.
+
+- On line 10, the statement `$pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");` is incorrect.
+
+- On lines 5 and 6, the keys `student1` and `student2` hold only three values each and the SQL statement requires four positional placeholders `?` as parameters. 
+
+:::
+
+
+/// type=CR, answer=[tests/PreparedStatement/LackingValuesToInsert.php], filename=[connection.php,student.php]
+
+Correct the code so that the array keys `student1` and `student2` include the values `2002-09-09` and `2005-05-17` to be inserted and outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`.
+
+```php
+// connection.php
+<?php
+    $host = 'localhost';
+    $db = 'LibraryDB';
+    $port = '5432';
+    $username = 'codestop';
+    $password = 'Admin01';
+
+    try {
+        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
+        if ($conn) {
+            echo "Successfully connected to the database. ";
+        }
+    } catch (Exception $e) {
+        echo "Unable to establish a connection."; 
+    }
+?> 
+```
+
+```php
+// student.php
+<?php
+    require_once("connection.php");
+
+    $data = array(
+        'student1' => ['Berry', 'Meisner', 'Male'],
+        'student2' => ['Vikki', 'Fernando', 'Female']
+    );
+     
+    try {
+        $pstmt = $conn->prepare("INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)");
+        foreach ($data as $row) {
+            if (!$pstmt->execute($row)) {
+                throw new Exception("Unable to insert values into the table.");
+            }
+        }
+        echo "Successfully inserted values into the table.";
+    } catch (Exception $e) {
+        echo $e->getMessage();
+    }
+?>
+```
+
+
+:::
+
+/// type=REPL, readonly=true, filename=[connection.php,student.php]
+
+```php
+// connection.php
+<?php
+    $host = 'localhost';
+    $db = 'LibraryDB';
+    $port = '5432';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1401,7 +1529,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1444,7 +1572,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1464,8 +1592,9 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     require_once("connection.php");
 
     $data = array(
-        'student1' => ['Daron', 'Guilliams', '2001-09-27', 'Male'],
-        'student2' => ['Alisa', 'Ells', '1999-06-30', 'Female']
+        ['first_name' => 'Daron', 'last_name' => 'Guilliams', 'birth_date' => '2001-09-27', 'gender' => 'Male'],
+        ['first_name' => 'Alisa', 'last_name' => 'Ells', 'birth_date' => '1999-06-30', 'gender' => 'Female']
+
     );
      
     $sql = "INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (first_name, last_name, birth_date, gender)";
@@ -1525,7 +1654,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1545,8 +1674,9 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     require_once("connection.php");
 
     $data = array(
-        'student1' => ['Daron', 'Guilliams', '2001-09-27', 'Male'],
-        'student2' => ['Alisa', 'Ells', '1999-06-30', 'Female']
+        ['first_name' => 'Daron', 'last_name' => 'Guilliams', 'birth_date' => '2001-09-27', 'gender' => 'Male'],
+        ['first_name' => 'Alisa', 'last_name' => 'Ells', 'birth_date' => '1999-06-30', 'gender' => 'Female']
+
     );
      
     $sql = "INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (first_name, last_name, birth_date, gender)";
@@ -1576,7 +1706,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1648,7 +1778,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1679,6 +1809,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
 ?>
 ```
 
+
 +++
 
 
@@ -1688,7 +1819,7 @@ Correct the code so that it outputs `Successfully connected to the database.` an
 
 /// type=CR, answer=[tests/PreparedStatement/CreatePHPProgramUsingPrepareAndExecute.php], init=[commands/DataObjects/InsertTwoStudentDataIntoTableStudents.sql], filename=[connection.php,student.php]
 
-Write a program that uses two PHP files named `connection.php` and `student.php` to insert two student data into the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `UserAdmin`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
+Write a program that uses two PHP files named `connection.php` and `student.php` to insert two student data into the `students` table. First, write a PHP file named `connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `LibraryDB`, `5432`, `codestop`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected to the database.`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
 Next, write a PHP file named `student.php`. Add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `'student1' => ['Carlo', 'Pears', '1998-04-04', 'M']` and `'student2' => ['Genevie', 'Lieser', '1996-05-25', 'F']` using the `array()` construct. Then, add a statement that assigns the SQL statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (?,?,?,?)` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `$sql` to the `$pstmt` variable. Then, add the `foreach` statement that iterates through each element in `$data` and assigns the value of the current element on each iteration to `$row`. Inside the `foreach` statement, add the `if` statement that evaluates the negated statement `$pstmt->execute($row)` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
