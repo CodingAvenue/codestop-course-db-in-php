@@ -12,15 +12,15 @@
     
 - `host` refers to the server’s hostname of the PostgreSQL database.
 
-- `port` refers to the port number of the PostgreSQL database server.
+- `port` refers to the port number of the PostgreSQL database server. The postgreSQL default port is `5432`.
     
 - `dbname` is the database name.
 
-- `user` refers to the username of the user.
+- `user` refers to the username of the user that will be used to connect to the database.
     
 - `password` refers to the password that is set by the user.
 
-The example code below shows how PHP uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database.
+The example code below shows how PHP uses the `PDO_PGSQL DSN` and `PDO` class to connect to the PostgreSQL database.
 
 Code:
 
@@ -29,7 +29,7 @@ Code:
     $host = 'localhost';
     $port = '5432';
     $db = 'MyDatabase';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -51,7 +51,7 @@ Code:
 
 - The variables `$host`, `$port`, `$db`, `$username`, and `$password` are assigned to the DSN parameters `host`, `port`, `dbname`, `user`, and `password`.
 
-- `$conn = new PDO($dsn)` creates the `$conn` object as an instance of the `PDO` class passing the argument `$dsn`.
+- The `$conn = new PDO($dsn)` creates the `$conn` object as an instance of the `PDO` class passing the argument `$dsn`.
 
 - `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and executes the `echo` statement if `$conn` evaluates to `true`.
 

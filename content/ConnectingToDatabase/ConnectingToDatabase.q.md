@@ -13,7 +13,7 @@
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -66,11 +66,11 @@ In the statement `$host='localhost';` on line 2, what is `localhost`?
 
 - It is the name of the database.
 
-- It is the username of the user.
-
 - It is the server’s hostname of the PostgreSQL database.
 
 - It is the port number of the PostgreSQL database server.
+
+- It is the username of the user that will be used to connect to the database.
 
 
 /// type=SS, answer=[5]
@@ -143,9 +143,9 @@ In the statement `$dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;
 
 - It transfers the value of the `$username` variable to the DSN parameter `user`.
 
-- It creates the `$host` variable containing the value `postgres` to the DSN parameter `user`.
+- It creates the `$host` variable containing the value `localhost` to the DSN parameter `user`.
 
-- It assigns the `$username` variable containing the value `postgres` to the DSN parameter `user`. 
+- It assigns the `$username` variable containing the value `codestop` to the DSN parameter `user`. 
 
 
 /// type=SS, answer=[5]
@@ -156,7 +156,7 @@ What is the name of the database?
 
 - `Admin01`
 
-- `postgres`
+- `codestop`
 
 - `localhost`
 
@@ -175,7 +175,7 @@ On line 4, what is `5432`?
 
 - It is the server’s hostname of the PostgreSQL database.
 
-- It is the port number where the PostgreSQL database server runs.
+- It is the default port number of the PostgreSQL database.
 
 
 /// type=SS, answer=[5]
@@ -264,7 +264,7 @@ Which statements correctly describe the code on lines 12, 13, and 14?
     $host = 'localhost';
     $db = 'LibraryDb';
     $port = '5432';
-    $username = 'pgAdmin';
+    $username = 'codestop';
     $password = 'adminPwd01';
     
     try {
@@ -438,7 +438,7 @@ Which statement best describes a `PDO` class?
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -494,7 +494,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -520,7 +520,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -576,7 +576,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -602,7 +602,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "pgsql:host=;port=;dbname=;user=;password=";
@@ -658,7 +658,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     $dsn = "pgsql:host=;port=;dbname=;user=;password=";
@@ -684,7 +684,7 @@ Correct the code so that it outputs the string `Successfully connected!`.
     $host = 'localhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
     
     try {
@@ -738,7 +738,7 @@ On line 3, remove the statement `$db = 'MyDatabase';`. Execute the program. What
     $host = 'newhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -792,7 +792,7 @@ Correct the code so that it outputs the string `Successfully connected!`. Hint: 
     $host = 'newhost';
     $db = 'MyDatabase';
     $port = '5432';
-    $username = 'postgres';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -816,7 +816,7 @@ Correct the code so that it outputs the string `Successfully connected!`. Hint: 
    $host = 'localhost';
    $db = 'MyDatabase';
    $port = '5432';
-   $username = 'postgres';
+   $username = 'codestop';
    $password = 'Admin01';
    
    $dsn = "pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password";
@@ -887,7 +887,7 @@ Which statements correctly describe the error?
 
 /// type=CR, answer=[tests/ConnectingToDatabase/CreatePHPApplicationConnectingToPostgreSQLTest.php]
 
-Write a PHP program that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. First, create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `MyDatabase`, `5432`, `postgres`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Next, add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected!`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block. Run the program to view the output.
+Write a PHP program that uses the `PDO_PGSQL DSN` and `PDO` class to connect to the PostgreSQL database. First, create the variables `$host`, `$db`, `$port`, `$username`, and `$password`. Assign the values `localhost`, `MyDatabase`, `5432`, `codestop`, and `Admin01` to the variables respectively. Then, assign the `PDO_PGSQL DSN` statement which contains the DSN parameters `host`, `port`, `dbname`, `username`, and `password` to the `$dsn` variable. Set the DSN parameters with their respective values `$host`, `$db`, `$port`, `$username`, and `$password`. Next, add the `try` and `catch` statements. Inside the `try` block, add a statement that creates the `$conn` object an instance of the `PDO` class which passes the argument `$dsn`. Then, add the `if` statement to evaluate the `$conn` object inside the parentheses `()`. Inside the `if` block, add an `echo` statement to display the string `Successfully connected!`. Inside the `catch` block, add an `echo` statement to display the error message `Unable to establish a connection.` if an exception occurs within the `try` block. Run the program to view the output.
 
 ```php
 <?php
