@@ -14,7 +14,7 @@
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -348,7 +348,7 @@ Which statements correctly describe the code on line 15 of `student.php`?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -544,7 +544,7 @@ In `student.php`, what does `bindValue()` do on line 9?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -629,7 +629,7 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -714,7 +714,7 @@ Which statements correctly describe the code on lines 17, 18, and 19 of `student
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -914,7 +914,7 @@ In `student.php`, which argument represents the 1-index position of the position
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -990,34 +990,34 @@ In the statement `$pstmt->bindValue(':first_name', $author_name, PDO::PARAM_STR)
 
 ### Part 2: Knowledge Assessment
 
-/// type=MS, answer=[3,4]
+/// type=SS, answer=[1]
 
-Which statements correctly describe `PDOStatement::bindValue()`?
+Which statement best describes `PDOStatement::bindValue()`?
 
-- It replaces a value or variable.
+- It binds a value to a parameter
 
 - It executes a prepared statement.
 
-- It passes both value and variable.
+- It binds a parameter to a variable.
 
-- It binds a value or variable to a parameter.
+- It sets a proper data type in an SQL statement.
 
-- It binds a parameter exclusively to a specified variable.
+- It sets a value to bind to the corresponding placeholder as a parameter.
 
 
-/// type=MS, answer=[1,5]
+/// type=MS, answer=[2,3,4]
 
 Which statements correctly describe `PDOStatement::bindParam()`?
 
-- It binds only a variable.
-
 - It executes a prepared statement.
 
-- It passes both value and variable.
+- It binds a parameter to a variable.
 
-- It binds a value or variable to a parameter.
+- It sets a bounded variable as a reference.
 
-- It binds a parameter exclusively to a specified variable.
+- It evaluates a bounded variable once the `execute()` method is called.
+
+- It sets the values to bind to the corresponding placeholder as a parameter. 
 
 
 /// type=MS, answer=[1,3,5]
@@ -1028,11 +1028,11 @@ What arguments are passed in `PDOStatement::bindValue()`?
 
 - A row number of the parameter.
 
-- An explicit data type for the parameter.
+- A value to bind to the parameter.
 
 - A return value either `true` or `false`. 
 
-- A value or variable to bind to the parameter.
+- An explicit data type for the parameter.
 
 
 /// type=MS, answer=[1,4,5]
@@ -1045,7 +1045,7 @@ What arguments are passed in `PDOStatement::bindParam()`?
 
 - A value to bind to the parameter.
 
-- A variable to bind to the parameter.
+- A parameter to bind to the variable.
 
 - An explicit data type for the parameter.
 
@@ -1081,7 +1081,7 @@ Which statement best describes `PDO::PARAM_STR`?
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1161,7 +1161,7 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
 
     try {
@@ -1211,7 +1211,7 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1286,7 +1286,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1331,7 +1331,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1427,7 +1427,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1478,7 +1478,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1552,7 +1552,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1603,7 +1603,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
@@ -1633,7 +1633,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
     $host = 'localhost';
     $db = 'LibraryDB';
     $port = '5432';
-    $username = 'UserAdmin';
+    $username = 'codestop';
     $password = 'Admin01';
     try {
         $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
