@@ -58,7 +58,7 @@ On line 2, what is `$host`?
 - It is an operator.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[3]
 
 In the statement `$host='localhost';` on line 2, what is `localhost`?
 
