@@ -1380,7 +1380,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully inserted values into the table.`.
 
 
-/// type=SS, answer=[5]
+/// type=SS, answer=[3]
 
 Which statement best describes the error message?
 
