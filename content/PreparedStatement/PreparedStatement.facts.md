@@ -37,7 +37,7 @@ foreach ($data as $row) {
 
 - The array keys `student1` and `student2` contain values to be inserted into the table. Positional placeholders require to order the key values in the same order of which the positional placeholders appear in the SQL statement.
 
-- `Berry` and `Vikki` correspond with the first positional placeholder `?`, `Meisner` and `Fernando` correspond with the second positional placeholder `?`, `2002-09-09` and `2005-05-17` correspond with the third positional placeholder `?`, and `Male` and `Female` correspond with the fourth positional placeholder `?`.
+- The key values `Berry` and `Vikki` correspond with the first positional placeholder `?`, `Meisner` and `Fernando` correspond with the second positional placeholder `?`, `2002-09-09` and `2005-05-17` correspond with the third positional placeholder `?`, and `Male` and `Female` correspond with the fourth positional placeholder `?`.
 
 - The `foreach` statement iterates through each key in the multidimensional array `$data`.
 
@@ -61,10 +61,10 @@ foreach ($data as $sqlData => $values) {
 
 - The `VALUES (:first_name, :last_name, :birth_date, :gender)` clause uses named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to substitute the values to be inserted into the table to prevent SQL injections.
 
-- The associative arrays `['first_name' => 'Berry', 'last_name' => 'Meisner', 'birth_date' => '2002-09-09', 'gender' => 'Male']` and `['first_name' => 'Vikki', 'last_name' => 'Fernando', 'birth_date' => '2005-05-17', 'gender' => 'Female']` are used for named placeholders as parameters where keys have to match the named placeholders in the SQL statement.
+- `['first_name' => 'Berry', 'last_name' => 'Meisner', 'birth_date' => '2002-09-09', 'gender' => 'Male']` and `['first_name' => 'Vikki', 'last_name' => 'Fernando', 'birth_date' => '2005-05-17', 'gender' => 'Female']` contain the values to be inserted into the table. The keys should match the named placeholders in the SQL statement.
 
 - `$pstmt = $conn->prepare($sql);` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
 
-- The `foreach` statement iterates through each key of the associative array `$data`.
+- The `foreach` statement iterates through each key of the multidimensional array `$data`.
 
 - `$pstmt->execute($values);` executes a prepared statement passing the argument `$values` and returns the boolean value `true`.

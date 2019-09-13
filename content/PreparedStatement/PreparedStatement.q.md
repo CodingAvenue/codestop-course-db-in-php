@@ -390,7 +390,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[1,2,3,4,5]
 
-Which of the following are array values contained in the associative array `$data`?
+Which of the following are array values contained in the multidimensional array `$data`?
 
 - `Daron`
 
@@ -405,7 +405,7 @@ Which of the following are array values contained in the associative array `$dat
 
 /// type=SS, answer=[4]
 
-How many keys does the associative array `$data` have?
+How many keys does the multidimensional array `$data` have?
 
 - 0
 
@@ -430,7 +430,7 @@ In `student.php`, what does `$sql` do on line 9?
 
 - It holds the elements of the array variable `$data`.
 
-- It stores the array values of the associative array `$data`.
+- It stores the array values of the multidimensional array `$data`.
 
 
 /// type=MS, answer=[1,4,5]
@@ -722,15 +722,15 @@ Execute the program. What is its output?
 
 Which statement best describes the code on lines 4, 5, 6, and 7 of `student.php`?
 
-- It adds the associative array named `$data` to the database.
+- It adds the multidimensional array named `$data` to the database.
 
 - It holds one value in each key of `gender` and `female_gender`.
 
 - It accesses the elements of `$data` using the `array()` construct.
 
-- It creates the associative array named `$data` with two keys `gender` and `female_gender`.
+- It creates the multidimensional array named `$data` with two keys `gender` and `female_gender`.
 
-- It creates the associative array named `$data` with two elements `gender` and `female_gender`.
+- It creates the multidimensional array named `$data` with two elements `gender` and `female_gender`.
 
 
 /// type=MS, answer=[3,4,5]
@@ -1382,7 +1382,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[5]
 
-Which statements correctly describe the error message?
+Which statement best describes the error message?
 
 - On lines 5 and 6, the values are enclosed in square brackets `[]`.
 
