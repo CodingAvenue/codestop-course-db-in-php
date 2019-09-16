@@ -4,7 +4,7 @@ Parameter binding is useful to set the proper data type explicitly. The `bindVal
 
 - The `PDOStatement::bindValue()` method binds a value to a parameter.
 
-- The `PDOStatement::bindParam()` method binds a parameter to a variable. The variable is bound as a reference and will be evaluated once the `PDOStatement::execute()` is called.
+- The `PDOStatement::bindParam()` method binds a parameter to a variable. The variable is bound as a reference and will be evaluated when the `PDOStatement::execute()` is called.
 
 The example code below shows how to execute a prepared statement that uses `PDOStatement::bindParam()` and `PDOStatement::bindValue()`:
 
@@ -27,7 +27,10 @@ $pstmt->execute();
 
 - `$data['first_name']` and `$data['birth_date']` represent the values to bind to the positional placeholders `?` in the SQL statement.
 
-- `PDO::PARAM_STR` represents a predefined constant `SQL CHAR`, `VARCHAR`, or other string data type for the parameter. A few other types of predefined constants are `PDO::PARAM_BOOL` for a boolean data type, `PDO::PARAM_NULL` for SQL null data type, and `PDO::PARAM_INT` for SQL integer data type.
+- `PDO::PARAM_STR` represents a predefined constant `SQL CHAR`, `VARCHAR`, or other string data type for the parameter. A few other types of predefined constants are:
+    - `PDO::PARAM_BOOL` for a boolean data type.
+    - `PDO::PARAM_NULL` for SQL null data type. 
+    - `PDO::PARAM_INT` for SQL integer data type.
 
 - `$pstmt->execute();` executes the prepared statement `$pstmt`.
 
