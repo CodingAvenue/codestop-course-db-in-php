@@ -1015,7 +1015,7 @@ Which statements correctly describe `PDOStatement::bindParam()`?
 
 - It sets a bounded variable as a reference.
 
-- It evaluates a bounded variable once the `execute()` method is called.
+- It evaluates a bounded variable when the `execute()` method is called.
 
 - It sets the values to bind to the corresponding placeholder as a parameter. 
 
