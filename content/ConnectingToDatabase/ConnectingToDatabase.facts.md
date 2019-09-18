@@ -16,7 +16,7 @@
     
 - `dbname` is the database name.
 
-- `user` refers to the username of the user that will be used to connect to the database.
+- `user` is the name of the user for the database connection.
     
 - `password` refers to the password that is set by the user.
 
@@ -55,6 +55,6 @@ Code:
 
 - `if ($conn) { echo "Successfully connected."; }` evaluates the `$conn` object and executes the `echo` statement if `$conn` evaluates to `true`.
 
-- The `try` block contains the statements that may throw a certain exception.
+- The `try` block contains `$conn = new PDO($dsn);` and `if ($conn) { echo "Successfully connected."; }` statements that may potentially throw an error if the `PDO_PGSQL DSN` or `PDO` class fail to connect to the PostgreSQL database.
 
 - The `catch` block executes the `echo` statement if an exception occurs within the `try` block.
