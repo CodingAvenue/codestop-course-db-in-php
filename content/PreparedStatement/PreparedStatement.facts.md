@@ -59,12 +59,12 @@ foreach ($data as $sqlData => $values) {
 ```
 - `$sql = "INSERT INTO students (first_name, last_name, birth_date, gender) VALUES (:first_name, :last_name, :birth_date, :gender)";` assigns the SQL statement to the variable `$sql`.
 
-- The `VALUES (:first_name, :last_name, :birth_date, :gender)` clause uses named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to substitute the values to be inserted into the table to prevent SQL injections.
+- The `VALUES (:first_name, :last_name, :birth_date, :gender)` clause uses named placeholders `:first_name`, `:last_name`, `:birth_date`, and `:gender` to substitute the values to be inserted into the table.
 
-- The keys `first_name`, `last_name`, `birth_date`, and `gender` contain values to be inserted into the table. The keys should match the named placeholders specified in the SQL statement.
+- The keys `first_name`, `last_name`, `birth_date`, and `gender` contain values that will be used to substitute the named placeholders. The keys should match the named placeholders specified in the SQL statement.
 
 - `$pstmt = $conn->prepare($sql);` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
 
 - The `foreach` statement iterates through each key of the multidimensional array `$data`.
 
-- `$pstmt->execute($values);` executes a prepared statement passing the argument `$values` and returns the boolean value `true`.
+- `$pstmt->execute($values);` executes a prepared statement passing the argument `$values` and returns the boolean value `true` on success or `false` on failure.
