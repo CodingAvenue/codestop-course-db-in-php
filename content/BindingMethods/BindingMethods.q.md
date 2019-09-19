@@ -6,33 +6,38 @@
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = array(
         'min_birth_date' => '1999-01-01',
         'max_birth_date' => '2000-01-01'
@@ -47,7 +52,11 @@
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+        echo $row['student_id']."\t";
+        echo $row['first_name']." ";
+        echo $row['last_name']."\t";
+        echo $row['birth_date']."\t";
+        echo $row['gender']."\n";
     }
 ?>
 ```
@@ -83,7 +92,7 @@ Which of the following are array values in the associative array `$data`?
 
 /// type=SS, answer=[4]
 
-Which statement best describes the code on lines 4, 5, 6, and 7 of `student.php`?
+Which statement best describes the code on lines 5, 6, 7, and 8 of `Student.php`?
 
 - It displays the elements of the associative array `$data`.
 
@@ -98,7 +107,7 @@ Which statement best describes the code on lines 4, 5, 6, and 7 of `student.php`
 
 /// type=MS, answer=[4,5]
 
-In `student.php`, which of the following are named placeholders?
+In `Student.php`, which of the following are named placeholders?
 
 - `students`
 
@@ -113,7 +122,7 @@ In `student.php`, which of the following are named placeholders?
 
 /// type=SS, answer=[1]
 
-In `student.php`, what value is associated with the named placeholder `:min_birth_date` on line 9?
+In `Student.php`, what value is associated with the named placeholder `:min_birth_date` on line 10?
 
 - `1999-01-01`
 
@@ -128,7 +137,7 @@ In `student.php`, what value is associated with the named placeholder `:min_birt
 
 /// type=SS, answer=[2]
 
-In `student.php`, what value is associated with the named placeholder `:max_birth_date` on line 9?
+In `Student.php`, what value is associated with the named placeholder `:max_birth_date` on line 10?
 
 - `1999-01-01`
 
@@ -143,7 +152,7 @@ In `student.php`, what value is associated with the named placeholder `:max_birt
 
 /// type=SS, answer=[5]
 
-Which statement best describes `WHERE birth_date >= :min_birth_date AND birth_date < :max_birth_date` on line 9 of `student.php`?
+Which statement best describes `WHERE birth_date >= :min_birth_date AND birth_date < :max_birth_date` on line 10 of `Student.php`?
 
 - It selects the rows in the `students` table related to the values `1999-01-01` and `2000-01-01`.
 
@@ -158,7 +167,7 @@ Which statement best describes `WHERE birth_date >= :min_birth_date AND birth_da
 
 /// type=MS, answer=[2,3,4,5]
 
-Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 11 of `student.php`?
+Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 of `Student.php`?
 
 - It executes the SQL statement.
 
@@ -173,7 +182,7 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 11 o
 
 /// type=SS, answer=[3]
 
-In `student.php`, which of the following represents the parameter identifier in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 12?
+In `Student.php`, which of the following represents the parameter identifier in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 13?
 
 - `$data`
 
@@ -188,7 +197,7 @@ In `student.php`, which of the following represents the parameter identifier in 
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the value to bind in the SQL statement on line 12?
+In `Student.php`, which of the following represents the value to bind in the SQL statement on line 13?
 
 - `$data`
 
@@ -203,7 +212,7 @@ In `student.php`, which of the following represents the value to bind in the SQL
 
 /// type=SS, answer=[3]
 
-In `student.php`, which argument represents the explicit data type in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 12?
+In `Student.php`, which argument represents the explicit data type in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 13?
 
 - `$data`
 
@@ -218,7 +227,7 @@ In `student.php`, which argument represents the explicit data type in the statem
 
 /// type=MS, answer=[1,4]
 
-In `student.php`, which statements correctly describe `:min_birth_date`, `$data['min_birth_date']`, and `PDO::PARAM_STR` on line 12?
+In `Student.php`, which statements correctly describe `:min_birth_date`, `$data['min_birth_date']`, and `PDO::PARAM_STR` on line 13?
 
 - These are arguments of the `bindParam()` method.
 
@@ -233,7 +242,7 @@ In `student.php`, which statements correctly describe `:min_birth_date`, `$data[
 
 /// type=SS, answer=[4]
 
-In `student.php`, what does the `bindParam()` method do on line 12?
+In `Student.php`, what does the `bindParam()` method do on line 13?
 
 - It assigns the value `1999-01-01` to the named placeholder `:min_birth_date`.
 
@@ -248,7 +257,7 @@ In `student.php`, what does the `bindParam()` method do on line 12?
 
 /// type=MS, answer=[2,3,5]
 
-Which statements correctly describe `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 12?
+Which statements correctly describe `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` on line 13?
 
 - It executes the SQL statement.
 
@@ -263,7 +272,7 @@ Which statements correctly describe `$pstmt->bindParam(':min_birth_date', $data[
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the value to bind in the SQL statement on line 13?
+In `Student.php`, which of the following represents the value to bind in the SQL statement on line 14?
 
 - `$data`
 
@@ -278,7 +287,7 @@ In `student.php`, which of the following represents the value to bind in the SQL
 
 /// type=SS, answer=[4]
 
-In `student.php`, which of the following represents the parameter identifier in the statement `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR);` on line 13?
+In `Student.php`, which of the following represents the parameter identifier in the statement `$pstmt->bindParam(':max_birth_date', $data['max_birth_date'], PDO::PARAM_STR);` on line 14?
 
 - `$data`
 
@@ -293,7 +302,7 @@ In `student.php`, which of the following represents the parameter identifier in 
 
 /// type=SS, answer=[5]
 
-In `student.php`, what does the `bindParam()` method do on line 13?
+In `Student.php`, what does the `bindParam()` method do on line 14?
 
 - It assigns the value `2000-01-01` to the named placeholder `:max_birth_date`.
 
@@ -308,7 +317,7 @@ In `student.php`, what does the `bindParam()` method do on line 13?
 
 /// type=SS, answer=[3]
 
-In `student.php`, what does the `execute()` method do on line 14?
+In `Student.php`, what does the `execute()` method do on line 15?
 
 - It executes the SQL statement.
 
@@ -323,7 +332,7 @@ In `student.php`, what does the `execute()` method do on line 14?
 
 /// type=MS, answer=[2,3,5]
 
-Which statements correctly describe the code on line 15 of `student.php`?
+Which statements correctly describe the code on line 16 of `Student.php`?
 
 - It queries the SQL statement.
 
@@ -340,33 +349,38 @@ Which statements correctly describe the code on line 15 of `student.php`?
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/BindingMethods/DeleteJohnSmithStudentData.sql], filename=[connection.php,student.php]
+/// type=REPL, readonly=true, init=[commands/BindingMethods/DeleteJohnSmithStudentData.sql], filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $sql = "DELETE FROM students WHERE first_name = ? AND last_name = ?";
 
     try {
@@ -399,7 +413,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[1]
 
-Which variable holds the SQL statement in `student.php`?
+Which variable holds the SQL statement in `Student.php`?
 
 - `$sql`
 
@@ -414,7 +428,7 @@ Which variable holds the SQL statement in `student.php`?
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following is a positional placeholder?
+In `Student.php`, which of the following is a positional placeholder?
 
 - `?`
 
@@ -429,7 +443,7 @@ In `student.php`, which of the following is a positional placeholder?
 
 /// type=SS, answer=[4]
 
-In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what is `1`?
+In the statement `$pstmt->bindValue(1, 'John');` on line 9 of `Student.php`, what is `1`?
 
 - It represents the named placeholder.
 
@@ -444,7 +458,7 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 
 /// type=SS, answer=[4]
 
-In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, what does `John` represent?
+In the statement `$pstmt->bindValue(1, 'John');` on line 9 of `Student.php`, what does `John` represent?
 
 - The explicit data type.
 
@@ -459,7 +473,7 @@ In the statement `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`, wha
 
 /// type=MS, answer=[1,4]
 
-Which statements correctly describe `1` and `John` on line 8 of `student.php`?
+Which statements correctly describe `1` and `John` on line 9 of `Student.php`?
 
 - These are the arguments of the `bindValue()` method.
 
@@ -474,7 +488,7 @@ Which statements correctly describe `1` and `John` on line 8 of `student.php`?
 
 /// type=SS, answer=[2]
 
-In `student.php`, what does `bindValue()` do on line 8?
+In `Student.php`, what does `bindValue()` do on line 9?
 
 - It binds the value `John` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
@@ -489,7 +503,7 @@ In `student.php`, what does `bindValue()` do on line 8?
 
 /// type=MS, answer=[2,4,5]
 
-Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 8 of `student.php`?
+Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 9 of `Student.php`?
 
 - It executes the SQL statement.
 
@@ -504,7 +518,7 @@ Which statements correctly descibe `$pstmt->bindValue(1, 'John');` on line 8 of 
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following represents the 1-index position as the parameter identifier on line 9?
+In `Student.php`, which of the following represents the 1-index position as the parameter identifier on line 10?
 
 - `2`
 
@@ -519,7 +533,7 @@ In `student.php`, which of the following represents the 1-index position as the 
 
 /// type=SS, answer=[1]
 
-In `student.php`, what does `bindValue()` do on line 9?
+In `Student.php`, what does `bindValue()` do on line 10?
 
 - It binds the value `Smith` to the corresponding positional placeholder `?` in `last_name = ?` of the SQL statement.
 
@@ -536,33 +550,38 @@ In `student.php`, what does `bindValue()` do on line 9?
 
 :::
 
-/// type=REPL, filename=[connection.php,student.php]
+/// type=REPL, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
-
+    require_once("Connection.php");
+    
+    $conn = Connection::getConnection();
     $data = array(
         'first_name' => 'John',
         'last_name' => 'Smith'
@@ -580,7 +599,11 @@ In `student.php`, what does `bindValue()` do on line 9?
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+            echo $row['student_id']."\t";
+            echo $row['first_name']." ";
+            echo $row['last_name']."\t";
+            echo $row['birth_date']."\t";
+            echo $row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -604,7 +627,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[5]
 
-On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `Alisa` and `Ells`. Execute the program. What is its output?
+On lines 6 and 7 of `Student.php`, replace the strings `John` and `Smith` with `Alisa` and `Ells`. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -621,38 +644,43 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
 
 :::
 
-/// type=REPL, filename=[connection.php,student.php]
+/// type=REPL, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = array(
         'first_name' => 'Alisa',
         'last_name' => 'Ells'
     );
-
+    
     $sql = "SELECT * FROM students WHERE first_name = :first_name and last_name = :last_name";
 
     try {
@@ -665,7 +693,11 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+            echo $row['student_id']."\t";
+            echo $row['first_name']." ";
+            echo $row['last_name']."\t";
+            echo $row['birth_date']."\t";
+            echi $row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -674,7 +706,7 @@ On lines 5 and 6 of `student.php`, replace the strings `John` and `Smith` with `
 ```
 /// type=SS, answer=[5]
 
-On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bindParam()`. Execute the program. What is its output?
+On lines 14 and 15 of `Student.php`, replace the `bindValue()` method with `bindParam()`. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -689,7 +721,7 @@ On lines 13 and 14 of `student.php`, replace the `bindValue()` method with `bind
 
 /// type=MS, answer=[3,5]
 
-Which statements correctly describe the code on lines 17, 18, and 19 of `student.php`?
+Which statements correctly describe the code on lines 18, 19, and 20 of `Student.php`?
 
 - It adds the values to `$data`.
 
@@ -706,32 +738,38 @@ Which statements correctly describe the code on lines 17, 18, and 19 of `student
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/BindingMethods/CreateAuthorsTableAndInsertData.sql], filename=[connection.php,student.php]
+/// type=REPL, readonly=true, init=[commands/BindingMethods/CreateAuthorsTableAndInsertData.sql], filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = ['Naomi', 'Wolf'];
     $sql = "CREATE TABLE IF NOT EXISTS authors (PRIMARY KEY (author_id), author_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80))";
             
@@ -769,7 +807,7 @@ Execute the program. What is its output?
 
 /// type=MS, answer=[3,4]
 
-What are the SQL statements used in `student.php`?
+What are the SQL statements used in `Student.php`?
 
 - `VALUES`
 
@@ -784,7 +822,7 @@ What are the SQL statements used in `student.php`?
 
 /// type=SS, answer=[1]
 
-In `student.php`, which variable holds the statement `CREATE TABLE IF NOT EXISTS authors (PRIMARY KEY (author_id), author_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80))`?
+In `Student.php`, which variable holds the statement `CREATE TABLE IF NOT EXISTS authors (PRIMARY KEY (author_id), author_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80))`?
 
 - `$sql`
 
@@ -799,7 +837,7 @@ In `student.php`, which variable holds the statement `CREATE TABLE IF NOT EXISTS
 
 /// type=MS, answer=[4,5]
 
-In `student.php`, what does the `query()` method do on line 8?
+In `Student.php`, what does the `query()` method do on line 9?
 
 - It holds the value of `$sql`.
 
@@ -814,7 +852,7 @@ In `student.php`, what does the `query()` method do on line 8?
 
 /// type=MS, answer=[3,4]
 
-Which statements correctly describe the code on lines 9, 10, and 11 of `student.php`?
+Which statements correctly describe the code on lines 10, 11, and 12 of `Student.php`?
 
 - The `if` statement evaluates to `true` and the statement on line 10 is executed.
 
@@ -829,7 +867,7 @@ Which statements correctly describe the code on lines 9, 10, and 11 of `student.
 
 /// type=SS, answer=[1]
 
-In `student.php`, which of the following is a positional placeholder?
+In `Student.php`, which of the following is a positional placeholder?
 
 - `?`
 
@@ -844,7 +882,7 @@ In `student.php`, which of the following is a positional placeholder?
 
 /// type=SS, answer=[3]
 
-What value is assigned to `$data[0]` on line 13?
+What value is assigned to `$data[0]` on line 14?
 
 - `?`
 
@@ -859,7 +897,7 @@ What value is assigned to `$data[0]` on line 13?
 
 /// type=MS, answer=[3,4]
 
-In `student.php`, which arguments represent the values that are passed to the positional placeholders `?` on line 12?
+In `Student.php`, which arguments represent the values that are passed to the positional placeholders `?` on line 13?
 
 - `1`
 
@@ -874,7 +912,7 @@ In `student.php`, which arguments represent the values that are passed to the po
 
 /// type=SS, answer=[2]
 
-What value is assigned to `$data[1]` on line 14?
+What value is assigned to `$data[1]` on line 15?
 
 - `?`
 
@@ -889,7 +927,7 @@ What value is assigned to `$data[1]` on line 14?
 
 /// type=SS, answer=[2]
 
-In `student.php`, which argument represents the 1-index position of the positional placeholder `?` on line 14?
+In `Student.php`, which argument represents the 1-index position of the positional placeholder `?` on line 15?
 
 - `1`
 
@@ -906,32 +944,38 @@ In `student.php`, which argument represents the 1-index position of the position
 
 :::
 
-/// type=REPL, filename=[connection.php,student.php]
+/// type=REPL, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $author_name = 'Naomi';
     $sql = "SELECT * FROM authors WHERE first_name = :first_name";
 
@@ -944,7 +988,9 @@ In `student.php`, which argument represents the 1-index position of the position
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['author_id']."\t".$row['first_name']."\t".$row['last_name']."\n";
+            echo $row['author_id']."\t";
+            echo $row['first_name']."\t";
+            echo $row['last_name']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -968,7 +1014,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[4]
 
-In the statement `$pstmt->bindValue(':first_name', $author_name, PDO::PARAM_STR);` on line 9 of `student.php`, replace the variable `$author_name` with the value `Naomi`. Execute the program. What is its output?
+In the statement `$pstmt->bindValue(':first_name', $author_name, PDO::PARAM_STR);` on line 10 of `Student.php`, replace the variable `$author_name` with the value `Naomi`. Execute the program. What is its output?
 
 - It produces an error.
 
@@ -1073,33 +1119,38 @@ Which statement best describes `PDO::PARAM_STR`?
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = array(
         'min_birth_date' => '1999-01-01',
         'max_birth_date' => '2000-01-01'
@@ -1115,7 +1166,11 @@ Which statement best describes `PDO::PARAM_STR`?
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+        echo $row['student_id']."\t";
+        echo $row['first_name']." ";
+        echo $row['last_name']."\t";
+        echo $row['birth_date']."\t";
+        echo $row['gender']."\n";
     }
 ?>
 ```
@@ -1125,61 +1180,66 @@ Execute the program. What is the error message?
 
 - syntax error, unexpected `$pstmt` on line 12
 
-- Invalid parameter number: `:min_birth_date` on line 12
+- Invalid parameter number: `:min_birth_date` on line 13
 
-- Invalid parameter number: `:max_birth_date` on line 13
+- Invalid parameter number: `:max_birth_date` on line 14
 
-- `PDO::prepare()` expects at least 1 parameter, 0 given on line 11
+- `PDO::prepare()` expects at least 1 parameter, 0 given on line 12
 
-- syntax error, unexpected `$data` (T_VARIABLE), expecting `,` or `)` on line 12 
+- syntax error, unexpected `$data` (T_VARIABLE), expecting `,` or `)` on line 13 
 
 
 /// type=MS, answer=[3,5]
 
 Which statements correctly describe the error?
 
-- The named placeholder `:min_birth_date` is enclosed in single quotes `''` on line 12.
+- The named placeholder `:min_birth_date` is enclosed in single quotes `''` on line 13.
 
-- In `student.php`, the semicolon `;` and close parenthesis `)` are misplaced on line 7.
+- In `Student.php`, the semicolon `;` and close parenthesis `)` are misplaced on line 8.
 
-- On line 12, the parameter identifier `:min_birth_date` should be an index position of value `1`.
+- On line 13, the parameter identifier `:min_birth_date` should be an index position of value `1`.
 
-- On lines 5 and 6, the values set by the keys `:min_birth_date` and `:max_birth_date` is incorrect.
+- On lines 6 and 7, the values set by the keys `min_birth_date` and `max_birth_date` is incorrect.
 
-- On line 12, the parameter identifier `:min_birth_date` in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` is incorrect.
+- On line 13, the parameter identifier `:min_birth_date` in the statement `$pstmt->bindParam(':min_birth_date', $data['min_birth_date'], PDO::PARAM_STR);` is incorrect.
 
 :::
 
 
-/// type=CR, answer=[tests/BindingMethods/IncorrectParameterIdentifierInBindParamArgument.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/IncorrectParameterIdentifierInBindParamArgument.php], filename=[Connection.php,Student.php]
 
 Correct the code so that it outputs `Successfully connected to the database.`, `2 Samantha Danes 1999-10-12 F`, and `6 Alisa Ells 1999-06-30 F` in separate lines.
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = array(
         'min_birth_date' => '1999-01-01',
         'max_birth_date' => '2000-01-01'
@@ -1195,7 +1255,11 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+        echo $row['student_id']."\t";
+        echo $row['first_name']." ";
+        echo $row['last_name']."\t";
+        echo $row['birth_date']."\t";
+        echo $row['gender']."\n";
     }
 ?>
 ```
@@ -1203,32 +1267,38 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $sql = "DELETE FROM students WHERE first_name = ? AND last_name = ?";
 
     try {
@@ -1250,60 +1320,66 @@ Execute the program. What is the error message?
 
 - syntax error, unexpected `}` on line 12 
 
-- syntax error, unexpected `try` on line 6
+- syntax error, unexpected `try` on line 7
 
-- syntax error, unexpected `$sql` on line 4
+- syntax error, unexpected `$sql` on line 5
 
 - syntax error, unexpected `bindValue` on line 9
 
-- Call to undefined function `bindValue()` thrown on line 8
+- Call to undefined function `bindValue()` thrown on line 9
 
 
 /// type=MS, answer=[4,5]
 
 Which statements correctly describe the error?
 
-- On line 7, the argument passed is `$sql`.
+- On line 8, the argument passed is `$sql`.
 
-- On line 4, the SQL statement is enclosed in double quotes `""`.
+- On line 5, the SQL statement is enclosed in double quotes `""`.
 
-- On lines 8 and 9, the index positions `1` and `2` of the parameter are not enclosed in single quotes `''`.
+- On lines 9 and 10, the index positions `1` and `2` of the parameter are not enclosed in single quotes `''`.
 
-- On lines 8 and 9, the statements `bindValue(1, 'John')` and `bindValue(2, 'Smith');` are incorrect.
+- On lines 9 and 10, the statements `bindValue(1, 'John')` and `bindValue(2, 'Smith');` are incorrect.
 
-- In `student.php`, there are no `$pstmt` object and object operator `->` before the `bindValue()` method on lines 8 and 9. 
+- In `Student.php`, there are no `$pstmt` object and object operator `->` before the `bindValue()` method on lines 9 and 10. 
 
 :::
 
 
-/// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInBindValue.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInBindValue.php], filename=[Connection.php,Student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully deleted the student data in the table.`.
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $sql = "DELETE FROM students WHERE first_name = ? AND last_name = ?";
 
     try {
@@ -1323,32 +1399,38 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = ['Carlo','Pears'];
 
     $sql = "SELECT * FROM students WHERE first_name = ? and last_name = ?";
@@ -1363,7 +1445,11 @@ Correct the code so that it outputs the strings `Successfully connected to the d
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+            echo $row['student_id']."\t";
+            echo $row['first_name']." ";
+            echo $row['last_name']."\t";
+            echo $row['birth_date']."\t";
+            echo $row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -1389,62 +1475,68 @@ Execute the program. What is its output?
 
 What is the error message?
 
-- Undefined variable: `conn` on line 9
+- Undefined variable: `conn` on line 10
 
-- syntax error, unexpected `,` on line 4
+- syntax error, unexpected `,` on line 5
 
-- syntax error, unexpected `$pstmt` on line 12
+- syntax error, unexpected `$pstmt` on line 13
 
-- Call to undefined function `fetchAll()` on line 13
+- Call to undefined function `fetchAll()` on line 14
 
-- Call to a member function `prepare()` on null on line 9
+- Call to a member function `prepare()` on null on line 10
 
 
 /// type=MS, answer=[1,5]
 
 Which statements correctly describe the error?
 
-- On lines 13, the statement `$data = fetchAll();` is incorrect.
+- On lines 14, the statement `$data = fetchAll();` is incorrect.
 
-- There are no parentheses `()` that enclosed the SQL statement on line 6.
+- There are no parentheses `()` that enclosed the SQL statement on line 7.
 
-- On line 4, the values `Carlo` and `Pears` are enclosed in single quotes `""`.
+- On line 5, the values `Carlo` and `Pears` are enclosed in single quotes `""`.
 
-- On line 4, there is no `array()` language construct to create and initialize the array variable `$data`.
+- On line 5, there is no `array()` language construct to create and initialize the array variable `$data`.
 
-- In `student.php`, there are no `$pstmt` object and object operator `->` before the `fetchAll()` method on line 13.
+- In `Student.php`, there are no `$pstmt` object and object operator `->` before the `fetchAll()` method on line 14.
 
 :::
 
 
-/// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInFetchAll.php], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/MissingObjectAndOperatorInFetchAll.php], filename=[Connection.php,Student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `7 Carlo Pears 1998-04-04 M` in separate lines.
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
+    require_once("Connection.php");
 
+    $conn = Connection::getConnection();
     $data = ['Carlo','Pears'];
 
     $sql = "SELECT * FROM students WHERE first_name = ? and last_name = ?";
@@ -1459,7 +1551,11 @@ Correct the code so that it outputs the strings `Successfully connected to the d
             throw new Exception("Student record not found.");
         }
         foreach ($data as $row) {
-            echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";
+            echo $row['student_id']."\t";
+            echo $row['first_name']." ";
+            echo $row['last_name']."\t";
+            echo $row['birth_date']."\t";
+            echo $row['gender']."\n";
         }
     } catch (Exception $e) {
         echo $e->getMessage();
@@ -1470,32 +1566,38 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, readonly=true, filename=[connection.php,student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
-
+    require_once("Connection.php");
+    
+    $conn = Connection::getConnection();
     $data = 'Anne','Frank';
 
     try {
@@ -1515,61 +1617,67 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 Execute the program. What is the error message?
 
-- syntax error, unexpected `,` on line 4
+- syntax error, unexpected `,` on line 5
 
 - Unable to insert values into the table.
 
-- syntax error, unexpected `$pstmt` on line 8
+- syntax error, unexpected `$pstmt` on line 9
 
-- Call to undefined function `bindParam()` on line 8 
+- Call to undefined function `bindParam()` on line 9
 
-- syntax error, unexpected `INTO` (T_STRING), expecting `,` on line 7 
+- syntax error, unexpected `INTO` (T_STRING), expecting `,` on line 8
 
 
 /// type=MS, answer=[1,4]
 
 Which statements correctly describe the error?
 
-- On line 4, the statement `$data = 'Anne','Frank;'` is incorrect.
+- On line 5, the statement `$data = 'Anne','Frank;'` is incorrect.
 
-- On line 4, the strings `Anne` and `Frank` are enclosed in single quotes `''`.
+- On line 5, the strings `Anne` and `Frank` are enclosed in single quotes `''`.
 
-- On line 4, a comma `,` between the values `Anne` and `Frank` is not allowed.
+- On line 5, a comma `,` between the values `Anne` and `Frank` is not allowed.
 
-- On line 4, the strings `Anne` and `Frank` are not enclosed in square brackets `[]`.
+- On line 5, the strings `Anne` and `Frank` are not enclosed in square brackets `[]`.
 
-- There are no parentheses `()` that enclosed the values `Anne` and `Frank` on line 4.
+- There are no parentheses `()` that enclosed the values `Anne` and `Frank` on line 5.
 
 :::
 
-/// type=CR, answer=[tests/BindingMethods/MissingSquareBrackets.php], init=[commands/BindingMethods/InsertAnneFrankValue.sql], filename=[connection.php,student.php]
+/// type=CR, answer=[tests/BindingMethods/MissingSquareBrackets.php], init=[commands/BindingMethods/InsertAnneFrankValue.sql], filename=[Connection.php,Student.php]
 
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted values into the table.`.
 
 ```php
-// connection.php
+// Connection.php
 <?php
-    $host = 'localhost';
-    $db = 'LibraryDB';
-    $port = '5432';
-    $username = 'codestop';
-    $password = 'Admin01';
-    try {
-        $conn = new PDO("pgsql:host=$host;port=$port;dbname=$db;user=$username;password=$password");
-        if ($conn) {
-            echo "Successfully connected to the database.\n";
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection() {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+                
+            }
+            catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
         }
-    } catch (Exception $e) {
-        echo "Unable to establish a connection."; 
     }
 ?>
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
-    require_once("connection.php");
-
+    require_once("Connection.php");
+    
+    $conn = Connection::getConnection();
     $data = 'Anne','Frank';
 
     try {
@@ -1593,12 +1701,12 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 ### Part 4: Practice
 
-/// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindValue.php], init=[commands/BindingMethods/InsertStephenHawkingData.sql], filename=[connection.php,author.php]
+/// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindValue.php], init=[commands/BindingMethods/InsertStephenHawkingData.sql], filename=[Connection.php,author.php]
 
-Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindValue()` method to bind a value to a parameter. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (?,?)` to the `$pstmt` variable. Then, add the `bindValue()` method call of the `$pstmt` object which contains the arguments `1`, `Stephen`, and `PDO::PARAM_STR`. Add another `bindValue()` method call of the `$pstmt` object which contains the arguments `2`, `Hawking`, and `PDO::PARAM_STR`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
+Write a PHP program named `author.php` that includes the `Connection.php` file to insert an author data into the `authors` table and use the `bindValue()` method to bind a value to a parameter. In `author.php`, add the `require_once()` statement to have the `Connection.php` file included. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (?,?)` to the `$pstmt` variable. Then, add the `bindValue()` method call of the `$pstmt` object which contains the arguments `1`, `Stephen`, and `PDO::PARAM_STR`. Add another `bindValue()` method call of the `$pstmt` object which contains the arguments `2`, `Hawking`, and `PDO::PARAM_STR`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
 ```php
-// connection.php
+// Connection.php
 <?php
     $host = 'localhost';
     $db = 'LibraryDB';
@@ -1617,18 +1725,18 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
 
 ?>
 ```
 
-/// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindParam.php], init=[commands/BindingMethods/InsertFarleyMowatData.sql], filename=[connection.php,author.php]
+/// type=CR, answer=[tests/BindingMethods/CreatePHPProgramUsingBindParam.php], init=[commands/BindingMethods/InsertFarleyMowatData.sql], filename=[Connection.php,author.php]
 
-Write a PHP program named `author.php` that includes the `connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` language construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which contains the arguments `:first_name`, `$data[0]`, and `PDO::PARAM_STR`. Add another `bindParam()` method call of the `$pstmt` object which contains the arguments `:last_name`, `$data[1]`, and `PDO::PARAM_STR`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
+Write a PHP program named `author.php` that includes the `Connection.php` file to insert an author data into the `authors` table and use the `bindParam()` method to bind a parameter to a specific variable. In `author.php`, add the `require_once()` statement to have the `Connection.php` file included. Create an array variable named `$data` and assign the elements `['Farley', 'Mowat']` using the `array()` language construct. Then, add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `prepare()` method call of the `$conn` object which passes the argument `INSERT INTO authors (first_name, last_name) VALUES (:first_name, :last_name)` to the `$pstmt` variable. Then, add the `bindParam()` method call of the `$pstmt` object which contains the arguments `:first_name`, `$data[0]`, and `PDO::PARAM_STR`. Add another `bindParam()` method call of the `$pstmt` object which contains the arguments `:last_name`, `$data[1]`, and `PDO::PARAM_STR`. Next, add the `if` statement that evaluates the negated statement `$pstmt->execute()` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to insert values into the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully inserted values into the table.`. Then, inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output. 
 
 ```php
-// connection.php
+// Connection.php
 <?php
     $host = 'localhost';
     $db = 'LibraryDB';
@@ -1647,7 +1755,7 @@ Write a PHP program named `author.php` that includes the `connection.php` file t
 ```
 
 ```php
-// student.php
+// Student.php
 <?php
 
 ?>
