@@ -1,0 +1,1 @@
+UPDATE students SET birth_date = '1990-02-10' WHERE birth_date = '1990-12-24' AND first_name = 'John';
