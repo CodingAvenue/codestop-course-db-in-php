@@ -63,7 +63,7 @@ foreach ($data as $sqlData => $values) {
 
 - The keys `first_name`, `last_name`, `birth_date`, and `gender` contain values that will be used to substitute the named placeholders. The keys should match the named placeholders specified in the SQL statement.
 
-- `$pstmt = $conn->prepare($sql);` assigns the returned value of the `prepare()` method which is the `PDOStatement` object to the `$pstmt` variable.
+- `$pstmt = $conn->prepare($sql);` assigns the `PDOStatement` object returned by the `prepare()` method to the `$pstmt` variable.
 
 - The `foreach` statement iterates through each key of the multidimensional array `$data`.
 
