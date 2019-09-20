@@ -6,10 +6,9 @@
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/DataObjects/CreateTableStudents.sql], filename=[Connection.php,Student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -19,10 +18,10 @@
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -33,9 +32,8 @@
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
@@ -66,7 +64,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully created a table.`.
 
 
-/// type=MS, answer=[3,4,5]
+/// type=MS, answer=[3,4,5], init=[commands/DataObjects/CreateTableStudents.sql]
 
 Which of the following are DSN parameter values? 
 
@@ -98,7 +96,7 @@ What is the name of the database?
 
 /// type=SS, answer=[3]
 
-In `Connection.php`, what is `psql:` in the statement `pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD` on line 12?
+In `Connection.php`, what is `psql:` in the statement `pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD` on line 13?
 
 - It is the hostname.
 
@@ -113,7 +111,7 @@ In `Connection.php`, what is `psql:` in the statement `pgsql:host=" . self::HOST
 
 /// type=SS, answer=[3]
 
-In `Connection.php`, what does `self::HOST` do on line 12?
+In `Connection.php`, what does `self::HOST` do on line 13?
 
 - It creates the `HOST` constant.
 
@@ -128,7 +126,7 @@ In `Connection.php`, what does `self::HOST` do on line 12?
 
 /// type=SS, answer=[3]
 
-What value is associated with `self::USERNAME` on line 12 of `Connection.php`?
+What value is associated with `self::USERNAME` on line 13 of `Connection.php`?
 
 - `5432`
 
@@ -143,7 +141,7 @@ What value is associated with `self::USERNAME` on line 12 of `Connection.php`?
 
 /// type=MS, answer=[3,4,5]
 
-Which statements correctly describe the code on line 12 of `Connection.php`?
+Which statements correctly describe the code on line 13 of `Connection.php`?
 
 - It sets the values to return.
 
@@ -158,7 +156,7 @@ Which statements correctly describe the code on line 12 of `Connection.php`?
 
 /// type=SS, answer=[5]
 
-In `Connection.php`, what does the statement `"pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD` do on line 12?
+In `Connection.php`, what does the statement `"pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD` do on line 13?
 
 - It holds the `PDOStatement` class.
 
@@ -173,7 +171,7 @@ In `Connection.php`, what does the statement `"pgsql:host=" . self::HOST . ";por
 
 /// type=SS, answer=[3]
 
-In `Student.php`, what does the statement `require_once("Connection.php");` do on line 2?
+In `Student.php`, what does the statement `require_once("./Connection.php");` do on line 2?
 
 - It updates the file `Connection.php`.
 
@@ -231,6 +229,21 @@ In `Student.php`, which statements correctly describe `$stmt = $conn->query($sql
 - It assigns the `PDOStatement` object to the variable `$stmt`.
 
 
+/// type=SS, answer=[3]
+
+In `Student.php`, what does `$stmt` do on line 8?
+
+- It holds the SQL statement.
+
+- It executes the SQL statement. 
+
+- It holds the `PDOStatement` object.
+
+- It connects to the PostgreSQL database.
+
+- It carries the variables of the DSN parameters.
+
+
 /// type=SS, answer=[5]
 
 What does the `if` construct do on line 9 of `Student.php`?
@@ -248,22 +261,7 @@ What does the `if` construct do on line 9 of `Student.php`?
 
 /// type=SS, answer=[3]
 
-In `Student.php`, what does `$stmt` do on line 8?
-
-- It holds the SQL statement.
-
-- It executes the SQL statement. 
-
-- It holds the `PDOStatement` object.
-
-- It connects to the PostgreSQL database.
-
-- It carries the variables of the DSN parameters.
-
-
-/// type=SS, answer=[3]
-
-Which statement correctly describes the code on lines 9, 10, and 11 of `Student.php`?
+Which statement best describes the code on lines 9, 10, and 11 of `Student.php`?
 
 - The statement displays the values assigned to the `$stmt` variable.
 
@@ -308,7 +306,7 @@ What are the column names in the `students` table?
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes the code on lines 13, 14, and 15 of `Student.php`?
+Which statement best describes the code on lines 13, 14, and 15 of `Student.php`?
 
 - It creates a new `Exception` class.
 
@@ -325,10 +323,9 @@ Which statement correctly describes the code on lines 13, 14, and 15 of `Student
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/DataObjects/InsertJohnSmith.sql], filename=[Connection.php,Student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -338,10 +335,10 @@ Which statement correctly describes the code on lines 13, 14, and 15 of `Student
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -352,9 +349,8 @@ Which statement correctly describes the code on lines 13, 14, and 15 of `Student
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
@@ -383,24 +379,24 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 
-/// type=MS, answer=[4,5]
+/// type=MS, answer=[3,4,5]
 
-Which statements correctly describe the code on line 9 of `Connection.php`?
+Which statements correctly describe the code on line 13 of `Connection.php`?
 
-- It evaluates the `$conn` object.
+- It sets the values to return.
 
-- It sets the `PDO` class to the `PDO_PGQSL DSN` statement
+- It passes the values as an argument.
 
-- It assigns the `PDO_PGQSL DSN` statement to the `PDO` class.
+- It returns the result set as a `PDOStatement` object.
 
-- It creates the `$conn` object as an instance of the `PDO` class.
+- It creates the object as an instance of the `PDO` class.
 
-- It passes the `PDO_PGQSL DSN` statement as an argument of the `PDO` class.
+- It contains the DSN parameters to establish a connection to the PostgreSQL database.
 
 
-/// type=MS, answer=[1,2,3,5]
+/// type=MS, answer=[1,2,3,5], init=[commands/DataObjects/InsertJohnSmith.sql]
 
-What values are inserted by the statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` on line 5?
+What values are inserted by the statement `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` on line 6 of `Student.php`?
 
 - `Male`
 
@@ -415,7 +411,7 @@ What values are inserted by the statement `INSERT INTO students (first_name, las
 
 /// type=SS, answer=[5]
 
-In `Student.php`, what does the query `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` do on line 5?
+In `Student.php`, what does the query `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` do on line 6?
 
 - It modifies multiple tables.
 
@@ -430,7 +426,7 @@ In `Student.php`, what does the query `INSERT INTO students (first_name, last_na
 
 /// type=MS, answer=[2,3,4,5]
 
-Which statements correctly describe the code on line 5 of `Student.php`?
+Which statements correctly describe the code on line 6 of `Student.php`?
 
 - It connects to the PostgreSQL database.
 
@@ -442,7 +438,6 @@ Which statements correctly describe the code on line 5 of `Student.php`?
 
 - It executes the argument `INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` in the `query()` method.
 
-
 :::
 
 
@@ -451,7 +446,6 @@ Which statements correctly describe the code on line 5 of `Student.php`?
 /// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -461,10 +455,10 @@ Which statements correctly describe the code on line 5 of `Student.php`?
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -475,9 +469,8 @@ Which statements correctly describe the code on line 5 of `Student.php`?
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     $conn = Connection::getConnection();
     $stmt = $conn->query("SELECT * FROM students");
@@ -507,7 +500,7 @@ Execute the program. What is its output?
 
 /// type=SS, answer=[1]
 
-Which value represents the `student_id` in the output `1JohnSmith1999-02-10Male`?
+Which value represents the `student_id` in the output `1 John Smith 1999-02-10 Male`?
 
 - `1`
 
@@ -522,7 +515,7 @@ Which value represents the `student_id` in the output `1JohnSmith1999-02-10Male`
 
 /// type=MS, answer=[3,5]
 
-Which statements correctly describe the `foreach` construct on line 5 of `Student.php`?
+Which statements correctly describe the `foreach` construct on line 6 of `Student.php`?
 
 - It removes all the elements in `$stmt`.
 
@@ -537,7 +530,7 @@ Which statements correctly describe the `foreach` construct on line 5 of `Studen
 
 /// type=MS, answer=[3,4,5]
 
-Which statements correctly describe `$stmt = $conn->query("SELECT * FROM students");` on line 4 of `Student.php`?
+Which statements correctly describe `$stmt = $conn->query("SELECT * FROM students");` on line 5 of `Student.php`?
 
 - It assigns the value of `$conn` to `$stmt`.
 
@@ -552,28 +545,27 @@ Which statements correctly describe `$stmt = $conn->query("SELECT * FROM student
 
 /// type=SS, answer=[4]
 
-In `Student.php`, which statement correctly describes `echo $row['student_id']."\t".$row['first_name']." ".$row['last_name']."\t".$row['birth_date']."\t".$row['gender']."\n";` on line 6?
+In `Student.php`, which statement best describes `echo $row['student_id']` on line 7?
 
-- It assigns the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` to `$row`.
+- It assigns the value `student_id` to `$row`.
 
-- It duplicates the values with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender`.
+- It duplicates the value with the key `student_id`.
 
-- It returns the values with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from `$row`.
+- It returns the value with the key `student_id` from `$row`.
 
-- It displays the values with the keys `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from `$row`.
+- It displays the value with the key `student_id` from `$row`.
 
-- It accesses the values `student_id`, `first_name`, `last_name`, `birth_date`, and `gender` from the `students` table.
-
-
-:::
+- It accesses the value `student_id` from the `students` table.
 
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/DataObjects/UpdateBirthDate.sql], filename=[Connection.php,Student.php]
+
+:::
+
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -583,10 +575,10 @@ In `Student.php`, which statement correctly describes `echo $row['student_id']."
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection() 
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -597,9 +589,8 @@ In `Student.php`, which statement correctly describes `echo $row['student_id']."
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
     
     try {
         $conn = Connection::getConnection();
@@ -628,7 +619,7 @@ Execute the program. What is its output?
 - It prints `Successfully connected to the database.` and `Successfully updated values in the table.`.
 
 
-/// type=SS, answer=[4]
+/// type=SS, answer=[4], init=[commands/DataObjects/UpdateBirthDate.sql]
 
 In `Student.php`, which variable holds the result set as a `PDOStatement` object of the `query()` method?
 
@@ -645,7 +636,7 @@ In `Student.php`, which variable holds the result set as a `PDOStatement` object
 
 /// type=SS, answer=[5]
 
-Which column is updated by the query on line 5 of `Student.php`?
+Which column is updated by the query on line 6 of `Student.php`?
 
 - `gender`
 
@@ -660,7 +651,7 @@ Which column is updated by the query on line 5 of `Student.php`?
 
 /// type=MS, answer=[2,5]
 
-In `Student.php`, what does the `query()` method do on line 5?
+In `Student.php`, what does the `query()` method do on line 6?
 
 - It returns the boolean value `true`.
 
@@ -754,7 +745,6 @@ Which statements correctly describe a `PDOStatement`?
 /// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -764,10 +754,10 @@ Which statements correctly describe a `PDOStatement`?
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -778,9 +768,8 @@ Which statements correctly describe a `PDOStatement`?
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
     
     try {
         $conn = Connection::getConnection();
@@ -798,28 +787,28 @@ Which statements correctly describe a `PDOStatement`?
 
 Execute the program. What is the error message?
 
-- syntax error, unexpected `=` on line 5
+- syntax error, unexpected `=` on line 6
 
-- syntax error, unexpected `if` (T_IF) on line 6
+- syntax error, unexpected `if` (T_IF) on line 7
 
-- syntax error, unexpected `TABLE` (T_STRING) on line 5
+- syntax error, unexpected `TABLE` (T_STRING) on line 6
 
-- syntax error, unexpected `:`, expecting `,` or `)` on line 5
+- syntax error, unexpected `:`, expecting `,` or `)` on line 6
 
-- syntax error, unexpected `TABLE` (T_STRING), expecting `,` or `)` on line 5
+- syntax error, unexpected `TABLE` (T_STRING), expecting `,` or `)` on line 6
 
 
 /// type=MS, answer=[3,4]
 
 Which statements correctly describe the error?
 
-- There is no column name specified before `VARCHAR(80)` on line 5.
+- There is no column name specified before `VARCHAR(80)` on line 6.
 
 - In `Student.php`, there is no comma `,` at the end of the statement on line 5.
 
-- In `Student.php`, the SQL statement is not enclosed in double quotes `""` on line 5.
+- In `Student.php`, the SQL statement is not enclosed in double quotes `""` on line 6.
 
-- On line 5, the statement `$stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10)));` is incorrect.
+- On line 6, the statement `$stmt = $conn->query(CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10)));` is incorrect.
 
 - There are no parentheses `()` that enclosed the statement `CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10))`.
 
@@ -831,7 +820,6 @@ Which statements correctly describe the error?
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully created a table.`.
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -855,9 +843,8 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
     
     try {
         $conn = Connection::getConnection();
@@ -878,7 +865,6 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 /// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -888,10 +874,10 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
-                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD); 
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -902,14 +888,12 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
         $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10))";
-    
         $stmt = query($sql);
         if (!$stmt) {
             throw new Exception('Unable to create a table.');
@@ -972,7 +956,6 @@ Which statements correctly describe the error?
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully created a table.`.
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -982,10 +965,10 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -996,14 +979,12 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
         $sql = "CREATE TABLE IF NOT EXISTS students (PRIMARY KEY (student_id), student_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10))";
-    
         $stmt = query($sql);
         if (!$stmt) {
             throw new Exception('Unable to create a table.');
@@ -1018,10 +999,9 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/DataObjects/UpdateBirthDateJohnSmith.sql], filename=[Connection.php,Student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1031,10 +1011,10 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1045,7 +1025,6 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 
 ```php
-// Student.php
 <?php
      try {
         $conn = Connection::getConnection();
@@ -1076,7 +1055,7 @@ Execute the program. What are the error messages?
 
 /// type=SS, answer=[4]
 
-Which statement correctly describes the error messages?
+Which statement best describes the error?
 
 - In `Student.php`, there is no semicolon `;` at the end of the statement on line 3.
 
@@ -1090,12 +1069,12 @@ Which statement correctly describes the error messages?
 
 :::
 
+
 /// type=CR, answer=[tests/DataObjects/MissingRequireOnceStatement.php], filename=[Connection.php,Student.php]
 
 Correct the code so that it updates a record in the `birth_date` column with the value `1990-02-10` and displays the strings `Successfully connected to the database.` and `Successfully updated values in the table.`.
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1105,10 +1084,10 @@ Correct the code so that it updates a record in the `birth_date` column with the
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1119,7 +1098,6 @@ Correct the code so that it updates a record in the `birth_date` column with the
 ```
 
 ```php
-// Student.php
 <?php
      try {
         $conn = Connection::getConnection();
@@ -1137,10 +1115,9 @@ Correct the code so that it updates a record in the `birth_date` column with the
 
 :::
 
-/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
+/// type=REPL, readonly=true, init=[commands/DataObjects/UpdateBirthDateJohnSmith.sql], filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1150,10 +1127,10 @@ Correct the code so that it updates a record in the `birth_date` column with the
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1164,14 +1141,12 @@ Correct the code so that it updates a record in the `birth_date` column with the
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
         $sql = "INSERT students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
-
         $stmt = $conn->query($sql);
         if (!$stmt) {
             throw new Exception('Unable to insert values into the table.');
@@ -1201,15 +1176,15 @@ Execute the program. What is its output?
 
 Which statements correctly describe the error message?
 
-- On line 4, the `students` table does not exist.
+- On line 6, the `students` table does not exist.
 
-- The `INSERT INTO` statement is miswritten as `INSERT` on line 4.
+- The `INSERT INTO` statement is miswritten as `INSERT` on line 6.
 
-- There is no comma `,` between the values `John` and `Smith` on line 4.
+- There is no comma `,` between the values `John` and `Smith` on line 6.
 
-- On line 4, the table named `students` is not allowed in an `INSERT` statement.
+- On line 6, the table named `students` is not allowed in an `INSERT` statement.
 
-- On line 4, the SQL statement `INSERT students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
+- On line 6, the SQL statement `INSERT students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')` is incorrect.
 
 :::
 
@@ -1219,7 +1194,6 @@ Which statements correctly describe the error message?
 Correct the code so that it outputs the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`.
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1229,10 +1203,10 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1243,14 +1217,12 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
         $sql = "INSERT students (first_name, last_name, birth_date, gender) VALUES ('John', 'Smith', '1999-02-10', 'Male')";
-
         $stmt = $conn->query($sql);
         if (!$stmt) {
             throw new Exception('Unable to insert values into the table.');
@@ -1265,10 +1237,9 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 
 :::
 
-/// type=REPL, readonly=true, init=[commands/DataObjects/InsertSamanthaDanes.sql], filename=[Connection.php,Student.php]
+/// type=REPL, readonly=true, filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1278,10 +1249,10 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1292,14 +1263,12 @@ Correct the code so that it outputs the strings `Successfully connected to the d
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
         $sql = "INSERT INTO students (first_name, last_name, birth_date, gender)";
-
         $stmt = $conn->query($sql);
         if (!$stmt) {
             throw new Exception('Unable to insert values into the table.');
@@ -1329,15 +1298,15 @@ Execute the program. What is its output?
 
 Which statements correctly describe the error message?
 
-- On line 4, the `students` table does not exist.
+- On line 6, the `students` table does not exist.
 
-- There are no parentheses `()` that enclosed the SQL statement on line 4.
+- There are no parentheses `()` that enclosed the SQL statement on line 6.
 
-- On line 4, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
+- On line 6, the column names `first_name`, `last_name`, `birth_date`, and `gender` are not enclosed in single quotes `''`.
 
-- In `Student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns on line 4.
+- In `Student.php`, there is no `VALUES` clause that specifies the values to be inserted into the selected columns on line 6.
 
-- On line 4, the statement `$sql = "INSERT INTO students (first_name, last_name, birth_date, gender)";` is incorrect.
+- On line 6, the statement `$sql = "INSERT INTO students (first_name, last_name, birth_date, gender)";` is incorrect.
 
 :::
 
@@ -1346,7 +1315,6 @@ Which statements correctly describe the error message?
 Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`, and `Female` into the `students` table and displays the strings `Successfully connected to the database.` and `Successfully inserted the values into the table.`. 
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1356,10 +1324,10 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1370,14 +1338,12 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
         $sql = "INSERT INTO students (first_name, last_name, birth_date, gender)";
-
         $stmt = $conn->query($sql);
         if (!$stmt) {
             throw new Exception('Unable to insert values into the table.');
@@ -1391,10 +1357,9 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
 
 :::
 
-/// type=REPL, filename=[Connection.php,Student.php]
+/// type=REPL, init=[commands/DataObjects/InsertSamanthaDanes.sql], filename=[Connection.php,Student.php]
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1404,10 +1369,10 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1418,9 +1383,8 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     $conn = Connection::getConnection();
     $stmt = $conn->query("SELECT * FROM students");
@@ -1450,32 +1414,32 @@ Execute the program. What are printed on lines 2 and 3?
 
 /// type=SS, answer=[2]
 
-In `Student.php`, remove `as $row` in the `foreach` construct on line 5. Execute the program. What is the error message?
+In `Student.php`, remove `as $row` in the `foreach` construct on line 6. Execute the program. What is the error message?
 
-- Undefined variable: `row` on line 5
+- Undefined variable: `row` on line 6
 
-- syntax error, unexpected `)` on line 5
+- syntax error, unexpected `)` on line 6
 
-- syntax error, unexpected `foreach` on line 5
+- syntax error, unexpected `foreach` on line 6
 
-- Invalid argument supplied for `foreach()` on line 5 
+- Invalid argument supplied for `foreach()` on line 6 
 
-- syntax error, unexpected `}`, expecting the end of file on line 5
+- syntax error, unexpected `}`, expecting the end of file on line 6
 
 
 /// type=SS, answer=[5]
 
-Which statement correctly describes the error?
+Which statement best describes the error?
 
-- The `students` table is miswritten as `student` on line 4.
+- The `students` table is miswritten as `student` on line 5.
 
-- On line 5, the argument `$stmt` in the `foreach` construct is invalid.
+- On line 6, the argument `$stmt` in the `foreach` construct is invalid.
 
-- The name of the database is not included in the `SELECT` statement on line 4.
+- The name of the database is not included in the `SELECT` statement on line 5.
 
-- In `Student.php`, there is no open curly brace `{` after `foreach ($stmt as $row)` on line 5.
+- In `Student.php`, there is no open curly brace `{` after `foreach ($stmt as $row)` on line 6.
 
-- In `Student.php`, the value of the current element on each iteration is not assigned to a variable on line 5.
+- In `Student.php`, the value of the current element on each iteration is not assigned to a variable on line 6.
 
 :::
 
@@ -1485,7 +1449,6 @@ Which statement correctly describes the error?
 Correct the code so that it outputs `Successfully connected to the database.`, `1 John Smith 1999-02-10 Male`, and `2 Samantha Danes 1999-10-12 Female` in separate lines.
 
 ```php
-// Connection.php
 <?php
     class Connection
     {
@@ -1495,10 +1458,10 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
             }
             catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
@@ -1509,9 +1472,8 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
 ```
 
 ```php
-// Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     $conn = Connection::getConnection();
     $stmt = $conn->query("SELECT * FROM students");
@@ -1534,20 +1496,22 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
 
 /// type=CR, answer=[tests/DataObjects/CreatePHPProgramUsingQueryMethodTest.php], init=[commands/DataObjects/UpdateStudentsTable.sql], filename=[Connection.php,Student.php]
 
-Write a program that uses two PHP files named `Connection.php` and `Student.php` to update a value in the `students` table. First, write a PHP class named `Connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the constant variables `HOST`, `DB`, `PORT`, `USERNAME`, and `PASSWORD`. Assign the values `localhost`, `LibraryDB`, `5432`, `codestop`, and `Admin01` to the constant variables respectively. Then, add a static method named `getConnection()`. Inside the static method add the `try` and `catch` statements. Inside the `try` block, add a statement that returns an instance of the `PDO` class which passes the argument `"pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD`. Inside the `catch` block, throw a new exception and display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
+Write a program that uses two PHP files named `Connection.php` and `Student.php` to update a value in the `students` table. First, write a PHP class named `Connection.php` that uses the `PDO_PGSQL` driver, `PDO_PGSQL DSN`, and `PDO` class to connect to the PostgreSQL database. Create the constant variables `HOST`, `DB`, `PORT`, `USERNAME`, and `PASSWORD`. Assign the values `localhost`, `LibraryDB`, `5432`, `codestop`, and `Admin01` to the constant variables respectively. Then, add a static method named `getConnection()` with `public` visibility. Inside the static method add the `try` and `catch` statements. Inside the `try` block, add a statement that returns an instance of the `PDO` class that passes the argument `"pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD`. Inside the `catch` block, throw a new exception and display the error message `Unable to establish a connection.` if an exception occurs within the `try` block.
 
-Next, write a PHP file named `Student.php`. Add the `require_once()` statement to have the `Connection.php` file included. Then, add a statement that assigns the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `query()` method call of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to update values in the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
+Next, write a PHP file named `Student.php`. First, add the `require_once()` statement to have the `Connection.php` file included. Next, add a statement that assigns the call to the static method `getConnection()` of the `Connection` class to the `$conn` variable. Then, add a statement that assigns the SQL statement `UPDATE students SET gender = 'M' where gender = 'Male'` to the `$sql` variable. Add the `try` and `catch` statements. Inside the `try` block, add a statement that assigns the `query()` method call of the `$conn` object which passes the argument `$sql` to the `$stmt` variable. Then, add the `if` statement that evaluates the negated value of `$stmt` inside the parentheses `()`. Inside the `if` block, add a statement that throws an exception message `Unable to update values in the table.`. After the `if` block, add the `echo` statement that displays the string `Successfully updated values in the table.`. Inside the `catch` block, add the statement `echo $e->getMessage();`. Run the program to view the output.
 
 ```php
-// Connection.php
 <?php
+
+
 
 ?>
 ```
 
 ```php
-// Student.php
 <?php
+
+
 
 ?>
 ```

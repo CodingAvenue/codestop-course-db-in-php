@@ -29,7 +29,7 @@ The example code below shows how to execute queries in PHP using `PDO::query()`.
 ```
 - The `require_once("Connection.php");` statement includes the class `Connection.php` in the file `Student.php`.
 
-- `$conn = Connection::getConnection()` assigns the return object in the `getConnection()` method from the `Connection` class to the `$conn` variable.
+- `$conn = Connection::getConnection()` assigns the object returned by the `getConnection()` method of the `Connection` class to the variable `$conn`.
 
 - `$sql = "CREATE TABLE IF NOT EXISTS students (student_id SERIAL, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10), PRIMARY KEY (student_id))";` assigns the SQL statement for creating a new table named `students` to the variable `$sql`.
 
