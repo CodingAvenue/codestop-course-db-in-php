@@ -1,0 +1,1 @@
+INSERT INTO students (first_name, last_name, birth_date, gender) VALUES ('Berry', 'Meisner', '2002-09-09', 'Male'), ('Vikki', 'Fernando', '2005-05-17', 'Female');
