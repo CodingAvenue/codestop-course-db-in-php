@@ -22,8 +22,7 @@
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -339,8 +338,7 @@ Which statement best describes the code on lines 13, 14, and 15 of `Student.php`
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -459,8 +457,7 @@ Which statements correctly describe the code on line 6 of `Student.php`?
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -579,8 +576,7 @@ In `Student.php`, which statement best describes `echo $row['student_id']` on li
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -758,8 +754,7 @@ Which statements correctly describe a `PDOStatement`?
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -829,12 +824,11 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         const USERNAME = 'codestop';
         const PASSWORD = 'Admin01';
     
-        public static function getConnection() {
+        public static function getConnection()
+        {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-                
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -878,8 +872,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD); 
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -969,8 +962,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1015,8 +1007,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1088,8 +1079,7 @@ Correct the code so that it updates a record in the `birth_date` column with the
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1131,8 +1121,7 @@ Correct the code so that it updates a record in the `birth_date` column with the
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1207,8 +1196,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1253,8 +1241,7 @@ Correct the code so that it outputs the strings `Successfully connected to the d
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1328,8 +1315,7 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1373,8 +1359,7 @@ Correct the code so that it inserts the values `Samantha`, `Danes`, `1999-10-12`
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
@@ -1462,8 +1447,7 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
         {
             try {
                 return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
-            }
-            catch (Exception $e) {
+            } catch (Exception $e) {
                 throw new Exception("Unable to establish a connection."); 
             }
         }
