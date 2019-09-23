@@ -1,6 +1,6 @@
 ### Facts for Prepared Statement with Binding Methods
 
-Parameter binding is useful to set the proper data type explicitly. The `bindValue()` and `bindParam()` methods bind values or variables in a prepared statement that contains placeholders as parameters such as a positional placeholder `?` or named placeholder `:variable_name`.
+Parameter binding is useful to set the proper data type explicitly. The `bindValue()` and `bindParam()` methods bind values or variables in a prepared statement that contains positional `?` or named `:variable_name` placeholders as parameters.
 
 - The `PDOStatement::bindValue()` method binds a value to a parameter.
 

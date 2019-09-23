@@ -10,7 +10,7 @@
     > In this lesson, you will learn how to prevent SQL injection using `PDO::prepare()` with its parameters in PHP.
 
 * [Prepared Statement with Binding Methods](content/BindingMethods/BindingMethods.q.md) ** - minutes**
-    > Discover how you can execute prepared statements using `PDOStatement::execute()` with binding methods such as `bindParam()` and `bindValue()`.
+    > Discover how you can execute prepared statements using `PDOStatement::execute()` with `bindParam()` and `bindValue()` binding methods.
 
 * [Prepared Statement with fetchAll()](content/UsingFetchAll/UsingFetchAll.q.md) ** -minutes**
     > Discover how you can use `PDOStatement::fetchAll()` to return an array that holds all the rows in a result set.
