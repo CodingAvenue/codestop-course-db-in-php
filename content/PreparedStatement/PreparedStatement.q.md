@@ -550,11 +550,11 @@ Which statements correctly describe `$pstmt = $conn->prepare($sql)` on line 12 o
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id']."\t";
-        echo $row['first_name']." ";
-        echo $row['last_name']."\t";
-        echo $row['birth_date']."\t";
-        echo $row['gender']."\n";
+        echo $row['student_id'] . "\t";
+        echo $row['first_name'] . " ";
+        echo $row['last_name'] . "\t";
+        echo $row['birth_date'] . "\t";
+        echo $row['gender'] . "\n";
     }
 ?>
 ```
@@ -797,11 +797,11 @@ Which statements correctly describe `UPDATE students SET gender = :gender WHERE 
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-         echo $row['student_id']."\t";
-         echo $row['first_name']." ";
-         echo $row['last_name']."\t";
-         echo $row['birth_date']."\t";
-         echo $row['gender']."\n";
+         echo $row['student_id'] . "\t";
+         echo $row['first_name'] . " ";
+         echo $row['last_name'] . "\t";
+         echo $row['birth_date'] . "\t";
+         echo $row['gender'] . "\n";
     }
 ?>
 ```
@@ -949,11 +949,11 @@ Which statements correctly describe `$pstmt->execute(array('M', 'Male'))` on lin
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id']."\t";
-        echo $row['first_name']." ";
-        echo $row['last_name']."\t";
-        echo $row['birth_date']."\t";
-        echo $row['gender']."\n";
+        echo $row['student_id'] . "\t";
+        echo $row['first_name'] . " ";
+        echo $row['last_name'] . "\t";
+        echo $row['birth_date'] . "\t";
+        echo $row['gender'] . "\n";
     }
 ?>
 ```
@@ -1268,11 +1268,11 @@ Correct the code so that it inserts values using the `VALUES` clause with positi
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id']."\t";
-        echo $row['first_name']." ";
-        echo $row['last_name']."\t";
-        echo $row['birth_date']."\t";
-        echo $row['gender']."\n";
+        echo $row['student_id'] . "\t";
+        echo $row['first_name'] . " ";
+        echo $row['last_name'] . "\t";
+        echo $row['birth_date'] . "\t";
+        echo $row['gender'] . "\n";
     }
 ?>
 ```
@@ -1350,11 +1350,11 @@ Correct the code so that it outputs `Successfully connected to the database.`, `
     $data = $pstmt->fetchAll();
 
     foreach ($data as $row) {
-        echo $row['student_id']."\t";
-        echo $row['first_name']." ";
-        echo $row['last_name']."\t";
-        echo $row['birth_date']."\t";
-        echo $row['gender']."\n";
+        echo $row['student_id'] . "\t";
+        echo $row['first_name'] . " ";
+        echo $row['last_name'] . "\t";
+        echo $row['birth_date'] . "\t";
+        echo $row['gender'] . "\n";
     }
 ?>
 ```
@@ -1785,11 +1785,11 @@ Correct the code so that it outputs the strings `Successfully connected to the d
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id']."\t";
-        echo $row['first_name']." ";
-        echo $row['last_name']."\t";
-        echo $row['birth_date']."\t";
-        echo $row['gender']."\n";
+        echo $row['student_id'] . "\t";
+        echo $row['first_name'] . " ";
+        echo $row['last_name'] . "\t";
+        echo $row['birth_date'] . "\t";
+        echo $row['gender'] . "\n";
     }
 ?>
 ```
@@ -1862,11 +1862,11 @@ Correct the code so that it outputs `Successfully connected to the database.` an
     $data = $pstmt->fetchAll();
     
     foreach ($data as $row) {
-        echo $row['student_id']."\t";
-        echo $row['first_name']." ";
-        echo $row['last_name']."\t";
-        echo $row['birth_date']."\t";
-        echo $row['gender']."\n";
+        echo $row['student_id'] . "\t";
+        echo $row['first_name'] . " ";
+        echo $row['last_name'] . "\t";
+        echo $row['birth_date'] . "\t";
+        echo $row['gender'] . "\n";
     }
 ?>
 ```
