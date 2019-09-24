@@ -9,9 +9,32 @@ The `PDOStatement` class represents a prepared statement and returns an associat
 The example code below shows how to execute queries in PHP using `PDO::query()`.
 
 ```php
+// Connection.php
+<?php
+    class Connection
+    {
+        const HOST = 'localhost';
+        const DB = 'LibraryDB';
+        const PORT = '5432';
+        const USERNAME = 'codestop';
+        const PASSWORD = 'Admin01';
+    
+        public static function getConnection()
+        {
+            try {
+                return new PDO("pgsql:host=" . self::HOST . ";port=". self::PORT . ";dbname=" . self::DB . ";user=" . self::USERNAME . ";password=" . self::PASSWORD);
+            } catch (Exception $e) {
+                throw new Exception("Unable to establish a connection."); 
+            }
+        }
+    }
+?>
+```
+
+```php
 // Student.php
 <?php
-    require_once("Connection.php");
+    require_once("./Connection.php");
 
     try {
         $conn = Connection::getConnection();
@@ -27,7 +50,7 @@ The example code below shows how to execute queries in PHP using `PDO::query()`.
     }
 ?>
 ```
-- The `require_once("Connection.php");` statement includes the class `Connection.php` in the file `Student.php`.
+- The `require_once("./Connection.php");` statement includes the class `Connection.php` in the file `Student.php`.
 
 - `$conn = Connection::getConnection()` assigns the object returned by the `getConnection()` method of the `Connection` class to the variable `$conn`.
 
