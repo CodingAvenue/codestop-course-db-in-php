@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS students (student_id SERIAL, first_name VARCHAR(80), last_name VARCHAR(80), birth_date DATE, gender VARCHAR(10), PRIMARY KEY (student_id));
