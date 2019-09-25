@@ -1,9 +1,9 @@
 ## Table of Contents
 
-* [Connecting to Database](content/ContectingToDatabase/ConnectingToDatabase.q.md) ** - minutes**
+* [Connecting to Database](content/ContectingToDatabase/ConnectingToDatabase.q.md) **50 minutes**
     > Learn how you can use a specific class or command to establish a connection between PHP and PostgreSQL.
 
-* [PHP Data Objects](content/PDOClasses/PDOClasses.q.md) ** - minutes**
+* [PHP Data Objects](content/PHPDataObjects/DataObjects.q.md) **1 hour and 15 minutes**
     > In this lesson, you will learn about PHP Data Objects (`PDO`) classes and how to execute queries using `PDO::query()`.
 
 * [Prepared Statement](content/PreparedStatement/PreparedStatement.q.md) ** - minutes**
