@@ -293,9 +293,9 @@ Which statements correctly describe `$pstmt->execute($row);` on line 13 of `Stud
 - It assigns the returned value of the `execute()` method to the variable `$row`.
 
 
-/// type=SS, answer=[3]
+/// type=SS, answer=[2]
 
-In `Student.php`, what value is returned by `!$pstmt->execute($row)` on line 13?
+In `Student.php`, what value is returned by `$pstmt->execute($row)` on line 13?
 
 - The SQL statement.
 
