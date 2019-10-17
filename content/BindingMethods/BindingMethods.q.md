@@ -61,11 +61,11 @@
 
 Execute the program. What are printed on lines 2, 3, and 4?
 
-- `1 John Smith 1999-02-10 M`
+- `1    John    Smith    1999-02-10    M`
 
-- `6 Alisa Ells 1999-06-30 F`
+- `6    Alisa    Ells    1999-06-30    F`
 
-- `2 Samantha Danes 1999-10-12 F`
+- `2    Samantha    Danes    1999-10-12    F`
 
 - `Unable to establish a connection.`
 
