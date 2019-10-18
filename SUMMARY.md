@@ -6,7 +6,7 @@
 * [PHP Data Objects](content/PHPDataObjects/DataObjects.q.md) **1 hour and 15 minutes**
     > In this lesson, you will learn about PHP Data Objects (`PDO`) classes and how to execute queries using `PDO::query()`.
 
-* [Prepared Statement](content/PreparedStatement/PreparedStatement.q.md) ** - minutes**
+* [Prepared Statement](content/PreparedStatement/PreparedStatement.q.md) **1 hour and 20 minutes**
     > In this lesson, you will learn how to prevent SQL injection using `PDO::prepare()` with its parameters in PHP.
 
 * [Prepared Statement with Binding Methods](content/BindingMethods/BindingMethods.q.md) **1 hour and 45 minutes**
