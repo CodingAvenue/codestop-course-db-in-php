@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS authors (PRIMARY KEY (author_id), author_id INT GENERATED ALWAYS AS IDENTITY, first_name VARCHAR(80), last_name VARCHAR(80));
+INSERT INTO authors (first_name, last_name) VALUES ('Naomi','Wolf');
